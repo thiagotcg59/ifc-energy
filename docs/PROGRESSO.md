@@ -6,7 +6,69 @@ vem depois. As mais recentes ficam no topo.
 - Repositório: https://github.com/thiagotcg59/ifc-energy
 - Demonstração: https://thiagotcg59.github.io/ifc-energy/
 
-## Fase 1 — Fundação (em andamento)
+## Fase 1 — Fundação (aguardando aceite)
+
+### 1.5 CI e publicação da demonstração
+
+**Feito**
+
+- `ci.yml`: em cada push roda ruff + pytest (backend) e eslint + prettier +
+  vitest + compilação (front-end), e confere se os tipos da API estão em dia.
+- `pages.yml`: a cada push na `main` compila o front-end em modo
+  demonstração e publica no GitHub Pages.
+
+**Como verificar**
+
+- Selo verde no README e em https://github.com/thiagotcg59/ifc-energy/actions
+- Abrir https://thiagotcg59.github.io/ifc-energy/ e clicar em
+  "Simular exemplo": aparece a faixa "Modo demonstração" e os mesmos números
+  da simulação local.
+
+### 1.4 `iniciar.ps1` e capturas de tela
+
+**Feito**
+
+- `iniciar.ps1`: confere `uv` e `npm`, instala as dependências do projeto,
+  inicia backend (porta 8000) e front-end (porta 5173), abre o navegador e
+  encerra tudo com Ctrl+C.
+- `frontend/scripts/capturar.mjs`: tira as capturas usando o Edge do
+  Windows, clicando no botão e esperando a simulação real terminar.
+- Capturas em [capturas/](capturas/): início, simulando, resultados (claro,
+  escuro e celular).
+
+![Resultados da simulação de exemplo](capturas/fase1-3-resultados.png)
+
+**Como verificar**
+
+```powershell
+cd C:\Projetos\ifc-energy
+.\iniciar.ps1
+```
+
+O navegador abre em http://localhost:5173. Clique em "Simular exemplo": em
+cerca de 15 s aparecem as etapas e depois o consumo anual (207.043 kWh no
+total; 53.404 kWh de eletricidade e 153.639 kWh de gás natural).
+
+### 1.3 Front-end e modo demonstração
+
+**Feito**
+
+- Tela inicial em português (React + TypeScript + Vite): estado do sistema,
+  botão "Simular exemplo", etapas da simulação e painel de consumo anual por
+  uso final (números-resumo, barras e tabela).
+- Estados de carregando, vazio e erro; mensagens de erro dizem o que fazer.
+  Temas claro e escuro; funciona em tela de celular.
+- Tipos do front-end gerados a partir do OpenAPI (`npm run gerar-tipos`).
+- Modo demonstração (decisão [0004](decisoes/0004-modo-demonstracao.md)).
+- 17 testes (vitest).
+
+**Como verificar**
+
+```powershell
+cd C:\Projetos\ifc-energy\frontend
+npm test        # 17 passam
+npm run lint
+```
 
 ### 1.2 Backend com o exemplo do EnergyPlus de ponta a ponta
 
@@ -54,8 +116,6 @@ git log --oneline
 
 ## O que vem depois
 
-- 1.3 Front-end (tela inicial, botão "Simular exemplo", painel de consumo) e
-  modo demonstração.
-- 1.4 CI e publicação no GitHub Pages.
-- 1.5 `iniciar.ps1` e capturas de tela.
-- Aceite da fase 1 e tag `v0.1.0`.
+- Aceite da fase 1 pelo dono e tag `v0.1.0`.
+- Fase 2: IFC sintético de um único ambiente → diagnóstico → modelo térmico
+  → epJSON com cargas ideais, com testes de resposta conhecida.
