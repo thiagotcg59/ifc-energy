@@ -1,0 +1,36 @@
+[project]
+name = "ifc-energy-backend"
+version = "0.1.0"
+description = "Backend do ifc-energy: IFC -> modelo térmico -> EnergyPlus"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "fastapi>=0.163.1",
+    "jsonschema>=4.26.0",
+    "pydantic-settings>=2.16.3",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-m 'not energyplus'"
+markers = [
+    "energyplus: testes lentos que rodam o EnergyPlus instalado (uv run pytest -m energyplus)",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.2.0",
+    "ruff>=0.17.5",
+]

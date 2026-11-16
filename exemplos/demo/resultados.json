@@ -1,0 +1,62 @@
+{
+  "itens": [
+    {
+      "uso_final": "Aquecimento",
+      "uso_final_chave": "Heating",
+      "fonte": "Eletricidade",
+      "fonte_chave": "Electricity",
+      "kwh": 22373.13
+    },
+    {
+      "uso_final": "Resfriamento",
+      "uso_final_chave": "Cooling",
+      "fonte": "Eletricidade",
+      "fonte_chave": "Electricity",
+      "kwh": 860.08
+    },
+    {
+      "uso_final": "Iluminação interna",
+      "uso_final_chave": "Interior Lighting",
+      "fonte": "Eletricidade",
+      "fonte_chave": "Electricity",
+      "kwh": 3064.0
+    },
+    {
+      "uso_final": "Equipamentos internos",
+      "uso_final_chave": "Interior Equipment",
+      "fonte": "Eletricidade",
+      "fonte_chave": "Electricity",
+      "kwh": 1300.0
+    },
+    {
+      "uso_final": "Ventiladores",
+      "uso_final_chave": "Fans",
+      "fonte": "Eletricidade",
+      "fonte_chave": "Electricity",
+      "kwh": 25806.66
+    },
+    {
+      "uso_final": "Aquecimento",
+      "uso_final_chave": "Heating",
+      "fonte": "Gás natural",
+      "fonte_chave": "Natural Gas",
+      "kwh": 153638.8
+    }
+  ],
+  "total_por_fonte": [
+    {
+      "fonte": "Eletricidade",
+      "fonte_chave": "Electricity",
+      "kwh": 53403.87
+    },
+    {
+      "fonte": "Gás natural",
+      "fonte_chave": "Natural Gas",
+      "kwh": 153638.8
+    }
+  ],
+  "total_kwh": 207042.67,
+  "area_condicionada_m2": 185.83,
+  "area_total_m2": 456.05,
+  "intensidade_kwh_m2": 1114.15
+}

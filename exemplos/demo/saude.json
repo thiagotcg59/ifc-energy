@@ -1,0 +1,11 @@
+{
+  "estado": "ok",
+  "versao": "0.1.0",
+  "energyplus": {
+    "encontrado": true,
+    "versao": "26.2.0",
+    "versao_esperada": "26.2.0",
+    "pasta": "C:\\EnergyPlusV26-2-0",
+    "mensagem": "EnergyPlus 26.2.0 pronto."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "demonstracao",
+  "tipo": "exemplo",
+  "estado": "concluida",
+  "mensagem": "Simulação concluída com 7 aviso(s) do EnergyPlus.",
+  "detalhes": [],
+  "criado_em": "2026-11-16T02:36:36+00:00",
+  "atualizado_em": "2026-11-16T02:36:49+00:00"
+}
