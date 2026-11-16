@@ -13,7 +13,9 @@ import { useRef, type ReactNode } from 'react'
 import type { ClienteApi } from '../../api/cliente'
 import { Abas } from '../../componentes/Abas'
 import { formatarNumero } from '../../componentes/formatos'
+import { ambientesCompletos } from '../../dominio/operacao'
 import { temAlteracoes, useModelo, type AbaInferior } from '../../estado/useModelo'
+import { PainelDeUso } from '../operacao/PainelDeUso'
 import { SimulacaoDeExemplo } from '../simulacao-exemplo/SimulacaoDeExemplo'
 
 const ICONE_DO_NIVEL: Record<string, ReactNode> = {
@@ -46,6 +48,20 @@ export function PainelInferior({ api, extra }: { api: ClienteApi; extra?: ReactN
   const { bim, termico } = analise
   const problemas = bim.diagnostico.filter((d) => d.nivel !== 'info').length
   const falhas = termico.checagens.filter((c) => !c.ok).length
+  // Os dados de uso não vêm do IFC: a etapa depende do que foi informado aqui.
+  const completos = ambientesCompletos(ajustes, bim.ambientes)
+  const semUso = bim.ambientes.length - completos
+  const prontidao = termico.prontidao.map((e) =>
+    e.codigo !== 'OPERACAO' || bim.ambientes.length === 0
+      ? e
+      : {
+          ...e,
+          estado: semUso === 0 ? ('ok' as const) : ('pendente' as const),
+          detalhe:
+            `${completos} de ${bim.ambientes.length} ambientes com os dados de uso completos.` +
+            (semUso === 0 ? '' : ' Informe o que falta na aba “Uso e operação”.'),
+        },
+  )
 
   function selecionarAlvo(id: string) {
     if (bim.elementos.some((e) => e.global_id === id)) selecionar({ tipo: 'elemento', id })
@@ -67,6 +83,7 @@ export function PainelInferior({ api, extra }: { api: ClienteApi; extra?: ReactN
             contador: bim.diagnostico.length,
             alerta: problemas > 0,
           },
+          { id: 'operacao', rotulo: 'Uso e operação', contador: semUso, alerta: true },
           { id: 'termico', rotulo: 'Modelo térmico', contador: falhas, alerta: true },
           { id: 'simulacao', rotulo: 'Simulação' },
           { id: 'alteracoes', rotulo: 'Alterações', contador: ajustes.historico.length },
@@ -116,7 +133,7 @@ export function PainelInferior({ api, extra }: { api: ClienteApi; extra?: ReactN
             <div>
               <h3>Prontidão para a simulação</h3>
               <ol className="etapas-prontidao">
-                {termico.prontidao.map((e) => (
+                {prontidao.map((e) => (
                   <li key={e.codigo}>
                     {ICONE_DO_ESTADO[e.estado]}
                     <div>
@@ -166,6 +183,8 @@ export function PainelInferior({ api, extra }: { api: ClienteApi; extra?: ReactN
             </div>
           </div>
         )}
+
+        {aba === 'operacao' && <PainelDeUso />}
 
         {aba === 'simulacao' && <SimulacaoDeExemplo api={api} />}
 

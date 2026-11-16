@@ -423,6 +423,7 @@ a,
   overflow: hidden;
 }
 .painel--inferior {
+  max-height: 65%;
   border-top: 1px solid var(--borda);
 }
 .painel__titulo {
@@ -1554,5 +1555,218 @@ tbody th small {
     display: flex;
     gap: 0.4rem;
     align-items: baseline;
+  }
+}
+
+/* ---- uso e operação ------------------------------------------------------------- */
+.uso {
+  display: grid;
+  gap: 0.8rem;
+}
+.uso__topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
+}
+.uso__ambientes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.uso__ambiente {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--borda-forte);
+  border-radius: 999px;
+  background: var(--elevado);
+}
+.uso__ambiente small {
+  color: var(--tinta-3);
+}
+.uso__ambiente[aria-pressed='true'] {
+  border-color: var(--destaque);
+  background: var(--selecao);
+}
+.uso__grupos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 0.7rem;
+}
+.uso__grupo {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0.6rem 0.7rem 0.7rem;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+.uso__grupo .grade-campos {
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+.uso__grupo .campo__entrada {
+  min-width: 0;
+}
+.uso__grupo legend {
+  padding-inline: 0.3rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.uso__destino {
+  color: var(--tinta-3);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+}
+.cor-ok.discreto {
+  color: var(--ok);
+}
+
+/* ---- tutorial ------------------------------------------------------------------- */
+.inicio__tutorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-self: start;
+}
+.tutorial__fundo {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.55);
+}
+.tutorial {
+  display: flex;
+  flex-direction: column;
+  width: min(58rem, 100%);
+  max-height: min(42rem, 100%);
+  border: 1px solid var(--borda-forte);
+  border-radius: 12px;
+  background: var(--painel);
+  box-shadow: var(--sombra);
+  outline: 0;
+}
+.tutorial__cabecalho,
+.tutorial__rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.7rem 1rem;
+}
+.tutorial__cabecalho {
+  border-bottom: 1px solid var(--borda);
+}
+.tutorial__cabecalho h2 {
+  font-size: 1.05rem;
+}
+.tutorial__rodape {
+  border-top: 1px solid var(--borda);
+}
+.tutorial__corpo {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  flex: 1;
+  min-height: 0;
+}
+.tutorial__passos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem;
+  overflow: auto;
+  border-inline-end: 1px solid var(--borda);
+}
+.tutorial__passo {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.6rem;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--tinta-2);
+  text-align: start;
+}
+.tutorial__passo:hover {
+  background: var(--realce);
+}
+.tutorial__passo[aria-selected='true'] {
+  background: var(--selecao);
+  color: var(--tinta);
+  font-weight: 600;
+}
+.tutorial__numero {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--realce);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+.tutorial__passo[aria-selected='true'] .tutorial__numero {
+  background: var(--marca);
+  color: var(--marca-tinta);
+}
+.tutorial__painel {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  padding: 1rem 1.2rem;
+  overflow: auto;
+  line-height: 1.55;
+}
+.tutorial__painel h3 {
+  font-size: 1.1rem;
+}
+.tutorial__painel ul,
+.tutorial__painel ol {
+  display: grid;
+  gap: 0.35rem;
+  padding-inline-start: 1.3rem;
+}
+.tutorial__painel ul {
+  list-style: disc;
+}
+.tutorial__painel ol {
+  list-style: decimal;
+}
+.tutorial__painel ul.tutorial__selos {
+  padding-inline-start: 0;
+  list-style: none;
+}
+.tutorial__painel .selo {
+  margin-inline-end: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--tinta);
+}
+.tutorial__painel code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+.tutorial__painel .botao-leve {
+  justify-self: start;
+}
+@media (max-width: 44rem) {
+  .tutorial__corpo {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .tutorial__passos {
+    flex-direction: row;
+    border-inline-end: 0;
+    border-bottom: 1px solid var(--borda);
+  }
+  .tutorial__passo {
+    flex: none;
   }
 }

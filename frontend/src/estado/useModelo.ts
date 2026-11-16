@@ -17,10 +17,11 @@ import {
   PROPRIEDADES,
   validar,
 } from '../dominio/modeloEfetivo'
+import { PARAMETROS_DE_USO, validarUso } from '../dominio/operacao'
 
 export type Selecao = { tipo: 'elemento' | 'ambiente' | 'material'; id: string } | null
 export type Categoria = 'parede' | 'piso' | 'cobertura' | 'janela' | 'porta' | 'outro'
-export type AbaInferior = 'diagnostico' | 'termico' | 'simulacao' | 'alteracoes'
+export type AbaInferior = 'diagnostico' | 'operacao' | 'termico' | 'simulacao' | 'alteracoes'
 export const CATEGORIAS: { id: Categoria; rotulo: string; plural: string }[] = [
   { id: 'parede', rotulo: 'Parede', plural: 'Paredes' },
   { id: 'piso', rotulo: 'Piso', plural: 'Pisos' },
@@ -57,6 +58,7 @@ interface Estado {
   mostrarRotulos: boolean
   mostrarSuperficies: boolean
   abaInferior: AbaInferior
+  inferiorAberto: boolean
 
   abrirExemplo(): Promise<void>
   abrirArquivo(arquivo: File): Promise<void>
@@ -67,11 +69,18 @@ interface Estado {
   mostrarTudo(): void
   alternarCategoria(categoria: Categoria): void
   alternarTransparencia(categoria: Categoria): void
+  /** Abre o painel inferior na aba pedida. */
+  abrirAba(aba: AbaInferior): void
   definir(
     parcial: Partial<
       Pick<
         Estado,
-        'mostrarAmbientes' | 'mostrarRotulos' | 'mostrarSuperficies' | 'abaInferior' | 'aviso'
+        | 'mostrarAmbientes'
+        | 'mostrarRotulos'
+        | 'mostrarSuperficies'
+        | 'abaInferior'
+        | 'inferiorAberto'
+        | 'aviso'
       >
     >,
   ): void
@@ -89,6 +98,9 @@ interface Estado {
   removerCamada(construcaoId: string, indice: number): string | null
   editarAbertura(construcaoId: string, parametro: string, valor: number | null): string | null
   editarResistencia(tipo: string, campo: 'rsi' | 'rse', valor: number | null): string | null
+  editarUso(ambienteId: string, parametro: string, valor: number | null): string | null
+  copiarUso(deAmbienteId: string): string | null
+  limparUso(ambienteId: string): void
   restaurar(alvo?: { material?: string; construcao?: string }): void
   salvar(): Promise<void>
   importarAjustes(texto: string): string | null
@@ -210,6 +222,7 @@ export const useModelo = create<Estado>()((set, get) => {
     aviso: null,
     somenteNavegador: api.somenteNavegador,
     abaInferior: 'diagnostico',
+    inferiorAberto: true,
     ...VISAO_INICIAL,
 
     abrirExemplo: () => abrir(() => api.abrirExemplo()),
@@ -243,6 +256,7 @@ export const useModelo = create<Estado>()((set, get) => {
         else mapa[categoria] = true
         return { transparentes: mapa }
       }),
+    abrirAba: (aba) => set({ abaInferior: aba, inferiorAberto: true }),
     definir: (parcial) => set(parcial),
 
     editarMaterial(materialId, propriedade, valor) {
@@ -469,6 +483,72 @@ export const useModelo = create<Estado>()((set, get) => {
         },
       )
       return null
+    },
+
+    editarUso(ambienteId, parametro, valor) {
+      const def = PARAMETROS_DE_USO[parametro]
+      const ambiente = bim()?.ambientes.find((a) => a.global_id === ambienteId)
+      if (!def || !ambiente) return 'Ambiente ou parâmetro desconhecido.'
+      const atual = get().ajustes.operacao[ambienteId]
+      if (valor !== null) {
+        const erro = validarUso(atual, parametro, valor)
+        if (erro) return erro
+      }
+      const anterior = atual?.[parametro]?.valor ?? null
+      if (anterior === valor) return null
+      alterar(
+        (a) => {
+          a.operacao[ambienteId] ??= {}
+          if (valor === null) delete a.operacao[ambienteId][parametro]
+          else {
+            a.operacao[ambienteId][parametro] = {
+              valor,
+              unidade: def.unidade,
+              origem: 'manual',
+              fonte: 'Informado manualmente no formulário de uso e operação',
+            }
+          }
+        },
+        {
+          alvo: `Uso do ambiente: ${ambiente.nome ?? ambienteId}`,
+          campo: def.rotulo,
+          de: anterior,
+          para: valor,
+        },
+      )
+      return null
+    },
+
+    copiarUso(deAmbienteId) {
+      const modelo = bim()
+      const origem = modelo?.ambientes.find((a) => a.global_id === deAmbienteId)
+      const uso = get().ajustes.operacao[deAmbienteId]
+      if (!modelo || !origem) return 'Ambiente não encontrado.'
+      if (!uso || Object.keys(uso).length === 0) {
+        return 'Este ambiente ainda não tem dados de uso para copiar.'
+      }
+      alterar(
+        (a) => {
+          for (const outro of modelo.ambientes) {
+            if (outro.global_id !== deAmbienteId) a.operacao[outro.global_id] = structuredClone(uso)
+          }
+        },
+        {
+          alvo: 'Uso dos ambientes',
+          campo: 'Dados de uso copiados para os outros ambientes',
+          de: null,
+          para: origem.nome ?? deAmbienteId,
+        },
+      )
+      return null
+    },
+
+    limparUso(ambienteId) {
+      if (!get().ajustes.operacao[ambienteId]) return
+      alterar((a) => void delete a.operacao[ambienteId], {
+        alvo: `Uso do ambiente: ${bim()?.ambientes.find((a) => a.global_id === ambienteId)?.nome ?? ambienteId}`,
+        campo: 'Dados de uso apagados',
+      })
     },
 
     restaurar(alvo) {

@@ -1,4 +1,4 @@
-import { Box, FolderOpen, Layers, ShieldCheck, SlidersHorizontal } from 'lucide-react'
+import { BookOpen, Box, FolderOpen, Layers, ShieldCheck, SlidersHorizontal } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { Aviso } from '../componentes/Aviso'
 import { Carregando } from '../componentes/Carregando'
@@ -6,7 +6,13 @@ import { Logotipo } from '../componentes/Logotipo'
 import { useModelo } from '../estado/useModelo'
 
 /** Primeira tela: abrir a residência de exemplo ou um arquivo IFC. */
-export function TelaInicial({ modoDemo }: { modoDemo: boolean }) {
+export function TelaInicial({
+  modoDemo,
+  aoAbrirTutorial,
+}: {
+  modoDemo: boolean
+  aoAbrirTutorial: () => void
+}) {
   const fase = useModelo((e) => e.fase)
   const etapa = useModelo((e) => e.etapa)
   const erro = useModelo((e) => e.erro)
@@ -82,6 +88,9 @@ export function TelaInicial({ modoDemo }: { modoDemo: boolean }) {
                 }}
               />
             </div>
+            <button type="button" className="ligacao inicio__tutorial" onClick={aoAbrirTutorial}>
+              <BookOpen size={16} aria-hidden /> Como usar a plataforma (tutorial passo a passo)
+            </button>
             {erro && (
               <Aviso tipo="erro" titulo="Não foi possível abrir o modelo">
                 <p>{erro}</p>

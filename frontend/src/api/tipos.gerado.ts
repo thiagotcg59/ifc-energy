@@ -266,6 +266,15 @@ export interface components {
         [key: string]: components['schemas']['ResistenciasSuperficiais']
       }
       /**
+       * Operacao
+       * @default {}
+       */
+      operacao: {
+        [key: string]: {
+          [key: string]: components['schemas']['Valor']
+        }
+      }
+      /**
        * Historico
        * @default []
        */
@@ -616,7 +625,7 @@ export interface components {
       origem: 'exemplo' | 'upload'
       /**
        * Versao
-       * @default 1
+       * @default 2
        */
       versao: number
       bim: components['schemas']['ModeloBim']

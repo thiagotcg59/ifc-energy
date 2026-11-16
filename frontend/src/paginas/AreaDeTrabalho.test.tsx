@@ -1,4 +1,4 @@
-import { render, screen, waitFor, within } from '@testing-library/react'
+import { act, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, expect, test, vi } from 'vitest'
 import type { ClienteApi } from '../api/cliente'
@@ -250,8 +250,10 @@ test('ambiente: superfícies delimitadoras e dados de operação não preenchido
 
   await aba('Operação')
   expect(painelDireito()).toHaveTextContent('não traz')
-  const setpoints = within(painelDireito()).getByText(/Temperaturas de configuração/)
-  expect(setpoints.closest('.linha-valor')).toHaveTextContent('Não informado')
+  // Antes havia uma linha única "Temperaturas de configuração"; com o formulário
+  // de uso, cada setpoint tem a sua linha. Sem preenchimento, continua ausente.
+  const setpoint = within(painelDireito()).getByText('Setpoint de resfriamento')
+  expect(setpoint.closest('.linha-valor')).toHaveTextContent('Não informado')
 })
 
 test('painel inferior: diagnóstico, checagens e simulação do IFC marcada como indisponível', async () => {
@@ -264,4 +266,123 @@ test('painel inferior: diagnóstico, checagens e simulação do IFC marcada como
   expect(inferior).toHaveTextContent('Conversão do modelo térmico para epJSON')
   expect(inferior).toHaveTextContent('Ainda não implementado')
   expect(screen.getByRole('button', { name: /Executar simulação/ })).toBeDisabled()
+})
+
+// ---- Uso e operação ---------------------------------------------------------------
+const inferior = () => document.querySelector<HTMLElement>('.painel-inferior')!
+const sala = () => ANALISE.bim.ambientes.find((a) => a.nome === 'Sala e cozinha')!.global_id
+async function abrirUsoDaSala() {
+  await abrir()
+  await userEvent.click(screen.getByRole('tab', { name: /Uso e operação/ }))
+  expect(inferior()).toHaveTextContent('Escolha um ambiente')
+  await userEvent.click(within(inferior()).getByRole('button', { name: /Sala e cozinha/ }))
+}
+async function preencher(rotulo: string, valor: string) {
+  const campo = within(inferior()).getByLabelText(rotulo)
+  await userEvent.clear(campo)
+  await userEvent.type(campo, `${valor}{Enter}`)
+}
+
+test('uso: os campos começam vazios; o valor informado fica como manual e entra no histórico', async () => {
+  await abrirUsoDaSala()
+  for (const campo of within(inferior()).getAllByRole('textbox')) expect(campo).toHaveValue('')
+
+  await preencher('Número de pessoas', '2')
+
+  const salvo = useModelo.getState().ajustes.operacao[sala()]!.pessoas!
+  expect(salvo).toMatchObject({ valor: 2, unidade: 'pessoas', origem: 'manual' })
+  expect(useModelo.getState().ajustes.historico).toHaveLength(1)
+  expect(screen.getByRole('button', { name: /Salvar parâmetros/ })).toBeEnabled()
+  // O inspetor do ambiente mostra o mesmo valor, com a origem.
+  await aba('Operação')
+  const linha = within(painelDireito()).getByText('Número de pessoas').closest('.linha-valor')
+  expect(linha).toHaveTextContent('2 pessoas')
+  expect(linha).toHaveTextContent('Informado manualmente')
+})
+
+test('uso: valores fora do limite ou incoerentes são recusados com explicação', async () => {
+  await abrirUsoDaSala()
+
+  await preencher('Potência de iluminação', '5000')
+  expect(within(inferior()).getByRole('alert')).toHaveTextContent('entre 0 e 100 W/m²')
+
+  await preencher('Potência de iluminação', '')
+  await preencher('Setpoint de aquecimento', '26')
+  await preencher('Setpoint de resfriamento', '24')
+  expect(within(inferior()).getByRole('alert')).toHaveTextContent(
+    'resfriamento precisa ser maior que o de aquecimento',
+  )
+  expect(useModelo.getState().ajustes.operacao[sala()]).toEqual({
+    setpoint_aquecimento: expect.objectContaining({ valor: 26 }),
+  })
+})
+
+test('uso: copiar para os outros ambientes e apagar', async () => {
+  await abrirUsoDaSala()
+  await preencher('Número de pessoas', '2')
+
+  await userEvent.click(screen.getByRole('button', { name: /Copiar para os outros ambientes/ }))
+  const { operacao } = useModelo.getState().ajustes
+  expect(ANALISE.bim.ambientes.map((a) => operacao[a.global_id]?.pessoas?.valor)).toEqual([2, 2, 2])
+
+  await userEvent.click(screen.getByRole('button', { name: /Apagar os dados deste ambiente/ }))
+  expect(useModelo.getState().ajustes.operacao[sala()]).toBeUndefined()
+})
+
+test('prontidão: os dados de uso ficam pendentes até todos os ambientes estarem completos', async () => {
+  await abrir()
+  await userEvent.click(screen.getByRole('button', { name: /Preparar simulação/ }))
+  const etapa = () =>
+    within(inferior()).getByText('Ocupação, iluminação, equipamentos e setpoints').closest('li')!
+  expect(etapa()).toHaveTextContent('Pendente')
+  expect(etapa()).toHaveTextContent('0 de 3 ambientes')
+
+  // Ambiente sem pessoas, sem luz e sem equipamentos: só faltam setpoints e infiltração.
+  const { editarUso } = useModelo.getState()
+  for (const ambiente of ANALISE.bim.ambientes) {
+    for (const [parametro, valor] of Object.entries({
+      pessoas: 0,
+      iluminacao_potencia: 0,
+      equipamentos_potencia: 0,
+      setpoint_aquecimento: 18,
+      setpoint_resfriamento: 26,
+      infiltracao: 1,
+    })) {
+      act(() => void editarUso(ambiente.global_id, parametro, valor))
+    }
+  }
+
+  expect(etapa()).toHaveTextContent('Pronto')
+  expect(etapa()).toHaveTextContent('3 de 3 ambientes')
+  // A simulação do IFC continua indisponível: falta a conversão para epJSON.
+  expect(screen.getByRole('button', { name: /Executar simulação/ })).toBeDisabled()
+})
+
+// ---- Tutorial ---------------------------------------------------------------------
+test('tutorial: abre pela tela inicial, antes de qualquer modelo', async () => {
+  render(<AreaDeTrabalho api={apiSistema} modoDemo={false} Visualizador={VisualizadorFalso} />)
+
+  await userEvent.click(screen.getByRole('button', { name: /Como usar/ }))
+
+  const tutorial = screen.getByRole('dialog', { name: 'Como usar o IFC Energy' })
+  expect(within(tutorial).getAllByRole('tab').length).toBeGreaterThanOrEqual(8)
+  expect(tutorial).toHaveTextContent('ainda não simula o seu IFC')
+  await userEvent.keyboard('{Escape}')
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+})
+
+test('tutorial: o passo de uso e operação leva direto ao formulário', async () => {
+  await abrir()
+  await userEvent.click(screen.getByRole('button', { name: 'Tutorial' }))
+  const tutorial = screen.getByRole('dialog', { name: 'Como usar o IFC Energy' })
+
+  await userEvent.click(within(tutorial).getByRole('tab', { name: /Uso e operação/ }))
+  expect(tutorial).toHaveTextContent('a plataforma não sugere valores')
+  await userEvent.click(within(tutorial).getByRole('button', { name: /Ir para o formulário/ }))
+
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  expect(screen.getByRole('tab', { name: /Uso e operação/ })).toHaveAttribute(
+    'aria-selected',
+    'true',
+  )
 })

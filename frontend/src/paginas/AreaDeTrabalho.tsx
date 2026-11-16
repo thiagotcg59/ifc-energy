@@ -1,4 +1,5 @@
 import {
+  BookOpen,
   Box,
   ChevronDown,
   ChevronUp,
@@ -12,7 +13,7 @@ import {
   Sun,
   X,
 } from 'lucide-react'
-import { useEffect, useRef, useState, type ComponentType } from 'react'
+import { useCallback, useEffect, useRef, useState, type ComponentType } from 'react'
 import type { ClienteApi } from '../api/cliente'
 import { Divisor, useTamanho } from '../componentes/Divisor'
 import { Logotipo } from '../componentes/Logotipo'
@@ -20,6 +21,7 @@ import { temAlteracoes, useModelo } from '../estado/useModelo'
 import { Inspetor } from '../funcionalidades/inspetor/Inspetor'
 import { NavegadorBim } from '../funcionalidades/navegador/NavegadorBim'
 import { PainelInferior } from '../funcionalidades/painel/PainelInferior'
+import { Tutorial } from '../funcionalidades/tutorial/Tutorial'
 import { Visualizador as VisualizadorPadrao } from '../visualizador3d/Visualizador'
 import { TelaInicial } from './TelaInicial'
 
@@ -52,7 +54,12 @@ export function AreaDeTrabalho({
   const [escuro, setEscuro] = useState(temaInicial)
   const [esquerda, setEsquerda] = useState(true)
   const [direita, setDireita] = useState(true)
-  const [inferior, setInferior] = useState(true)
+  const inferior = useModelo((e) => e.inferiorAberto)
+  // O formulário de uso tem muitos campos: o painel abre mais alto nessa aba.
+  const alturaMinima = useModelo((e) => (e.abaInferior === 'operacao' ? 400 : 0))
+  const setInferior = (aberto: boolean) => acoes.definir({ inferiorAberto: aberto })
+  const [tutorial, setTutorial] = useState(false)
+  const fecharTutorial = useCallback(() => setTutorial(false), [])
   const [larguraEsq, setLarguraEsq] = useTamanho('esquerda', 290, 200, 520)
   const [larguraDir, setLarguraDir] = useTamanho('direita', 400, 300, 720)
   const [alturaInf, setAlturaInf] = useTamanho('inferior', 230, 120, 560)
@@ -97,14 +104,15 @@ export function AreaDeTrabalho({
     return (
       <div className="app app--inicio">
         <div className="inicio__tema">{tema}</div>
-        <TelaInicial modoDemo={modoDemo} />
+        <TelaInicial modoDemo={modoDemo} aoAbrirTutorial={() => setTutorial(true)} />
+        {tutorial && <Tutorial aoFechar={fecharTutorial} />}
       </div>
     )
   }
 
   const abrirPreparacao = () => {
-    setInferior(true)
-    acoes.definir({ abaInferior: 'termico', mostrarSuperficies: true })
+    acoes.abrirAba('termico')
+    acoes.definir({ mostrarSuperficies: true })
   }
 
   return (
@@ -169,6 +177,15 @@ export function AreaDeTrabalho({
         <div className="barra__fim">
           <button
             type="button"
+            className="botao-barra"
+            aria-label="Tutorial"
+            title="Como usar a plataforma, passo a passo"
+            onClick={() => setTutorial(true)}
+          >
+            <BookOpen size={16} aria-hidden /> <span>Tutorial</span>
+          </button>
+          <button
+            type="button"
             className="icone"
             aria-label="Mostrar ou ocultar o navegador BIM"
             aria-pressed={esquerda}
@@ -216,7 +233,10 @@ export function AreaDeTrabalho({
                 aoMudar={setAlturaInf}
                 rotulo="Redimensionar o painel inferior"
               />
-              <div className="painel painel--inferior" style={{ height: alturaInf }}>
+              <div
+                className="painel painel--inferior"
+                style={{ height: Math.max(alturaInf, alturaMinima) }}
+              >
                 <PainelInferior
                   api={api}
                   extra={
@@ -234,7 +254,8 @@ export function AreaDeTrabalho({
             </>
           ) : (
             <button type="button" className="reabrir-inferior" onClick={() => setInferior(true)}>
-              <ChevronUp size={14} aria-hidden /> Diagnóstico, modelo térmico e simulação
+              <ChevronUp size={14} aria-hidden /> Diagnóstico, uso e operação, modelo térmico e
+              simulação
             </button>
           )}
         </div>
@@ -255,6 +276,7 @@ export function AreaDeTrabalho({
         )}
       </div>
 
+      {tutorial && <Tutorial aoFechar={fecharTutorial} />}
       {aviso && (
         <div
           className={`torrada torrada--${aviso.tipo}`}

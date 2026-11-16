@@ -174,9 +174,56 @@ try {
   )
   await n.capturar(captura('09-modelo-termico'))
 
+  etapa('Tutorial: explica o uso passo a passo e leva ao formulário de uso')
+  await n.clicar('button', 'Tutorial')
+  await n.esperar(`document.querySelector('[role=dialog]')`, 'tutorial aberto')
+  const tutorial = () => n.avaliar(`document.querySelector('[role=dialog]')?.innerText ?? ''`)
+  conferir((await tutorial()).includes('Como usar o IFC Energy'), 'tutorial aberto pela barra')
+  conferir(
+    (await tutorial()).includes('ainda não simula o seu IFC'),
+    'o tutorial não promete a simulação do IFC',
+  )
+  await n.capturar(captura('13-tutorial'))
+  await n.clicar('[role=dialog] [role=tab]', 'Uso e operação')
+  conferir((await tutorial()).includes('não sugere valores'), 'passo de uso e operação')
+  await n.capturar(captura('14-tutorial-uso'))
+  await n.clicar('[role=dialog] button', 'Ir para o formulário')
+  conferir(
+    !(await n.avaliar(`Boolean(document.querySelector('[role=dialog]'))`)),
+    'o tutorial fechou ao ir para o formulário',
+  )
+
+  etapa('Uso e operação: campos vazios, preenchidos à mão e gravados')
+  const painelDeUso = () => n.avaliar(`document.querySelector('.painel-inferior').innerText`)
+  await n.clicar('.uso__ambiente', 'Sala e cozinha')
+  conferir(
+    await n.avaliar(`[...document.querySelectorAll('.uso input')].every((c) => c.value === '')`),
+    'nenhum campo de uso vem preenchido',
+  )
+  await n.preencher('Número de pessoas', '2')
+  await n.preencher('Potência de iluminação', '5000')
+  conferir((await painelDeUso()).includes('entre 0 e 100 W/m²'), 'potência absurda é recusada')
+  await n.preencher('Potência de iluminação', '')
+  await n.preencher('Setpoint de aquecimento', '18')
+  await n.preencher('Setpoint de resfriamento', '26')
+  conferir(
+    (await estado(`JSON.stringify(Object.values(e.ajustes.operacao)[0])`)).includes(
+      '"origem":"manual"',
+    ),
+    'os valores informados ficam com a origem “manual”',
+  )
+  conferir((await painelDeUso()).includes('0 de 3 ambientes'), 'a sala continua incompleta')
+  await n.capturar(captura('15-uso-e-operacao'))
+  await n.clicar('button', 'Salvar parâmetros')
+  await n.dormir(500)
+
   etapa('Recarregar a página: a configuração salva continua lá')
   await n.recarregar()
   await abrirExemplo()
+  conferir(
+    (await estado(`Object.values(e.ajustes.operacao)[0]?.setpoint_resfriamento?.valor`)) === 26,
+    'os dados de uso persistiram (setpoint de resfriamento = 26 °C)',
+  )
   await n.clicar('.arvore__botao', 'Parede externa sul')
   await n.clicar('[role=tab]', 'Desempenho')
   conferir((await inspetor()).includes('2,154'), 'U = 2,154 depois de recarregar (persistiu)')
@@ -190,7 +237,12 @@ try {
   etapa('Restaurar os valores do IFC e salvar (deixa tudo como estava)')
   await n.clicar('[role=tab]', 'Alterações')
   await n.clicar('button', 'Restaurar tudo ao IFC')
+  await n.clicar('[role=tab]', 'Uso e operação')
+  await n.clicar('.uso__ambiente', 'Sala e cozinha')
+  await n.clicar('button', 'Apagar os dados deste ambiente')
+  conferir((await estado('Object.keys(e.ajustes.operacao).length')) === 0, 'dados de uso apagados')
   await n.clicar('button', 'Salvar parâmetros')
+  await n.clicar('.arvore__botao', 'Parede externa sul')
   await n.clicar('[role=tab]', 'Desempenho')
   conferir((await inspetor()).includes('2,842'), 'U voltou a 2,842')
 

@@ -1,4 +1,4 @@
-import { Copy, MousePointerClick, Plus, RotateCcw, Trash2 } from 'lucide-react'
+import { Copy, MousePointerClick, Plus, RotateCcw, SlidersHorizontal, Trash2 } from 'lucide-react'
 import { useState, type ReactNode } from 'react'
 import type { Ambiente, Construcao, Elemento, Material, ModeloAnalise } from '../../api/modelos'
 import { Abas } from '../../componentes/Abas'
@@ -21,6 +21,7 @@ import {
   ROTULOS_VIDRO,
   type DesempenhoDaConstrucao,
 } from '../../dominio/modeloEfetivo'
+import { GRUPOS_DE_USO } from '../../dominio/operacao'
 import { CATEGORIAS, useModelo } from '../../estado/useModelo'
 
 type AbaId = 'identificacao' | 'geometria' | 'camadas' | 'desempenho' | 'parametros' | 'origem'
@@ -1024,20 +1025,12 @@ function InspetorDeMaterial({ id, analise }: { id: string; analise: ModeloAnalis
 }
 
 // ---- Ambiente -------------------------------------------------------------------
-const OPERACAO = [
-  'Temperaturas de configuração (setpoints)',
-  'Ocupação',
-  'Iluminação',
-  'Equipamentos',
-  'Infiltração e ventilação',
-  'Horários de uso',
-]
-
 function InspetorDeAmbiente({ ambiente, analise }: { ambiente: Ambiente; analise: ModeloAnalise }) {
   const [aba, setAba] = useState<'geral' | 'superficies' | 'operacao'>('geral')
   const { termico, bim } = analise
   const zona = termico.zonas.find((z) => z.ambiente_id === ambiente.global_id)
   const superficies = termico.superficies.filter((s) => s.zona_id === zona?.id)
+  const uso = useModelo((e) => e.ajustes.operacao[ambiente.global_id])
   const nomeDe = (id: string | null | undefined) =>
     bim.elementos.find((e) => e.global_id === id)?.nome ?? '—'
   return (
@@ -1166,15 +1159,22 @@ function InspetorDeAmbiente({ ambiente, analise }: { ambiente: Ambiente; analise
               uso do ambiente. Eles precisam ser informados por você antes da simulação — a
               plataforma não preenche esses valores por conta própria.
             </p>
-            <dl className="lista-valores">
-              {OPERACAO.map((nome) => (
-                <LinhaDeValor key={nome} nome={nome} valor={null} />
-              ))}
-            </dl>
-            <p className="nota">
-              O formulário para informar esses dados (com modelos salvos) ainda não foi
-              implementado; é a próxima etapa antes da simulação do IFC.
-            </p>
+            <button
+              type="button"
+              className="botao-leve botao-leve--primario"
+              onClick={() => useModelo.getState().abrirAba('operacao')}
+            >
+              <SlidersHorizontal size={14} aria-hidden /> Preencher os dados de uso
+            </button>
+            {GRUPOS_DE_USO.map((grupo) => (
+              <Secao key={grupo.id} titulo={grupo.titulo}>
+                <dl className="lista-valores">
+                  {grupo.parametros.map((p) => (
+                    <LinhaDeValor key={p.id} nome={p.rotulo} valor={uso?.[p.id]} />
+                  ))}
+                </dl>
+              </Secao>
+            ))}
           </>
         )}
       </div>
