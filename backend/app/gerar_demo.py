@@ -38,11 +38,15 @@ def main() -> None:
             if simulacao["estado"] != "concluida":
                 raise SystemExit(f"A simulação de exemplo falhou: {simulacao}")
             resultados = cliente.get(f"/api/v1/simulacoes/{sim_id}/resultados").json()
+            modelo = cliente.post("/api/v1/modelos/exemplo").json()
+            biblioteca = cliente.get("/api/v1/biblioteca").json()
 
     simulacao["id"] = "demonstracao"
     _gravar("saude.json", saude)
     _gravar("simulacao.json", simulacao)
     _gravar("resultados.json", resultados)
+    _gravar("modelo.json", modelo)
+    _gravar("biblioteca.json", biblioteca)
 
 
 if __name__ == "__main__":

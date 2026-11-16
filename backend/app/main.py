@@ -9,11 +9,13 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from app.api.v1.rotas import rotas
+from app.api.v1.rotas_modelos import rotas_modelos
 from app.core.config import Configuracao
 from app.core.logs import configurar_logs
 from app.core.versoes import VERSAO_APP
 from app.persistencia.banco import RepositorioSimulacoes
 from app.servicos.energyplus import MotorEnergyPlus
+from app.servicos.modelos import ServicoModelos
 from app.servicos.simulacao import FilaSimulacoes, ServicoSimulacao
 
 
@@ -35,6 +37,7 @@ def criar_app(
         app.state.servico_simulacao = ServicoSimulacao(
             repositorio, app.state.motor, cfg.execucoes_dir, cfg.exemplo_epjson
         )
+        app.state.servico_modelos = ServicoModelos(cfg.modelos_dir, cfg.exemplo_ifc)
         app.state.fila = FilaSimulacoes(app.state.servico_simulacao)
         if iniciar_fila:
             app.state.fila.iniciar()
@@ -51,6 +54,7 @@ def criar_app(
         redoc_url=None,
     )
     app.include_router(rotas)
+    app.include_router(rotas_modelos)
     return app
 
 

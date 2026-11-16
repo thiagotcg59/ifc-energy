@@ -3,7 +3,7 @@
   "info": {
     "title": "ifc-energy",
     "description": "Simulação termoenergética de casas unifamiliares a partir de IFC.",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "paths": {
     "/api/v1/saude": {
@@ -196,10 +196,825 @@
           }
         }
       }
+    },
+    "/api/v1/modelos/exemplo": {
+      "post": {
+        "tags": [
+          "modelos"
+        ],
+        "summary": "Abre a residência de exemplo (IFC sintético versionado)",
+        "operationId": "abrir_exemplo_api_v1_modelos_exemplo_post",
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModeloAnalise"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/modelos": {
+      "post": {
+        "tags": [
+          "modelos"
+        ],
+        "summary": "Envia um arquivo IFC (fica só neste computador) e devolve a análise",
+        "operationId": "importar_modelo_api_v1_modelos_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_importar_modelo_api_v1_modelos_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModeloAnalise"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request Entity Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/modelos/{modelo_id}": {
+      "get": {
+        "tags": [
+          "modelos"
+        ],
+        "summary": "Análise de um modelo já aberto",
+        "operationId": "obter_modelo_api_v1_modelos__modelo_id__get",
+        "parameters": [
+          {
+            "name": "modelo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Modelo Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModeloAnalise"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/modelos/{modelo_id}/ifc": {
+      "get": {
+        "tags": [
+          "modelos"
+        ],
+        "summary": "Arquivo IFC original (para o visualizador 3D)",
+        "operationId": "baixar_ifc_api_v1_modelos__modelo_id__ifc_get",
+        "parameters": [
+          {
+            "name": "modelo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Modelo Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/modelos/{modelo_id}/ajustes": {
+      "get": {
+        "tags": [
+          "modelos"
+        ],
+        "summary": "Parâmetros editados pelo usuário para este modelo",
+        "operationId": "obter_ajustes_api_v1_modelos__modelo_id__ajustes_get",
+        "parameters": [
+          {
+            "name": "modelo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Modelo Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ajustes"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "modelos"
+        ],
+        "summary": "Salva os parâmetros editados (o IFC original não é alterado)",
+        "operationId": "salvar_ajustes_api_v1_modelos__modelo_id__ajustes_put",
+        "parameters": [
+          {
+            "name": "modelo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Modelo Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ajustes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ajustes"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/biblioteca": {
+      "get": {
+        "tags": [
+          "modelos"
+        ],
+        "summary": "Biblioteca técnica de materiais e convenções de cálculo, com as fontes",
+        "operationId": "biblioteca_api_v1_biblioteca_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Biblioteca Api V1 Biblioteca Get"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "Abertura": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "tipo": {
+            "type": "string",
+            "enum": [
+              "janela",
+              "porta",
+              "outro"
+            ],
+            "title": "Tipo"
+          },
+          "superficie_id": {
+            "type": "string",
+            "title": "Superficie Id"
+          },
+          "elemento_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Elemento Id"
+          },
+          "fronteira_id": {
+            "type": "string",
+            "title": "Fronteira Id"
+          },
+          "construcao_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Construcao Id"
+          },
+          "vertices": {
+            "items": {
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array",
+              "maxItems": 3,
+              "minItems": 3
+            },
+            "type": "array",
+            "title": "Vertices"
+          },
+          "area": {
+            "type": "number",
+            "title": "Area"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "tipo",
+          "superficie_id",
+          "elemento_id",
+          "fronteira_id",
+          "construcao_id",
+          "vertices",
+          "area"
+        ],
+        "title": "Abertura"
+      },
+      "Ajustes": {
+        "properties": {
+          "versao": {
+            "type": "integer",
+            "title": "Versao",
+            "default": 1
+          },
+          "materiais": {
+            "additionalProperties": {
+              "additionalProperties": {
+                "$ref": "#/components/schemas/Valor"
+              },
+              "type": "object"
+            },
+            "type": "object",
+            "title": "Materiais",
+            "default": {}
+          },
+          "materiais_novos": {
+            "items": {
+              "$ref": "#/components/schemas/Material"
+            },
+            "type": "array",
+            "title": "Materiais Novos",
+            "default": []
+          },
+          "camadas": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/CamadaAjustada"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Camadas",
+            "default": {}
+          },
+          "resistencias_superficiais": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ResistenciasSuperficiais"
+            },
+            "type": "object",
+            "title": "Resistencias Superficiais",
+            "default": {}
+          },
+          "historico": {
+            "items": {
+              "$ref": "#/components/schemas/Alteracao"
+            },
+            "type": "array",
+            "title": "Historico",
+            "default": []
+          }
+        },
+        "type": "object",
+        "title": "Ajustes",
+        "description": "Parâmetros editados pelo usuário. O IFC original nunca é modificado."
+      },
+      "Alteracao": {
+        "properties": {
+          "quando": {
+            "type": "string",
+            "title": "Quando"
+          },
+          "alvo": {
+            "type": "string",
+            "title": "Alvo"
+          },
+          "campo": {
+            "type": "string",
+            "title": "Campo"
+          },
+          "de": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "De"
+          },
+          "para": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Para"
+          }
+        },
+        "type": "object",
+        "required": [
+          "quando",
+          "alvo",
+          "campo"
+        ],
+        "title": "Alteracao"
+      },
+      "Ambiente": {
+        "properties": {
+          "global_id": {
+            "type": "string",
+            "title": "Global Id"
+          },
+          "numero": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Numero"
+          },
+          "nome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nome"
+          },
+          "pavimento_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pavimento Id"
+          },
+          "dimensoes": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Valor"
+            },
+            "type": "object",
+            "title": "Dimensoes",
+            "default": {}
+          },
+          "fronteiras_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Fronteiras Ids",
+            "default": []
+          },
+          "elementos_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Elementos Ids",
+            "default": []
+          },
+          "conjuntos": {
+            "additionalProperties": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "type": "object"
+            },
+            "type": "object",
+            "title": "Conjuntos",
+            "default": {}
+          }
+        },
+        "type": "object",
+        "required": [
+          "global_id"
+        ],
+        "title": "Ambiente"
+      },
+      "Body_importar_modelo_api_v1_modelos_post": {
+        "properties": {
+          "arquivo": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Arquivo"
+          }
+        },
+        "type": "object",
+        "required": [
+          "arquivo"
+        ],
+        "title": "Body_importar_modelo_api_v1_modelos_post"
+      },
+      "Camada": {
+        "properties": {
+          "material_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Material Id"
+          },
+          "nome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nome"
+          },
+          "espessura": {
+            "$ref": "#/components/schemas/Valor"
+          }
+        },
+        "type": "object",
+        "required": [
+          "material_id",
+          "espessura"
+        ],
+        "title": "Camada"
+      },
+      "CamadaAjustada": {
+        "properties": {
+          "material_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Material Id"
+          },
+          "nome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nome"
+          },
+          "espessura": {
+            "$ref": "#/components/schemas/Valor"
+          }
+        },
+        "type": "object",
+        "required": [
+          "material_id",
+          "espessura"
+        ],
+        "title": "CamadaAjustada"
+      },
+      "Checagem": {
+        "properties": {
+          "codigo": {
+            "type": "string",
+            "title": "Codigo"
+          },
+          "nome": {
+            "type": "string",
+            "title": "Nome"
+          },
+          "ok": {
+            "type": "boolean",
+            "title": "Ok"
+          },
+          "detalhe": {
+            "type": "string",
+            "title": "Detalhe"
+          },
+          "alvos": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Alvos",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "codigo",
+          "nome",
+          "ok",
+          "detalhe"
+        ],
+        "title": "Checagem"
+      },
+      "Constituinte": {
+        "properties": {
+          "nome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nome"
+          },
+          "material_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Material Id"
+          },
+          "categoria": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Categoria"
+          }
+        },
+        "type": "object",
+        "required": [
+          "nome",
+          "material_id"
+        ],
+        "title": "Constituinte"
+      },
+      "Construcao": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "nome": {
+            "type": "string",
+            "title": "Nome"
+          },
+          "tipo": {
+            "type": "string",
+            "enum": [
+              "camadas",
+              "constituintes",
+              "material"
+            ],
+            "title": "Tipo"
+          },
+          "camadas": {
+            "items": {
+              "$ref": "#/components/schemas/Camada"
+            },
+            "type": "array",
+            "title": "Camadas",
+            "default": []
+          },
+          "constituintes": {
+            "items": {
+              "$ref": "#/components/schemas/Constituinte"
+            },
+            "type": "array",
+            "title": "Constituintes",
+            "default": []
+          },
+          "elementos_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Elementos Ids",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "nome",
+          "tipo"
+        ],
+        "title": "Construcao"
+      },
       "ConsumoAnual": {
         "properties": {
           "itens": {
@@ -266,6 +1081,261 @@
         "title": "ConsumoAnual",
         "description": "Consumo anual por uso final e fonte de energia, em kWh."
       },
+      "Diagnostico": {
+        "properties": {
+          "nivel": {
+            "type": "string",
+            "enum": [
+              "erro",
+              "alerta",
+              "info"
+            ],
+            "title": "Nivel"
+          },
+          "codigo": {
+            "type": "string",
+            "title": "Codigo"
+          },
+          "mensagem": {
+            "type": "string",
+            "title": "Mensagem"
+          },
+          "como_resolver": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Como Resolver"
+          },
+          "alvos": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Alvos",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "nivel",
+          "codigo",
+          "mensagem"
+        ],
+        "title": "Diagnostico"
+      },
+      "Elemento": {
+        "properties": {
+          "global_id": {
+            "type": "string",
+            "title": "Global Id"
+          },
+          "classe": {
+            "type": "string",
+            "title": "Classe"
+          },
+          "categoria": {
+            "type": "string",
+            "enum": [
+              "parede",
+              "piso",
+              "cobertura",
+              "janela",
+              "porta",
+              "outro"
+            ],
+            "title": "Categoria"
+          },
+          "nome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nome"
+          },
+          "descricao": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Descricao"
+          },
+          "etiqueta": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Etiqueta"
+          },
+          "tipo_predefinido": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tipo Predefinido"
+          },
+          "tipo_construtivo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tipo Construtivo"
+          },
+          "pavimento_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pavimento Id"
+          },
+          "construcao_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Construcao Id"
+          },
+          "hospedeiro_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hospedeiro Id"
+          },
+          "aberturas_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Aberturas Ids",
+            "default": []
+          },
+          "ambientes_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Ambientes Ids",
+            "default": []
+          },
+          "fronteiras_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Fronteiras Ids",
+            "default": []
+          },
+          "externo": {
+            "$ref": "#/components/schemas/Valor"
+          },
+          "condicao": {
+            "type": "string",
+            "enum": [
+              "exterior",
+              "solo",
+              "interior",
+              "indefinida"
+            ],
+            "title": "Condicao",
+            "default": "indefinida"
+          },
+          "dimensoes": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Valor"
+            },
+            "type": "object",
+            "title": "Dimensoes",
+            "default": {}
+          },
+          "orientacao": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Orientacao"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "envidracamento": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Valor"
+            },
+            "type": "object",
+            "title": "Envidracamento",
+            "default": {}
+          },
+          "conjuntos": {
+            "additionalProperties": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "type": "object"
+            },
+            "type": "object",
+            "title": "Conjuntos",
+            "default": {}
+          }
+        },
+        "type": "object",
+        "required": [
+          "global_id",
+          "classe",
+          "categoria",
+          "externo"
+        ],
+        "title": "Elemento"
+      },
       "Erro": {
         "properties": {
           "detail": {
@@ -319,6 +1389,181 @@
         ],
         "title": "EstadoEnergyPlus"
       },
+      "EtapaProntidao": {
+        "properties": {
+          "codigo": {
+            "type": "string",
+            "title": "Codigo"
+          },
+          "nome": {
+            "type": "string",
+            "title": "Nome"
+          },
+          "estado": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "pendente",
+              "erro",
+              "nao_implementado"
+            ],
+            "title": "Estado"
+          },
+          "detalhe": {
+            "type": "string",
+            "title": "Detalhe"
+          }
+        },
+        "type": "object",
+        "required": [
+          "codigo",
+          "nome",
+          "estado",
+          "detalhe"
+        ],
+        "title": "EtapaProntidao"
+      },
+      "Fronteira": {
+        "properties": {
+          "global_id": {
+            "type": "string",
+            "title": "Global Id"
+          },
+          "ambiente_id": {
+            "type": "string",
+            "title": "Ambiente Id"
+          },
+          "elemento_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Elemento Id"
+          },
+          "nivel": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nivel"
+          },
+          "posicao": {
+            "type": "string",
+            "enum": [
+              "externa",
+              "solo",
+              "interna",
+              "indefinida"
+            ],
+            "title": "Posicao"
+          },
+          "virtual": {
+            "type": "boolean",
+            "title": "Virtual",
+            "default": false
+          },
+          "pai_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pai Id"
+          },
+          "correspondente_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Correspondente Id"
+          },
+          "vertices": {
+            "items": {
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array",
+              "maxItems": 3,
+              "minItems": 3
+            },
+            "type": "array",
+            "title": "Vertices"
+          },
+          "area": {
+            "type": "number",
+            "title": "Area"
+          },
+          "normal": {
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array",
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Normal"
+          },
+          "azimute": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Azimute"
+          },
+          "inclinacao": {
+            "type": "number",
+            "title": "Inclinacao"
+          }
+        },
+        "type": "object",
+        "required": [
+          "global_id",
+          "ambiente_id",
+          "elemento_id",
+          "nivel",
+          "posicao",
+          "vertices",
+          "area",
+          "normal",
+          "azimute",
+          "inclinacao"
+        ],
+        "title": "Fronteira"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -364,6 +1609,423 @@
           "kwh"
         ],
         "title": "ItemConsumo"
+      },
+      "Material": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "nome": {
+            "type": "string",
+            "title": "Nome"
+          },
+          "categoria": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Categoria"
+          },
+          "descricao": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Descricao"
+          },
+          "propriedades": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Valor"
+            },
+            "type": "object",
+            "title": "Propriedades"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "nome",
+          "propriedades"
+        ],
+        "title": "Material"
+      },
+      "ModeloAnalise": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "origem": {
+            "type": "string",
+            "enum": [
+              "exemplo",
+              "upload"
+            ],
+            "title": "Origem"
+          },
+          "versao": {
+            "type": "integer",
+            "title": "Versao",
+            "default": 1
+          },
+          "bim": {
+            "$ref": "#/components/schemas/ModeloBim"
+          },
+          "termico": {
+            "$ref": "#/components/schemas/ModeloTermico"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "origem",
+          "bim",
+          "termico"
+        ],
+        "title": "ModeloAnalise"
+      },
+      "ModeloBim": {
+        "properties": {
+          "esquema": {
+            "type": "string",
+            "title": "Esquema"
+          },
+          "arquivo": {
+            "type": "string",
+            "title": "Arquivo"
+          },
+          "hash": {
+            "type": "string",
+            "title": "Hash"
+          },
+          "projeto": {
+            "$ref": "#/components/schemas/Projeto"
+          },
+          "pavimentos": {
+            "items": {
+              "$ref": "#/components/schemas/Pavimento"
+            },
+            "type": "array",
+            "title": "Pavimentos"
+          },
+          "ambientes": {
+            "items": {
+              "$ref": "#/components/schemas/Ambiente"
+            },
+            "type": "array",
+            "title": "Ambientes"
+          },
+          "elementos": {
+            "items": {
+              "$ref": "#/components/schemas/Elemento"
+            },
+            "type": "array",
+            "title": "Elementos"
+          },
+          "construcoes": {
+            "items": {
+              "$ref": "#/components/schemas/Construcao"
+            },
+            "type": "array",
+            "title": "Construcoes"
+          },
+          "materiais": {
+            "items": {
+              "$ref": "#/components/schemas/Material"
+            },
+            "type": "array",
+            "title": "Materiais"
+          },
+          "fronteiras": {
+            "items": {
+              "$ref": "#/components/schemas/Fronteira"
+            },
+            "type": "array",
+            "title": "Fronteiras"
+          },
+          "diagnostico": {
+            "items": {
+              "$ref": "#/components/schemas/Diagnostico"
+            },
+            "type": "array",
+            "title": "Diagnostico"
+          }
+        },
+        "type": "object",
+        "required": [
+          "esquema",
+          "arquivo",
+          "hash",
+          "projeto",
+          "pavimentos",
+          "ambientes",
+          "elementos",
+          "construcoes",
+          "materiais",
+          "fronteiras",
+          "diagnostico"
+        ],
+        "title": "ModeloBim"
+      },
+      "ModeloTermico": {
+        "properties": {
+          "zonas": {
+            "items": {
+              "$ref": "#/components/schemas/Zona"
+            },
+            "type": "array",
+            "title": "Zonas"
+          },
+          "superficies": {
+            "items": {
+              "$ref": "#/components/schemas/Superficie"
+            },
+            "type": "array",
+            "title": "Superficies"
+          },
+          "aberturas": {
+            "items": {
+              "$ref": "#/components/schemas/Abertura"
+            },
+            "type": "array",
+            "title": "Aberturas"
+          },
+          "suposicoes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Suposicoes"
+          },
+          "checagens": {
+            "items": {
+              "$ref": "#/components/schemas/Checagem"
+            },
+            "type": "array",
+            "title": "Checagens"
+          },
+          "prontidao": {
+            "items": {
+              "$ref": "#/components/schemas/EtapaProntidao"
+            },
+            "type": "array",
+            "title": "Prontidao"
+          }
+        },
+        "type": "object",
+        "required": [
+          "zonas",
+          "superficies",
+          "aberturas",
+          "suposicoes",
+          "checagens",
+          "prontidao"
+        ],
+        "title": "ModeloTermico"
+      },
+      "Orientacao": {
+        "properties": {
+          "azimute": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Azimute"
+          },
+          "rotulo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rotulo"
+          },
+          "inclinacao": {
+            "type": "number",
+            "title": "Inclinacao"
+          },
+          "fonte": {
+            "type": "string",
+            "title": "Fonte"
+          }
+        },
+        "type": "object",
+        "required": [
+          "azimute",
+          "rotulo",
+          "inclinacao",
+          "fonte"
+        ],
+        "title": "Orientacao"
+      },
+      "Pavimento": {
+        "properties": {
+          "global_id": {
+            "type": "string",
+            "title": "Global Id"
+          },
+          "nome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nome"
+          },
+          "elevacao": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Elevacao"
+          }
+        },
+        "type": "object",
+        "required": [
+          "global_id",
+          "nome",
+          "elevacao"
+        ],
+        "title": "Pavimento"
+      },
+      "Projeto": {
+        "properties": {
+          "global_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Global Id"
+          },
+          "nome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nome"
+          },
+          "descricao": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Descricao"
+          },
+          "edificio": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edificio"
+          },
+          "latitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latitude"
+          },
+          "longitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Longitude"
+          },
+          "elevacao": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Elevacao"
+          },
+          "norte_graus": {
+            "type": "number",
+            "title": "Norte Graus",
+            "default": 0.0
+          }
+        },
+        "type": "object",
+        "title": "Projeto"
+      },
+      "ResistenciasSuperficiais": {
+        "properties": {
+          "rsi": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rsi"
+          },
+          "rse": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rse"
+          }
+        },
+        "type": "object",
+        "title": "ResistenciasSuperficiais"
       },
       "Saude": {
         "properties": {
@@ -442,6 +2104,152 @@
         ],
         "title": "Simulacao"
       },
+      "Superficie": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "zona_id": {
+            "type": "string",
+            "title": "Zona Id"
+          },
+          "tipo": {
+            "type": "string",
+            "enum": [
+              "parede",
+              "piso",
+              "cobertura"
+            ],
+            "title": "Tipo"
+          },
+          "condicao": {
+            "type": "string",
+            "enum": [
+              "exterior",
+              "solo",
+              "zona",
+              "adiabatica"
+            ],
+            "title": "Condicao"
+          },
+          "zona_vizinha_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Zona Vizinha Id"
+          },
+          "par_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Par Id"
+          },
+          "elemento_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Elemento Id"
+          },
+          "fronteira_id": {
+            "type": "string",
+            "title": "Fronteira Id"
+          },
+          "construcao_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Construcao Id"
+          },
+          "vertices": {
+            "items": {
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array",
+              "maxItems": 3,
+              "minItems": 3
+            },
+            "type": "array",
+            "title": "Vertices"
+          },
+          "area_bruta": {
+            "type": "number",
+            "title": "Area Bruta"
+          },
+          "area_liquida": {
+            "type": "number",
+            "title": "Area Liquida"
+          },
+          "azimute": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Azimute"
+          },
+          "inclinacao": {
+            "type": "number",
+            "title": "Inclinacao"
+          },
+          "aberturas_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Aberturas Ids",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "zona_id",
+          "tipo",
+          "condicao",
+          "elemento_id",
+          "fronteira_id",
+          "construcao_id",
+          "vertices",
+          "area_bruta",
+          "area_liquida",
+          "azimute",
+          "inclinacao"
+        ],
+        "title": "Superficie"
+      },
       "TotalPorFonte": {
         "properties": {
           "fonte": {
@@ -504,6 +2312,137 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "Valor": {
+        "properties": {
+          "valor": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valor"
+          },
+          "unidade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unidade"
+          },
+          "origem": {
+            "type": "string",
+            "enum": [
+              "ifc",
+              "calculado",
+              "manual",
+              "biblioteca",
+              "ausente"
+            ],
+            "title": "Origem",
+            "default": "ausente"
+          },
+          "fonte": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fonte"
+          }
+        },
+        "type": "object",
+        "title": "Valor"
+      },
+      "Zona": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "nome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nome"
+          },
+          "ambiente_id": {
+            "type": "string",
+            "title": "Ambiente Id"
+          },
+          "area_de_piso": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Area De Piso"
+          },
+          "volume_ifc": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Volume Ifc"
+          },
+          "volume_calculado": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Volume Calculado"
+          },
+          "superficies_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Superficies Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "nome",
+          "ambiente_id",
+          "area_de_piso",
+          "volume_ifc",
+          "volume_calculado",
+          "superficies_ids"
+        ],
+        "title": "Zona"
       }
     }
   }

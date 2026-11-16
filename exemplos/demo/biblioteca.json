@@ -1,0 +1,139 @@
+{
+  "versao": 1,
+  "aviso": "Biblioteca didática. Os valores foram copiados dos conjuntos de dados que acompanham o EnergyPlus 26.2.0 (pasta DataSets) e ainda NÃO foram aprovados pelo dono do projeto. Não comprovam atendimento à NBR 15220, à NBR 15575 nem à INI-R.",
+  "fontes": {
+    "ashrae": "EnergyPlus 26.2.0, DataSets/ASHRAE_2005_HOF_Materials.idf — ASHRAE Handbook of Fundamentals 2005, cap. 30, tabelas 19 e 22",
+    "vidros": "EnergyPlus 26.2.0, DataSets/WindowGlassMaterials.idf"
+  },
+  "unidades": {
+    "condutividade": "W/(m·K)",
+    "densidade": "kg/m³",
+    "calor_especifico": "J/(kg·K)",
+    "espessura": "m"
+  },
+  "materiais": [
+    {
+      "id": "argamassa",
+      "nome": "Argamassa de reboco",
+      "descricao": "Reboco de argamassa (dataset: F07 25mm stucco)",
+      "categoria": "Argamassa",
+      "nome_na_fonte": "F07 25mm stucco",
+      "fonte": "ashrae",
+      "condutividade": 0.72,
+      "densidade": 1856,
+      "calor_especifico": 840,
+      "aprovado": false
+    },
+    {
+      "id": "tijolo",
+      "nome": "Alvenaria de tijolo cerâmico",
+      "descricao": "Tijolo cerâmico maciço (dataset: M01 100mm brick)",
+      "categoria": "Alvenaria",
+      "nome_na_fonte": "M01 100mm brick",
+      "fonte": "ashrae",
+      "condutividade": 0.89,
+      "densidade": 1920,
+      "calor_especifico": 790,
+      "aprovado": false
+    },
+    {
+      "id": "concreto",
+      "nome": "Concreto",
+      "descricao": "Concreto de densidade normal (dataset: M14a 100mm heavyweight concrete)",
+      "categoria": "Concreto",
+      "nome_na_fonte": "M14a 100mm heavyweight concrete",
+      "fonte": "ashrae",
+      "condutividade": 1.95,
+      "densidade": 2240,
+      "calor_especifico": 900,
+      "aprovado": false
+    },
+    {
+      "id": "ceramica",
+      "nome": "Revestimento cerâmico",
+      "descricao": "Placa cerâmica ou ardósia (dataset: F14 Slate or tile)",
+      "categoria": "Revestimento",
+      "nome_na_fonte": "F14 Slate or tile",
+      "fonte": "ashrae",
+      "condutividade": 1.59,
+      "densidade": 1920,
+      "calor_especifico": 1260,
+      "aprovado": false
+    },
+    {
+      "id": "madeira",
+      "nome": "Madeira",
+      "descricao": "Madeira (dataset: G05 25mm wood)",
+      "categoria": "Madeira",
+      "nome_na_fonte": "G05 25mm wood",
+      "fonte": "ashrae",
+      "condutividade": 0.15,
+      "densidade": 608,
+      "calor_especifico": 1630,
+      "aprovado": false
+    },
+    {
+      "id": "isolante",
+      "nome": "Placa isolante",
+      "descricao": "Placa de isolamento térmico (dataset: I02 50mm insulation board)",
+      "categoria": "Isolante",
+      "nome_na_fonte": "I02 50mm insulation board",
+      "fonte": "ashrae",
+      "condutividade": 0.03,
+      "densidade": 43,
+      "calor_especifico": 1210,
+      "aprovado": false
+    },
+    {
+      "id": "vidro_3mm",
+      "nome": "Vidro incolor 3 mm",
+      "descricao": "Vidro simples incolor (dataset: CLEAR 3MM)",
+      "categoria": "Vidro",
+      "nome_na_fonte": "CLEAR 3MM",
+      "fonte": "vidros",
+      "espessura": 0.003,
+      "condutividade": 0.9,
+      "transmitancia_solar": 0.837,
+      "refletancia_solar": 0.075,
+      "transmitancia_visivel": 0.898,
+      "refletancia_visivel": 0.081,
+      "emissividade": 0.84,
+      "aprovado": false
+    },
+    {
+      "id": "aluminio",
+      "nome": "Alumínio (caixilho)",
+      "descricao": "Caixilho de alumínio. Sem propriedades térmicas: a biblioteca ainda não tem uma fonte aprovada para este material.",
+      "categoria": "Metal",
+      "nome_na_fonte": null,
+      "fonte": null,
+      "aprovado": false
+    }
+  ],
+  "resistencias_superficiais": {
+    "parede": {
+      "nome": "Paredes (fluxo de calor horizontal)",
+      "rsi": 0.13,
+      "rse": 0.04,
+      "unidade": "m²·K/W",
+      "fonte": "Valores usuais de resistência superficial (ISO 6946 / NBR 15220-2), citados de memória; conferir com o texto vigente da norma antes de aprovar",
+      "aprovado": false
+    },
+    "cobertura": {
+      "nome": "Coberturas (fluxo de calor descendente)",
+      "rsi": 0.17,
+      "rse": 0.04,
+      "unidade": "m²·K/W",
+      "fonte": "Valores usuais de resistência superficial (ISO 6946 / NBR 15220-2), citados de memória; conferir com o texto vigente da norma antes de aprovar",
+      "aprovado": false
+    },
+    "piso": {
+      "nome": "Pisos em contato com o solo",
+      "rsi": null,
+      "rse": null,
+      "unidade": "m²·K/W",
+      "fonte": "Sem convenção definida: a transmitância de pisos sobre o solo depende de um modelo de solo, ainda não implementado",
+      "aprovado": false
+    }
+  }
+}

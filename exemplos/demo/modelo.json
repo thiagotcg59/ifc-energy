@@ -1,0 +1,4694 @@
+{
+  "id": "b53add3b5fc89260",
+  "origem": "exemplo",
+  "versao": 1,
+  "bim": {
+    "esquema": "IFC4",
+    "arquivo": "residencia_exemplo.ifc",
+    "hash": "b53add3b5fc89260",
+    "projeto": {
+      "global_id": "1SQi05OsrJShv8c3TSBez_",
+      "nome": "Residência de exemplo ifc-energy",
+      "descricao": "Modelo didático sintético para testar o ifc-energy. Não comprova atendimento a normas.",
+      "edificio": "Residência térrea",
+      "latitude": -23.5475,
+      "longitude": -46.636111,
+      "elevacao": 760.0,
+      "norte_graus": 0.0
+    },
+    "pavimentos": [
+      {
+        "global_id": "16G8n62ILJP9zQC8uqLiSV",
+        "nome": "Térreo",
+        "elevacao": 0.0
+      }
+    ],
+    "ambientes": [
+      {
+        "global_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "numero": "01",
+        "nome": "Sala e cozinha",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "dimensoes": {
+          "area_de_piso": {
+            "valor": 39.195,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_SpaceBaseQuantities.NetFloorArea"
+          },
+          "volume": {
+            "valor": 109.746,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_SpaceBaseQuantities.NetVolume"
+          },
+          "altura": {
+            "valor": 2.8,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_SpaceBaseQuantities.Height"
+          }
+        },
+        "fronteiras_ids": [
+          "0bzNRjdaDG$Qj9bqq4v2mV",
+          "3lAvEktxnTiRhElT5zQLnq",
+          "2$cSfWERTPcut74DAf6CH2",
+          "3sew5nbUDK_OoD2MVkukeY",
+          "18u2iMJp1U_x7_MmeJHD9S",
+          "2fVR8o5P9LxOB1QWJJ2ZcC",
+          "38fflKHBfM8eDdjiCM0Q6Z",
+          "18MWR1Ya1HGBRjfup5tfS8",
+          "0FOATb9XLSYQUElMsHyM$V",
+          "2t8Wx96qTG5Pty8zjB2ltM",
+          "2c53OHGCnLUuTyZaA7jUEX",
+          "0IDc4syzPGhQ6o$KSyY0IQ",
+          "0ristEF5fPy9dIi8zom$Jl",
+          "33sOKhdxvKmw4N71oeMarT"
+        ],
+        "elementos_ids": [
+          "0eV9oBLD9MtviYHQUjiM4M",
+          "0uiEKYUJTGIRvZPm4FkSnR",
+          "0xZJ2NZuzO_x9mfNqEszaF",
+          "0yPaCqE6jL0BmWS90erBJM",
+          "1Ccr9izyPVkeDqWbK8_T3W",
+          "1TgXJObAnTd8agfAyLPYDg",
+          "1X$pOlEMbSB9UHwLxd6XeW",
+          "1_p2nQjZ5UpOJIZhifSnE2",
+          "1q2DG$Zi9R0A03vtlIhjwR",
+          "2h8nI6mB9QexGaFosubl0x",
+          "2pI$ffWzbLfAi1XirhtfxF",
+          "3TfK_sJ5DGs8k0aY8v8vDd"
+        ],
+        "conjuntos": {}
+      },
+      {
+        "global_id": "0dqFX5Na5VbRxVyW1Tj4hZ",
+        "numero": "02",
+        "nome": "Quarto",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "dimensoes": {
+          "area_de_piso": {
+            "valor": 16.5985,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_SpaceBaseQuantities.NetFloorArea"
+          },
+          "volume": {
+            "valor": 46.4758,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_SpaceBaseQuantities.NetVolume"
+          },
+          "altura": {
+            "valor": 2.8,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_SpaceBaseQuantities.Height"
+          }
+        },
+        "fronteiras_ids": [
+          "0betNRgpzSmQi2OPQQn7t6",
+          "0C4OVOrGjSze3fYTzgayCE",
+          "0qZH$Wl91Gi8J5QeMU4YfJ",
+          "2gJK8G8I5Mwh_iYr5ZafPW",
+          "0T3yyNf$9JhuO83lVKSBlA",
+          "2rF1Kf_7rQc8LLJ$5uLRp$",
+          "3ltwBrZ0bMhP5gAgW220Kt",
+          "1fWirQ5KjH19hhFIzwdY80"
+        ],
+        "elementos_ids": [
+          "0uiEKYUJTGIRvZPm4FkSnR",
+          "0xZJ2NZuzO_x9mfNqEszaF",
+          "1$bzMErJ5Nbg0DgiiT3qKx",
+          "1_p2nQjZ5UpOJIZhifSnE2",
+          "1a_dGFZ8fQmxzb7AmI3y2X",
+          "1q2DG$Zi9R0A03vtlIhjwR",
+          "2gTZsfzt1GrvOukXfbuscp",
+          "2pI$ffWzbLfAi1XirhtfxF"
+        ],
+        "conjuntos": {}
+      },
+      {
+        "global_id": "1qLoJhAODSEQkDZLnhnGZv",
+        "numero": "03",
+        "nome": "Banheiro",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "dimensoes": {
+          "area_de_piso": {
+            "valor": 7.9449,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_SpaceBaseQuantities.NetFloorArea"
+          },
+          "volume": {
+            "valor": 22.24572,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_SpaceBaseQuantities.NetVolume"
+          },
+          "altura": {
+            "valor": 2.8,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_SpaceBaseQuantities.Height"
+          }
+        },
+        "fronteiras_ids": [
+          "3ZRS3Jr0PRNBu$ttbh_7VL",
+          "18Bj0GgIfHxxoVefRUixTI",
+          "1m$MsTPxbUsuYgwxOPGJVD",
+          "2A4BQKQgvMBvLSjp694Gp7",
+          "3qYJhsOG5VFh_Ag3SZPj_A",
+          "2H$8UY0bXUHOpQMhgEhDhd",
+          "0Q9WAa9kjNmRM3fEHhEzcD",
+          "1lhRffge9SBB2Qj64KPcut"
+        ],
+        "elementos_ids": [
+          "0uiEKYUJTGIRvZPm4FkSnR",
+          "1$bzMErJ5Nbg0DgiiT3qKx",
+          "1KKQh6OFbGAx9zxXJsVmrn",
+          "1TgXJObAnTd8agfAyLPYDg",
+          "1_p2nQjZ5UpOJIZhifSnE2",
+          "1q2DG$Zi9R0A03vtlIhjwR",
+          "2gTZsfzt1GrvOukXfbuscp",
+          "2h8nI6mB9QexGaFosubl0x"
+        ],
+        "conjuntos": {}
+      }
+    ],
+    "elementos": [
+      {
+        "global_id": "0eV9oBLD9MtviYHQUjiM4M",
+        "classe": "IfcDoor",
+        "categoria": "porta",
+        "nome": "Porta de entrada",
+        "descricao": null,
+        "etiqueta": "P0",
+        "tipo_predefinido": "DOOR",
+        "tipo_construtivo": "Porta de madeira 3,5 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "porta-de-madeira-3-5-cm",
+        "hospedeiro_id": "2pI$ffWzbLfAi1XirhtfxF",
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO"
+        ],
+        "fronteiras_ids": [
+          "3lAvEktxnTiRhElT5zQLnq"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_DoorCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "largura": {
+            "valor": 0.9,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcDoor.OverallWidth"
+          },
+          "altura": {
+            "valor": 2.1,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcDoor.OverallHeight"
+          },
+          "area_liquida": {
+            "valor": 1.89,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_DoorBaseQuantities.Area"
+          },
+          "espessura": {
+            "valor": 0.035,
+            "unidade": "m",
+            "origem": "calculado",
+            "fonte": "soma das espessuras das camadas"
+          }
+        },
+        "orientacao": {
+          "azimute": 180.0,
+          "rotulo": "Sul",
+          "inclinacao": 90.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_DoorCommon": {
+            "IsExternal": true
+          }
+        }
+      },
+      {
+        "global_id": "0xZJ2NZuzO_x9mfNqEszaF",
+        "classe": "IfcDoor",
+        "categoria": "porta",
+        "nome": "Porta do quarto",
+        "descricao": null,
+        "etiqueta": "P1",
+        "tipo_predefinido": "DOOR",
+        "tipo_construtivo": "Porta de madeira 3,5 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "porta-de-madeira-3-5-cm",
+        "hospedeiro_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO",
+          "0dqFX5Na5VbRxVyW1Tj4hZ"
+        ],
+        "fronteiras_ids": [
+          "0FOATb9XLSYQUElMsHyM$V",
+          "2rF1Kf_7rQc8LLJ$5uLRp$"
+        ],
+        "externo": {
+          "valor": false,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_DoorCommon.IsExternal"
+        },
+        "condicao": "interior",
+        "dimensoes": {
+          "largura": {
+            "valor": 0.8,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcDoor.OverallWidth"
+          },
+          "altura": {
+            "valor": 2.1,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcDoor.OverallHeight"
+          },
+          "area_liquida": {
+            "valor": 1.68,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_DoorBaseQuantities.Area"
+          },
+          "espessura": {
+            "valor": 0.035,
+            "unidade": "m",
+            "origem": "calculado",
+            "fonte": "soma das espessuras das camadas"
+          }
+        },
+        "orientacao": null,
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_DoorCommon": {
+            "IsExternal": false
+          }
+        }
+      },
+      {
+        "global_id": "1TgXJObAnTd8agfAyLPYDg",
+        "classe": "IfcDoor",
+        "categoria": "porta",
+        "nome": "Porta do banheiro",
+        "descricao": null,
+        "etiqueta": "P2",
+        "tipo_predefinido": "DOOR",
+        "tipo_construtivo": "Porta de madeira 3,5 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "porta-de-madeira-3-5-cm",
+        "hospedeiro_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO",
+          "1qLoJhAODSEQkDZLnhnGZv"
+        ],
+        "fronteiras_ids": [
+          "0IDc4syzPGhQ6o$KSyY0IQ",
+          "2H$8UY0bXUHOpQMhgEhDhd"
+        ],
+        "externo": {
+          "valor": false,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_DoorCommon.IsExternal"
+        },
+        "condicao": "interior",
+        "dimensoes": {
+          "largura": {
+            "valor": 0.7,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcDoor.OverallWidth"
+          },
+          "altura": {
+            "valor": 2.1,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcDoor.OverallHeight"
+          },
+          "area_liquida": {
+            "valor": 1.47,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_DoorBaseQuantities.Area"
+          },
+          "espessura": {
+            "valor": 0.035,
+            "unidade": "m",
+            "origem": "calculado",
+            "fonte": "soma das espessuras das camadas"
+          }
+        },
+        "orientacao": null,
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_DoorCommon": {
+            "IsExternal": false
+          }
+        }
+      },
+      {
+        "global_id": "1_p2nQjZ5UpOJIZhifSnE2",
+        "classe": "IfcSlab",
+        "categoria": "piso",
+        "nome": "Piso térreo",
+        "descricao": null,
+        "etiqueta": "PISO",
+        "tipo_predefinido": "BASESLAB",
+        "tipo_construtivo": "Piso de concreto com revestimento cerâmico 11 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "piso-de-concreto-com-revestimento-ceramico-11-cm",
+        "hospedeiro_id": null,
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO",
+          "0dqFX5Na5VbRxVyW1Tj4hZ",
+          "1qLoJhAODSEQkDZLnhnGZv"
+        ],
+        "fronteiras_ids": [
+          "0ristEF5fPy9dIi8zom$Jl",
+          "3ltwBrZ0bMhP5gAgW220Kt",
+          "0Q9WAa9kjNmRM3fEHhEzcD"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_SlabCommon.IsExternal"
+        },
+        "condicao": "solo",
+        "dimensoes": {
+          "espessura": {
+            "valor": 0.11,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_SlabBaseQuantities.Depth"
+          },
+          "area_bruta": {
+            "valor": 70.0,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_SlabBaseQuantities.GrossArea"
+          },
+          "area_liquida": {
+            "valor": 70.0,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_SlabBaseQuantities.NetArea"
+          },
+          "volume": {
+            "valor": 7.7,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_SlabBaseQuantities.GrossVolume"
+          }
+        },
+        "orientacao": {
+          "azimute": null,
+          "rotulo": null,
+          "inclinacao": 180.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_SlabCommon": {
+            "IsExternal": true
+          }
+        }
+      },
+      {
+        "global_id": "1q2DG$Zi9R0A03vtlIhjwR",
+        "classe": "IfcSlab",
+        "categoria": "cobertura",
+        "nome": "Laje de cobertura",
+        "descricao": null,
+        "etiqueta": "COBERTURA",
+        "tipo_predefinido": "ROOF",
+        "tipo_construtivo": "Laje de cobertura de concreto rebocada 12,5 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "laje-de-cobertura-de-concreto-rebocada-12-5-cm",
+        "hospedeiro_id": null,
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO",
+          "0dqFX5Na5VbRxVyW1Tj4hZ",
+          "1qLoJhAODSEQkDZLnhnGZv"
+        ],
+        "fronteiras_ids": [
+          "33sOKhdxvKmw4N71oeMarT",
+          "1fWirQ5KjH19hhFIzwdY80",
+          "1lhRffge9SBB2Qj64KPcut"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_SlabCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "espessura": {
+            "valor": 0.125,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_SlabBaseQuantities.Depth"
+          },
+          "area_bruta": {
+            "valor": 70.0,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_SlabBaseQuantities.GrossArea"
+          },
+          "area_liquida": {
+            "valor": 70.0,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_SlabBaseQuantities.NetArea"
+          },
+          "volume": {
+            "valor": 8.75,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_SlabBaseQuantities.GrossVolume"
+          }
+        },
+        "orientacao": {
+          "azimute": null,
+          "rotulo": null,
+          "inclinacao": 0.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_SlabCommon": {
+            "IsExternal": true
+          }
+        }
+      },
+      {
+        "global_id": "2pI$ffWzbLfAi1XirhtfxF",
+        "classe": "IfcWall",
+        "categoria": "parede",
+        "nome": "Parede externa sul",
+        "descricao": null,
+        "etiqueta": "PE-S",
+        "tipo_predefinido": "SOLIDWALL",
+        "tipo_construtivo": "Parede externa de alvenaria rebocada 15 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "hospedeiro_id": null,
+        "aberturas_ids": [
+          "0eV9oBLD9MtviYHQUjiM4M",
+          "0yPaCqE6jL0BmWS90erBJM"
+        ],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO",
+          "0dqFX5Na5VbRxVyW1Tj4hZ"
+        ],
+        "fronteiras_ids": [
+          "0bzNRjdaDG$Qj9bqq4v2mV",
+          "0betNRgpzSmQi2OPQQn7t6"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WallCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "comprimento": {
+            "valor": 10.0,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Length"
+          },
+          "altura": {
+            "valor": 2.8,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Height"
+          },
+          "espessura": {
+            "valor": 0.15,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Width"
+          },
+          "area_bruta": {
+            "valor": 28.0,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.GrossSideArea"
+          },
+          "area_liquida": {
+            "valor": 24.31,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetSideArea"
+          },
+          "volume": {
+            "valor": 3.6465,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetVolume"
+          }
+        },
+        "orientacao": {
+          "azimute": 180.0,
+          "rotulo": "Sul",
+          "inclinacao": 90.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_WallCommon": {
+            "IsExternal": true,
+            "LoadBearing": false
+          }
+        }
+      },
+      {
+        "global_id": "1$bzMErJ5Nbg0DgiiT3qKx",
+        "classe": "IfcWall",
+        "categoria": "parede",
+        "nome": "Parede externa leste",
+        "descricao": null,
+        "etiqueta": "PE-L",
+        "tipo_predefinido": "SOLIDWALL",
+        "tipo_construtivo": "Parede externa de alvenaria rebocada 15 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "hospedeiro_id": null,
+        "aberturas_ids": [
+          "1a_dGFZ8fQmxzb7AmI3y2X"
+        ],
+        "ambientes_ids": [
+          "0dqFX5Na5VbRxVyW1Tj4hZ",
+          "1qLoJhAODSEQkDZLnhnGZv"
+        ],
+        "fronteiras_ids": [
+          "0C4OVOrGjSze3fYTzgayCE",
+          "18Bj0GgIfHxxoVefRUixTI"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WallCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "comprimento": {
+            "valor": 6.7,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Length"
+          },
+          "altura": {
+            "valor": 2.8,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Height"
+          },
+          "espessura": {
+            "valor": 0.15,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Width"
+          },
+          "area_bruta": {
+            "valor": 18.76,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.GrossSideArea"
+          },
+          "area_liquida": {
+            "valor": 16.96,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetSideArea"
+          },
+          "volume": {
+            "valor": 2.544,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetVolume"
+          }
+        },
+        "orientacao": {
+          "azimute": 90.0,
+          "rotulo": "Leste",
+          "inclinacao": 90.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_WallCommon": {
+            "IsExternal": true,
+            "LoadBearing": false
+          }
+        }
+      },
+      {
+        "global_id": "2h8nI6mB9QexGaFosubl0x",
+        "classe": "IfcWall",
+        "categoria": "parede",
+        "nome": "Parede externa norte",
+        "descricao": null,
+        "etiqueta": "PE-N",
+        "tipo_predefinido": "SOLIDWALL",
+        "tipo_construtivo": "Parede externa de alvenaria rebocada 15 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "hospedeiro_id": null,
+        "aberturas_ids": [
+          "1X$pOlEMbSB9UHwLxd6XeW",
+          "1KKQh6OFbGAx9zxXJsVmrn"
+        ],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO",
+          "1qLoJhAODSEQkDZLnhnGZv"
+        ],
+        "fronteiras_ids": [
+          "2fVR8o5P9LxOB1QWJJ2ZcC",
+          "1m$MsTPxbUsuYgwxOPGJVD"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WallCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "comprimento": {
+            "valor": 10.0,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Length"
+          },
+          "altura": {
+            "valor": 2.8,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Height"
+          },
+          "espessura": {
+            "valor": 0.15,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Width"
+          },
+          "area_bruta": {
+            "valor": 28.0,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.GrossSideArea"
+          },
+          "area_liquida": {
+            "valor": 25.24,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetSideArea"
+          },
+          "volume": {
+            "valor": 3.786,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetVolume"
+          }
+        },
+        "orientacao": {
+          "azimute": 0.0,
+          "rotulo": "Norte",
+          "inclinacao": 90.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_WallCommon": {
+            "IsExternal": true,
+            "LoadBearing": false
+          }
+        }
+      },
+      {
+        "global_id": "1Ccr9izyPVkeDqWbK8_T3W",
+        "classe": "IfcWall",
+        "categoria": "parede",
+        "nome": "Parede externa oeste",
+        "descricao": null,
+        "etiqueta": "PE-O",
+        "tipo_predefinido": "SOLIDWALL",
+        "tipo_construtivo": "Parede externa de alvenaria rebocada 15 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "hospedeiro_id": null,
+        "aberturas_ids": [
+          "3TfK_sJ5DGs8k0aY8v8vDd"
+        ],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO"
+        ],
+        "fronteiras_ids": [
+          "3sew5nbUDK_OoD2MVkukeY"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WallCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "comprimento": {
+            "valor": 6.7,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Length"
+          },
+          "altura": {
+            "valor": 2.8,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Height"
+          },
+          "espessura": {
+            "valor": 0.15,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Width"
+          },
+          "area_bruta": {
+            "valor": 18.76,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.GrossSideArea"
+          },
+          "area_liquida": {
+            "valor": 16.96,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetSideArea"
+          },
+          "volume": {
+            "valor": 2.544,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetVolume"
+          }
+        },
+        "orientacao": {
+          "azimute": 270.0,
+          "rotulo": "Oeste",
+          "inclinacao": 90.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_WallCommon": {
+            "IsExternal": true,
+            "LoadBearing": false
+          }
+        }
+      },
+      {
+        "global_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "classe": "IfcWall",
+        "categoria": "parede",
+        "nome": "Parede interna sala / quarto e banheiro",
+        "descricao": null,
+        "etiqueta": "PI-1",
+        "tipo_predefinido": "SOLIDWALL",
+        "tipo_construtivo": "Parede interna de alvenaria rebocada 12 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "parede-interna-de-alvenaria-rebocada-12-cm",
+        "hospedeiro_id": null,
+        "aberturas_ids": [
+          "0xZJ2NZuzO_x9mfNqEszaF",
+          "1TgXJObAnTd8agfAyLPYDg"
+        ],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO",
+          "0dqFX5Na5VbRxVyW1Tj4hZ",
+          "1qLoJhAODSEQkDZLnhnGZv"
+        ],
+        "fronteiras_ids": [
+          "18MWR1Ya1HGBRjfup5tfS8",
+          "2t8Wx96qTG5Pty8zjB2ltM",
+          "2c53OHGCnLUuTyZaA7jUEX",
+          "0T3yyNf$9JhuO83lVKSBlA",
+          "3qYJhsOG5VFh_Ag3SZPj_A"
+        ],
+        "externo": {
+          "valor": false,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WallCommon.IsExternal"
+        },
+        "condicao": "interior",
+        "dimensoes": {
+          "comprimento": {
+            "valor": 6.7,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Length"
+          },
+          "altura": {
+            "valor": 2.8,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Height"
+          },
+          "espessura": {
+            "valor": 0.12,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Width"
+          },
+          "area_bruta": {
+            "valor": 18.76,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.GrossSideArea"
+          },
+          "area_liquida": {
+            "valor": 15.61,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetSideArea"
+          },
+          "volume": {
+            "valor": 1.8732,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetVolume"
+          }
+        },
+        "orientacao": null,
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_WallCommon": {
+            "IsExternal": false,
+            "LoadBearing": false
+          }
+        }
+      },
+      {
+        "global_id": "2gTZsfzt1GrvOukXfbuscp",
+        "classe": "IfcWall",
+        "categoria": "parede",
+        "nome": "Parede interna quarto / banheiro",
+        "descricao": null,
+        "etiqueta": "PI-2",
+        "tipo_predefinido": "SOLIDWALL",
+        "tipo_construtivo": "Parede interna de alvenaria rebocada 12 cm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "parede-interna-de-alvenaria-rebocada-12-cm",
+        "hospedeiro_id": null,
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "0dqFX5Na5VbRxVyW1Tj4hZ",
+          "1qLoJhAODSEQkDZLnhnGZv"
+        ],
+        "fronteiras_ids": [
+          "2gJK8G8I5Mwh_iYr5ZafPW",
+          "3ZRS3Jr0PRNBu$ttbh_7VL"
+        ],
+        "externo": {
+          "valor": false,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WallCommon.IsExternal"
+        },
+        "condicao": "interior",
+        "dimensoes": {
+          "comprimento": {
+            "valor": 3.73,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Length"
+          },
+          "altura": {
+            "valor": 2.8,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Height"
+          },
+          "espessura": {
+            "valor": 0.12,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.Width"
+          },
+          "area_bruta": {
+            "valor": 10.444,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.GrossSideArea"
+          },
+          "area_liquida": {
+            "valor": 10.444,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetSideArea"
+          },
+          "volume": {
+            "valor": 1.25328,
+            "unidade": "m³",
+            "origem": "ifc",
+            "fonte": "Qto_WallBaseQuantities.NetVolume"
+          }
+        },
+        "orientacao": null,
+        "envidracamento": {},
+        "conjuntos": {
+          "Pset_WallCommon": {
+            "IsExternal": false,
+            "LoadBearing": false
+          }
+        }
+      },
+      {
+        "global_id": "0yPaCqE6jL0BmWS90erBJM",
+        "classe": "IfcWindow",
+        "categoria": "janela",
+        "nome": "Janela da sala (sul)",
+        "descricao": null,
+        "etiqueta": "J5",
+        "tipo_predefinido": "WINDOW",
+        "tipo_construtivo": "Janela de alumínio com vidro simples 3 mm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "hospedeiro_id": "2pI$ffWzbLfAi1XirhtfxF",
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO"
+        ],
+        "fronteiras_ids": [
+          "2$cSfWERTPcut74DAf6CH2"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WindowCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "largura": {
+            "valor": 1.5,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcWindow.OverallWidth"
+          },
+          "altura": {
+            "valor": 1.2,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcWindow.OverallHeight"
+          },
+          "area_liquida": {
+            "valor": 1.8,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WindowBaseQuantities.Area"
+          }
+        },
+        "orientacao": {
+          "azimute": 180.0,
+          "rotulo": "Sul",
+          "inclinacao": 90.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {
+          "camadas_de_vidro": {
+            "valor": 1.0,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.GlassLayers"
+          },
+          "espessura_vidro_1": {
+            "valor": 0.003,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.GlassThickness1"
+          },
+          "transmitancia_solar": {
+            "valor": 0.837,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.SolarTransmittance"
+          },
+          "refletancia_solar": {
+            "valor": 0.075,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.SolarReflectance"
+          },
+          "transmitancia_visivel": {
+            "valor": 0.898,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.VisibleLightTransmittance"
+          },
+          "refletancia_visivel": {
+            "valor": 0.081,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.VisibleLightReflectance"
+          },
+          "fator_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_termica_verao": {
+            "valor": null,
+            "unidade": "W/(m²·K)",
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_termica_inverno": {
+            "valor": null,
+            "unidade": "W/(m²·K)",
+            "origem": "ausente",
+            "fonte": null
+          }
+        },
+        "conjuntos": {
+          "Pset_DoorWindowGlazingType": {
+            "GlassLayers": 1.0,
+            "GlassThickness1": 0.003,
+            "SolarTransmittance": 0.837,
+            "SolarReflectance": 0.075,
+            "VisibleLightTransmittance": 0.898,
+            "VisibleLightReflectance": 0.081
+          },
+          "Pset_WindowCommon": {
+            "IsExternal": true
+          }
+        }
+      },
+      {
+        "global_id": "1a_dGFZ8fQmxzb7AmI3y2X",
+        "classe": "IfcWindow",
+        "categoria": "janela",
+        "nome": "Janela do quarto (leste)",
+        "descricao": null,
+        "etiqueta": "J3",
+        "tipo_predefinido": "WINDOW",
+        "tipo_construtivo": "Janela de alumínio com vidro simples 3 mm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "hospedeiro_id": "1$bzMErJ5Nbg0DgiiT3qKx",
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "0dqFX5Na5VbRxVyW1Tj4hZ"
+        ],
+        "fronteiras_ids": [
+          "0qZH$Wl91Gi8J5QeMU4YfJ"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WindowCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "largura": {
+            "valor": 1.5,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcWindow.OverallWidth"
+          },
+          "altura": {
+            "valor": 1.2,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcWindow.OverallHeight"
+          },
+          "area_liquida": {
+            "valor": 1.8,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WindowBaseQuantities.Area"
+          }
+        },
+        "orientacao": {
+          "azimute": 90.0,
+          "rotulo": "Leste",
+          "inclinacao": 90.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {
+          "camadas_de_vidro": {
+            "valor": 1.0,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.GlassLayers"
+          },
+          "espessura_vidro_1": {
+            "valor": 0.003,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.GlassThickness1"
+          },
+          "transmitancia_solar": {
+            "valor": 0.837,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.SolarTransmittance"
+          },
+          "refletancia_solar": {
+            "valor": 0.075,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.SolarReflectance"
+          },
+          "transmitancia_visivel": {
+            "valor": 0.898,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.VisibleLightTransmittance"
+          },
+          "refletancia_visivel": {
+            "valor": 0.081,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.VisibleLightReflectance"
+          },
+          "fator_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_termica_verao": {
+            "valor": null,
+            "unidade": "W/(m²·K)",
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_termica_inverno": {
+            "valor": null,
+            "unidade": "W/(m²·K)",
+            "origem": "ausente",
+            "fonte": null
+          }
+        },
+        "conjuntos": {
+          "Pset_DoorWindowGlazingType": {
+            "GlassLayers": 1.0,
+            "GlassThickness1": 0.003,
+            "SolarTransmittance": 0.837,
+            "SolarReflectance": 0.075,
+            "VisibleLightTransmittance": 0.898,
+            "VisibleLightReflectance": 0.081
+          },
+          "Pset_WindowCommon": {
+            "IsExternal": true
+          }
+        }
+      },
+      {
+        "global_id": "1X$pOlEMbSB9UHwLxd6XeW",
+        "classe": "IfcWindow",
+        "categoria": "janela",
+        "nome": "Janela da sala (norte)",
+        "descricao": null,
+        "etiqueta": "J1",
+        "tipo_predefinido": "WINDOW",
+        "tipo_construtivo": "Janela de alumínio com vidro simples 3 mm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "hospedeiro_id": "2h8nI6mB9QexGaFosubl0x",
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO"
+        ],
+        "fronteiras_ids": [
+          "38fflKHBfM8eDdjiCM0Q6Z"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WindowCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "largura": {
+            "valor": 2.0,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcWindow.OverallWidth"
+          },
+          "altura": {
+            "valor": 1.2,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcWindow.OverallHeight"
+          },
+          "area_liquida": {
+            "valor": 2.4,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WindowBaseQuantities.Area"
+          }
+        },
+        "orientacao": {
+          "azimute": 0.0,
+          "rotulo": "Norte",
+          "inclinacao": 90.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {
+          "camadas_de_vidro": {
+            "valor": 1.0,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.GlassLayers"
+          },
+          "espessura_vidro_1": {
+            "valor": 0.003,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.GlassThickness1"
+          },
+          "transmitancia_solar": {
+            "valor": 0.837,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.SolarTransmittance"
+          },
+          "refletancia_solar": {
+            "valor": 0.075,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.SolarReflectance"
+          },
+          "transmitancia_visivel": {
+            "valor": 0.898,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.VisibleLightTransmittance"
+          },
+          "refletancia_visivel": {
+            "valor": 0.081,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.VisibleLightReflectance"
+          },
+          "fator_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_termica_verao": {
+            "valor": null,
+            "unidade": "W/(m²·K)",
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_termica_inverno": {
+            "valor": null,
+            "unidade": "W/(m²·K)",
+            "origem": "ausente",
+            "fonte": null
+          }
+        },
+        "conjuntos": {
+          "Pset_DoorWindowGlazingType": {
+            "GlassLayers": 1.0,
+            "GlassThickness1": 0.003,
+            "SolarTransmittance": 0.837,
+            "SolarReflectance": 0.075,
+            "VisibleLightTransmittance": 0.898,
+            "VisibleLightReflectance": 0.081
+          },
+          "Pset_WindowCommon": {
+            "IsExternal": true
+          }
+        }
+      },
+      {
+        "global_id": "1KKQh6OFbGAx9zxXJsVmrn",
+        "classe": "IfcWindow",
+        "categoria": "janela",
+        "nome": "Janela do banheiro (norte)",
+        "descricao": null,
+        "etiqueta": "J4",
+        "tipo_predefinido": "WINDOW",
+        "tipo_construtivo": "Janela de alumínio com vidro simples 3 mm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "hospedeiro_id": "2h8nI6mB9QexGaFosubl0x",
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "1qLoJhAODSEQkDZLnhnGZv"
+        ],
+        "fronteiras_ids": [
+          "2A4BQKQgvMBvLSjp694Gp7"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WindowCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "largura": {
+            "valor": 0.6,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcWindow.OverallWidth"
+          },
+          "altura": {
+            "valor": 0.6,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcWindow.OverallHeight"
+          },
+          "area_liquida": {
+            "valor": 0.36,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WindowBaseQuantities.Area"
+          }
+        },
+        "orientacao": {
+          "azimute": 0.0,
+          "rotulo": "Norte",
+          "inclinacao": 90.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {
+          "camadas_de_vidro": {
+            "valor": 1.0,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.GlassLayers"
+          },
+          "espessura_vidro_1": {
+            "valor": 0.003,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.GlassThickness1"
+          },
+          "transmitancia_solar": {
+            "valor": 0.837,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.SolarTransmittance"
+          },
+          "refletancia_solar": {
+            "valor": 0.075,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.SolarReflectance"
+          },
+          "transmitancia_visivel": {
+            "valor": 0.898,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.VisibleLightTransmittance"
+          },
+          "refletancia_visivel": {
+            "valor": 0.081,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.VisibleLightReflectance"
+          },
+          "fator_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_termica_verao": {
+            "valor": null,
+            "unidade": "W/(m²·K)",
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_termica_inverno": {
+            "valor": null,
+            "unidade": "W/(m²·K)",
+            "origem": "ausente",
+            "fonte": null
+          }
+        },
+        "conjuntos": {
+          "Pset_DoorWindowGlazingType": {
+            "GlassLayers": 1.0,
+            "GlassThickness1": 0.003,
+            "SolarTransmittance": 0.837,
+            "SolarReflectance": 0.075,
+            "VisibleLightTransmittance": 0.898,
+            "VisibleLightReflectance": 0.081
+          },
+          "Pset_WindowCommon": {
+            "IsExternal": true
+          }
+        }
+      },
+      {
+        "global_id": "3TfK_sJ5DGs8k0aY8v8vDd",
+        "classe": "IfcWindow",
+        "categoria": "janela",
+        "nome": "Janela da sala (oeste)",
+        "descricao": null,
+        "etiqueta": "J2",
+        "tipo_predefinido": "WINDOW",
+        "tipo_construtivo": "Janela de alumínio com vidro simples 3 mm",
+        "pavimento_id": "16G8n62ILJP9zQC8uqLiSV",
+        "construcao_id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "hospedeiro_id": "1Ccr9izyPVkeDqWbK8_T3W",
+        "aberturas_ids": [],
+        "ambientes_ids": [
+          "0cZajB0DfPYeBAW5lbHjJO"
+        ],
+        "fronteiras_ids": [
+          "18u2iMJp1U_x7_MmeJHD9S"
+        ],
+        "externo": {
+          "valor": true,
+          "unidade": null,
+          "origem": "ifc",
+          "fonte": "Pset_WindowCommon.IsExternal"
+        },
+        "condicao": "exterior",
+        "dimensoes": {
+          "largura": {
+            "valor": 1.5,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcWindow.OverallWidth"
+          },
+          "altura": {
+            "valor": 1.2,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "IfcWindow.OverallHeight"
+          },
+          "area_liquida": {
+            "valor": 1.8,
+            "unidade": "m²",
+            "origem": "ifc",
+            "fonte": "Qto_WindowBaseQuantities.Area"
+          }
+        },
+        "orientacao": {
+          "azimute": 270.0,
+          "rotulo": "Oeste",
+          "inclinacao": 90.0,
+          "fonte": "normal da fronteira de espaço externa (aponta para fora do ambiente)"
+        },
+        "envidracamento": {
+          "camadas_de_vidro": {
+            "valor": 1.0,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.GlassLayers"
+          },
+          "espessura_vidro_1": {
+            "valor": 0.003,
+            "unidade": "m",
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.GlassThickness1"
+          },
+          "transmitancia_solar": {
+            "valor": 0.837,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.SolarTransmittance"
+          },
+          "refletancia_solar": {
+            "valor": 0.075,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.SolarReflectance"
+          },
+          "transmitancia_visivel": {
+            "valor": 0.898,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.VisibleLightTransmittance"
+          },
+          "refletancia_visivel": {
+            "valor": 0.081,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_DoorWindowGlazingType.VisibleLightReflectance"
+          },
+          "fator_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_termica_verao": {
+            "valor": null,
+            "unidade": "W/(m²·K)",
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_termica_inverno": {
+            "valor": null,
+            "unidade": "W/(m²·K)",
+            "origem": "ausente",
+            "fonte": null
+          }
+        },
+        "conjuntos": {
+          "Pset_DoorWindowGlazingType": {
+            "GlassLayers": 1.0,
+            "GlassThickness1": 0.003,
+            "SolarTransmittance": 0.837,
+            "SolarReflectance": 0.075,
+            "VisibleLightTransmittance": 0.898,
+            "VisibleLightReflectance": 0.081
+          },
+          "Pset_WindowCommon": {
+            "IsExternal": true
+          }
+        }
+      }
+    ],
+    "construcoes": [
+      {
+        "id": "porta-de-madeira-3-5-cm",
+        "nome": "Porta de madeira 3,5 cm",
+        "tipo": "camadas",
+        "camadas": [
+          {
+            "material_id": "madeira",
+            "nome": "Madeira",
+            "espessura": {
+              "valor": 0.035,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          }
+        ],
+        "constituintes": [],
+        "elementos_ids": [
+          "0eV9oBLD9MtviYHQUjiM4M",
+          "0xZJ2NZuzO_x9mfNqEszaF",
+          "1TgXJObAnTd8agfAyLPYDg"
+        ]
+      },
+      {
+        "id": "piso-de-concreto-com-revestimento-ceramico-11-cm",
+        "nome": "Piso de concreto com revestimento cerâmico 11 cm",
+        "tipo": "camadas",
+        "camadas": [
+          {
+            "material_id": "concreto",
+            "nome": "Concreto",
+            "espessura": {
+              "valor": 0.1,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          },
+          {
+            "material_id": "revestimento-ceramico",
+            "nome": "Revestimento cerâmico",
+            "espessura": {
+              "valor": 0.01,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          }
+        ],
+        "constituintes": [],
+        "elementos_ids": [
+          "1_p2nQjZ5UpOJIZhifSnE2"
+        ]
+      },
+      {
+        "id": "laje-de-cobertura-de-concreto-rebocada-12-5-cm",
+        "nome": "Laje de cobertura de concreto rebocada 12,5 cm",
+        "tipo": "camadas",
+        "camadas": [
+          {
+            "material_id": "concreto",
+            "nome": "Concreto",
+            "espessura": {
+              "valor": 0.1,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          },
+          {
+            "material_id": "argamassa-de-reboco",
+            "nome": "Argamassa de reboco",
+            "espessura": {
+              "valor": 0.025,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          }
+        ],
+        "constituintes": [],
+        "elementos_ids": [
+          "1q2DG$Zi9R0A03vtlIhjwR"
+        ]
+      },
+      {
+        "id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "nome": "Parede externa de alvenaria rebocada 15 cm",
+        "tipo": "camadas",
+        "camadas": [
+          {
+            "material_id": "argamassa-de-reboco",
+            "nome": "Argamassa de reboco",
+            "espessura": {
+              "valor": 0.025,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          },
+          {
+            "material_id": "alvenaria-de-tijolo-ceramico",
+            "nome": "Alvenaria de tijolo cerâmico",
+            "espessura": {
+              "valor": 0.1,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          },
+          {
+            "material_id": "argamassa-de-reboco",
+            "nome": "Argamassa de reboco",
+            "espessura": {
+              "valor": 0.025,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          }
+        ],
+        "constituintes": [],
+        "elementos_ids": [
+          "2pI$ffWzbLfAi1XirhtfxF",
+          "1$bzMErJ5Nbg0DgiiT3qKx",
+          "2h8nI6mB9QexGaFosubl0x",
+          "1Ccr9izyPVkeDqWbK8_T3W"
+        ]
+      },
+      {
+        "id": "parede-interna-de-alvenaria-rebocada-12-cm",
+        "nome": "Parede interna de alvenaria rebocada 12 cm",
+        "tipo": "camadas",
+        "camadas": [
+          {
+            "material_id": "argamassa-de-reboco",
+            "nome": "Argamassa de reboco",
+            "espessura": {
+              "valor": 0.015,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          },
+          {
+            "material_id": "alvenaria-de-tijolo-ceramico",
+            "nome": "Alvenaria de tijolo cerâmico",
+            "espessura": {
+              "valor": 0.09,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          },
+          {
+            "material_id": "argamassa-de-reboco",
+            "nome": "Argamassa de reboco",
+            "espessura": {
+              "valor": 0.015,
+              "unidade": "m",
+              "origem": "ifc",
+              "fonte": "IfcMaterialLayer.LayerThickness"
+            }
+          }
+        ],
+        "constituintes": [],
+        "elementos_ids": [
+          "0uiEKYUJTGIRvZPm4FkSnR",
+          "2gTZsfzt1GrvOukXfbuscp"
+        ]
+      },
+      {
+        "id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "nome": "Janela de alumínio com vidro simples 3 mm",
+        "tipo": "constituintes",
+        "camadas": [],
+        "constituintes": [
+          {
+            "nome": "Vidro",
+            "material_id": "vidro-incolor-3-mm",
+            "categoria": "Envidraçamento"
+          },
+          {
+            "nome": "Caixilho",
+            "material_id": "aluminio-caixilho",
+            "categoria": "Esquadria"
+          }
+        ],
+        "elementos_ids": [
+          "0yPaCqE6jL0BmWS90erBJM",
+          "1a_dGFZ8fQmxzb7AmI3y2X",
+          "1X$pOlEMbSB9UHwLxd6XeW",
+          "1KKQh6OFbGAx9zxXJsVmrn",
+          "3TfK_sJ5DGs8k0aY8v8vDd"
+        ]
+      }
+    ],
+    "materiais": [
+      {
+        "id": "madeira",
+        "nome": "Madeira",
+        "categoria": "Madeira",
+        "descricao": "Madeira (dataset: G05 25mm wood)",
+        "propriedades": {
+          "condutividade": {
+            "valor": 0.15,
+            "unidade": "W/(m·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.ThermalConductivity"
+          },
+          "calor_especifico": {
+            "valor": 1630.0,
+            "unidade": "J/(kg·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.SpecificHeatCapacity"
+          },
+          "densidade": {
+            "valor": 608.0,
+            "unidade": "kg/m³",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialCommon.MassDensity"
+          },
+          "transmitancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "emissividade": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "absortancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          }
+        }
+      },
+      {
+        "id": "concreto",
+        "nome": "Concreto",
+        "categoria": "Concreto",
+        "descricao": "Concreto de densidade normal (dataset: M14a 100mm heavyweight concrete)",
+        "propriedades": {
+          "condutividade": {
+            "valor": 1.95,
+            "unidade": "W/(m·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.ThermalConductivity"
+          },
+          "calor_especifico": {
+            "valor": 900.0,
+            "unidade": "J/(kg·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.SpecificHeatCapacity"
+          },
+          "densidade": {
+            "valor": 2240.0,
+            "unidade": "kg/m³",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialCommon.MassDensity"
+          },
+          "transmitancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "emissividade": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "absortancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          }
+        }
+      },
+      {
+        "id": "revestimento-ceramico",
+        "nome": "Revestimento cerâmico",
+        "categoria": "Revestimento",
+        "descricao": "Placa cerâmica ou ardósia (dataset: F14 Slate or tile)",
+        "propriedades": {
+          "condutividade": {
+            "valor": 1.59,
+            "unidade": "W/(m·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.ThermalConductivity"
+          },
+          "calor_especifico": {
+            "valor": 1260.0,
+            "unidade": "J/(kg·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.SpecificHeatCapacity"
+          },
+          "densidade": {
+            "valor": 1920.0,
+            "unidade": "kg/m³",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialCommon.MassDensity"
+          },
+          "transmitancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "emissividade": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "absortancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          }
+        }
+      },
+      {
+        "id": "argamassa-de-reboco",
+        "nome": "Argamassa de reboco",
+        "categoria": "Argamassa",
+        "descricao": "Reboco de argamassa (dataset: F07 25mm stucco)",
+        "propriedades": {
+          "condutividade": {
+            "valor": 0.72,
+            "unidade": "W/(m·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.ThermalConductivity"
+          },
+          "calor_especifico": {
+            "valor": 840.0,
+            "unidade": "J/(kg·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.SpecificHeatCapacity"
+          },
+          "densidade": {
+            "valor": 1856.0,
+            "unidade": "kg/m³",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialCommon.MassDensity"
+          },
+          "transmitancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "emissividade": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "absortancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          }
+        }
+      },
+      {
+        "id": "alvenaria-de-tijolo-ceramico",
+        "nome": "Alvenaria de tijolo cerâmico",
+        "categoria": "Alvenaria",
+        "descricao": "Tijolo cerâmico maciço (dataset: M01 100mm brick)",
+        "propriedades": {
+          "condutividade": {
+            "valor": 0.89,
+            "unidade": "W/(m·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.ThermalConductivity"
+          },
+          "calor_especifico": {
+            "valor": 790.0,
+            "unidade": "J/(kg·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.SpecificHeatCapacity"
+          },
+          "densidade": {
+            "valor": 1920.0,
+            "unidade": "kg/m³",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialCommon.MassDensity"
+          },
+          "transmitancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "emissividade": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "absortancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          }
+        }
+      },
+      {
+        "id": "vidro-incolor-3-mm",
+        "nome": "Vidro incolor 3 mm",
+        "categoria": "Vidro",
+        "descricao": "Vidro simples incolor (dataset: CLEAR 3MM)",
+        "propriedades": {
+          "condutividade": {
+            "valor": 0.9,
+            "unidade": "W/(m·K)",
+            "origem": "ifc",
+            "fonte": "Pset_MaterialThermal.ThermalConductivity"
+          },
+          "calor_especifico": {
+            "valor": null,
+            "unidade": "J/(kg·K)",
+            "origem": "ausente",
+            "fonte": null
+          },
+          "densidade": {
+            "valor": null,
+            "unidade": "kg/m³",
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_solar": {
+            "valor": 0.837,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_MaterialOptical.SolarTransmittance"
+          },
+          "refletancia_solar": {
+            "valor": 0.075,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_MaterialOptical.SolarReflectanceFront"
+          },
+          "transmitancia_visivel": {
+            "valor": 0.898,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_MaterialOptical.VisibleTransmittance"
+          },
+          "refletancia_visivel": {
+            "valor": 0.081,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_MaterialOptical.VisibleReflectanceFront"
+          },
+          "emissividade": {
+            "valor": 0.84,
+            "unidade": null,
+            "origem": "ifc",
+            "fonte": "Pset_MaterialOptical.ThermalIrEmissivityFront"
+          },
+          "absortancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          }
+        }
+      },
+      {
+        "id": "aluminio-caixilho",
+        "nome": "Alumínio (caixilho)",
+        "categoria": "Metal",
+        "descricao": "Caixilho de alumínio. Sem propriedades térmicas: a biblioteca ainda não tem uma fonte aprovada para este material.",
+        "propriedades": {
+          "condutividade": {
+            "valor": null,
+            "unidade": "W/(m·K)",
+            "origem": "ausente",
+            "fonte": null
+          },
+          "calor_especifico": {
+            "valor": null,
+            "unidade": "J/(kg·K)",
+            "origem": "ausente",
+            "fonte": null
+          },
+          "densidade": {
+            "valor": null,
+            "unidade": "kg/m³",
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "transmitancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "refletancia_visivel": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "emissividade": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          },
+          "absortancia_solar": {
+            "valor": null,
+            "unidade": null,
+            "origem": "ausente",
+            "fonte": null
+          }
+        }
+      }
+    ],
+    "fronteiras": [
+      {
+        "global_id": "0bzNRjdaDG$Qj9bqq4v2mV",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "2pI$ffWzbLfAi1XirhtfxF",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            0.15,
+            0.15,
+            0.0
+          ],
+          [
+            6.0,
+            0.15,
+            0.0
+          ],
+          [
+            6.0,
+            0.15,
+            2.8
+          ],
+          [
+            0.15,
+            0.15,
+            2.8
+          ]
+        ],
+        "area": 16.38,
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "azimute": 180.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "3lAvEktxnTiRhElT5zQLnq",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "0eV9oBLD9MtviYHQUjiM4M",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": "0bzNRjdaDG$Qj9bqq4v2mV",
+        "correspondente_id": null,
+        "vertices": [
+          [
+            1.0,
+            0.15,
+            0.0
+          ],
+          [
+            1.9,
+            0.15,
+            0.0
+          ],
+          [
+            1.9,
+            0.15,
+            2.1
+          ],
+          [
+            1.0,
+            0.15,
+            2.1
+          ]
+        ],
+        "area": 1.89,
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "azimute": 180.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "2$cSfWERTPcut74DAf6CH2",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "0yPaCqE6jL0BmWS90erBJM",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": "0bzNRjdaDG$Qj9bqq4v2mV",
+        "correspondente_id": null,
+        "vertices": [
+          [
+            3.5,
+            0.15,
+            1.0
+          ],
+          [
+            5.0,
+            0.15,
+            1.0
+          ],
+          [
+            5.0,
+            0.15,
+            2.2
+          ],
+          [
+            3.5,
+            0.15,
+            2.2
+          ]
+        ],
+        "area": 1.8,
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "azimute": 180.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "3sew5nbUDK_OoD2MVkukeY",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "1Ccr9izyPVkeDqWbK8_T3W",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            0.15,
+            0.15,
+            2.8
+          ],
+          [
+            0.15,
+            6.85,
+            2.8
+          ],
+          [
+            0.15,
+            6.85,
+            0.0
+          ],
+          [
+            0.15,
+            0.15,
+            0.0
+          ]
+        ],
+        "area": 18.76,
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 270.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "18u2iMJp1U_x7_MmeJHD9S",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "3TfK_sJ5DGs8k0aY8v8vDd",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": "3sew5nbUDK_OoD2MVkukeY",
+        "correspondente_id": null,
+        "vertices": [
+          [
+            0.15,
+            2.5,
+            2.2
+          ],
+          [
+            0.15,
+            4.0,
+            2.2
+          ],
+          [
+            0.15,
+            4.0,
+            1.0
+          ],
+          [
+            0.15,
+            2.5,
+            1.0
+          ]
+        ],
+        "area": 1.8,
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 270.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "2fVR8o5P9LxOB1QWJJ2ZcC",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "2h8nI6mB9QexGaFosubl0x",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            0.15,
+            6.85,
+            2.8
+          ],
+          [
+            6.0,
+            6.85,
+            2.8
+          ],
+          [
+            6.0,
+            6.85,
+            0.0
+          ],
+          [
+            0.15,
+            6.85,
+            0.0
+          ]
+        ],
+        "area": 16.38,
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "azimute": 0.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "38fflKHBfM8eDdjiCM0Q6Z",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "1X$pOlEMbSB9UHwLxd6XeW",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": "2fVR8o5P9LxOB1QWJJ2ZcC",
+        "correspondente_id": null,
+        "vertices": [
+          [
+            2.0,
+            6.85,
+            2.2
+          ],
+          [
+            4.0,
+            6.85,
+            2.2
+          ],
+          [
+            4.0,
+            6.85,
+            1.0
+          ],
+          [
+            2.0,
+            6.85,
+            1.0
+          ]
+        ],
+        "area": 2.4,
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "azimute": 0.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "18MWR1Ya1HGBRjfup5tfS8",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "nivel": "2a",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": "0T3yyNf$9JhuO83lVKSBlA",
+        "vertices": [
+          [
+            6.0,
+            0.15,
+            0.0
+          ],
+          [
+            6.0,
+            4.6,
+            0.0
+          ],
+          [
+            6.0,
+            4.6,
+            2.8
+          ],
+          [
+            6.0,
+            0.15,
+            2.8
+          ]
+        ],
+        "area": 12.46,
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 90.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "0FOATb9XLSYQUElMsHyM$V",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "0xZJ2NZuzO_x9mfNqEszaF",
+        "nivel": "2a",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": "18MWR1Ya1HGBRjfup5tfS8",
+        "correspondente_id": "2rF1Kf_7rQc8LLJ$5uLRp$",
+        "vertices": [
+          [
+            6.0,
+            1.0,
+            0.0
+          ],
+          [
+            6.0,
+            1.8,
+            0.0
+          ],
+          [
+            6.0,
+            1.8,
+            2.1
+          ],
+          [
+            6.0,
+            1.0,
+            2.1
+          ]
+        ],
+        "area": 1.68,
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 90.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "2t8Wx96qTG5Pty8zjB2ltM",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "nivel": "2b",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            6.0,
+            4.6,
+            0.0
+          ],
+          [
+            6.0,
+            4.72,
+            0.0
+          ],
+          [
+            6.0,
+            4.72,
+            2.8
+          ],
+          [
+            6.0,
+            4.6,
+            2.8
+          ]
+        ],
+        "area": 0.336,
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 90.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "2c53OHGCnLUuTyZaA7jUEX",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "nivel": "2a",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": "3qYJhsOG5VFh_Ag3SZPj_A",
+        "vertices": [
+          [
+            6.0,
+            4.72,
+            0.0
+          ],
+          [
+            6.0,
+            6.85,
+            0.0
+          ],
+          [
+            6.0,
+            6.85,
+            2.8
+          ],
+          [
+            6.0,
+            4.72,
+            2.8
+          ]
+        ],
+        "area": 5.964,
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 90.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "0IDc4syzPGhQ6o$KSyY0IQ",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "1TgXJObAnTd8agfAyLPYDg",
+        "nivel": "2a",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": "2c53OHGCnLUuTyZaA7jUEX",
+        "correspondente_id": "2H$8UY0bXUHOpQMhgEhDhd",
+        "vertices": [
+          [
+            6.0,
+            5.2,
+            0.0
+          ],
+          [
+            6.0,
+            5.9,
+            0.0
+          ],
+          [
+            6.0,
+            5.9,
+            2.1
+          ],
+          [
+            6.0,
+            5.2,
+            2.1
+          ]
+        ],
+        "area": 1.47,
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 90.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "0betNRgpzSmQi2OPQQn7t6",
+        "ambiente_id": "0dqFX5Na5VbRxVyW1Tj4hZ",
+        "elemento_id": "2pI$ffWzbLfAi1XirhtfxF",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            6.12,
+            0.15,
+            0.0
+          ],
+          [
+            9.85,
+            0.15,
+            0.0
+          ],
+          [
+            9.85,
+            0.15,
+            2.8
+          ],
+          [
+            6.12,
+            0.15,
+            2.8
+          ]
+        ],
+        "area": 10.444,
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "azimute": 180.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "0C4OVOrGjSze3fYTzgayCE",
+        "ambiente_id": "0dqFX5Na5VbRxVyW1Tj4hZ",
+        "elemento_id": "1$bzMErJ5Nbg0DgiiT3qKx",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            9.85,
+            0.15,
+            0.0
+          ],
+          [
+            9.85,
+            4.6,
+            0.0
+          ],
+          [
+            9.85,
+            4.6,
+            2.8
+          ],
+          [
+            9.85,
+            0.15,
+            2.8
+          ]
+        ],
+        "area": 12.46,
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 90.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "0qZH$Wl91Gi8J5QeMU4YfJ",
+        "ambiente_id": "0dqFX5Na5VbRxVyW1Tj4hZ",
+        "elemento_id": "1a_dGFZ8fQmxzb7AmI3y2X",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": "0C4OVOrGjSze3fYTzgayCE",
+        "correspondente_id": null,
+        "vertices": [
+          [
+            9.85,
+            1.5,
+            1.0
+          ],
+          [
+            9.85,
+            3.0,
+            1.0
+          ],
+          [
+            9.85,
+            3.0,
+            2.2
+          ],
+          [
+            9.85,
+            1.5,
+            2.2
+          ]
+        ],
+        "area": 1.8,
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 90.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "2gJK8G8I5Mwh_iYr5ZafPW",
+        "ambiente_id": "0dqFX5Na5VbRxVyW1Tj4hZ",
+        "elemento_id": "2gTZsfzt1GrvOukXfbuscp",
+        "nivel": "2a",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": "3ZRS3Jr0PRNBu$ttbh_7VL",
+        "vertices": [
+          [
+            6.12,
+            4.6,
+            2.8
+          ],
+          [
+            9.85,
+            4.6,
+            2.8
+          ],
+          [
+            9.85,
+            4.6,
+            0.0
+          ],
+          [
+            6.12,
+            4.6,
+            0.0
+          ]
+        ],
+        "area": 10.444,
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "azimute": 0.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "0T3yyNf$9JhuO83lVKSBlA",
+        "ambiente_id": "0dqFX5Na5VbRxVyW1Tj4hZ",
+        "elemento_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "nivel": "2a",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": "18MWR1Ya1HGBRjfup5tfS8",
+        "vertices": [
+          [
+            6.12,
+            0.15,
+            2.8
+          ],
+          [
+            6.12,
+            4.6,
+            2.8
+          ],
+          [
+            6.12,
+            4.6,
+            0.0
+          ],
+          [
+            6.12,
+            0.15,
+            0.0
+          ]
+        ],
+        "area": 12.46,
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 270.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "2rF1Kf_7rQc8LLJ$5uLRp$",
+        "ambiente_id": "0dqFX5Na5VbRxVyW1Tj4hZ",
+        "elemento_id": "0xZJ2NZuzO_x9mfNqEszaF",
+        "nivel": "2a",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": "0T3yyNf$9JhuO83lVKSBlA",
+        "correspondente_id": "0FOATb9XLSYQUElMsHyM$V",
+        "vertices": [
+          [
+            6.12,
+            1.0,
+            2.1
+          ],
+          [
+            6.12,
+            1.8,
+            2.1
+          ],
+          [
+            6.12,
+            1.8,
+            0.0
+          ],
+          [
+            6.12,
+            1.0,
+            0.0
+          ]
+        ],
+        "area": 1.68,
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 270.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "3ZRS3Jr0PRNBu$ttbh_7VL",
+        "ambiente_id": "1qLoJhAODSEQkDZLnhnGZv",
+        "elemento_id": "2gTZsfzt1GrvOukXfbuscp",
+        "nivel": "2a",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": "2gJK8G8I5Mwh_iYr5ZafPW",
+        "vertices": [
+          [
+            6.12,
+            4.72,
+            0.0
+          ],
+          [
+            9.85,
+            4.72,
+            0.0
+          ],
+          [
+            9.85,
+            4.72,
+            2.8
+          ],
+          [
+            6.12,
+            4.72,
+            2.8
+          ]
+        ],
+        "area": 10.444,
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "azimute": 180.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "18Bj0GgIfHxxoVefRUixTI",
+        "ambiente_id": "1qLoJhAODSEQkDZLnhnGZv",
+        "elemento_id": "1$bzMErJ5Nbg0DgiiT3qKx",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            9.85,
+            4.72,
+            0.0
+          ],
+          [
+            9.85,
+            6.85,
+            0.0
+          ],
+          [
+            9.85,
+            6.85,
+            2.8
+          ],
+          [
+            9.85,
+            4.72,
+            2.8
+          ]
+        ],
+        "area": 5.964,
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 90.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "1m$MsTPxbUsuYgwxOPGJVD",
+        "ambiente_id": "1qLoJhAODSEQkDZLnhnGZv",
+        "elemento_id": "2h8nI6mB9QexGaFosubl0x",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            6.12,
+            6.85,
+            2.8
+          ],
+          [
+            9.85,
+            6.85,
+            2.8
+          ],
+          [
+            9.85,
+            6.85,
+            0.0
+          ],
+          [
+            6.12,
+            6.85,
+            0.0
+          ]
+        ],
+        "area": 10.444,
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "azimute": 0.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "2A4BQKQgvMBvLSjp694Gp7",
+        "ambiente_id": "1qLoJhAODSEQkDZLnhnGZv",
+        "elemento_id": "1KKQh6OFbGAx9zxXJsVmrn",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": "1m$MsTPxbUsuYgwxOPGJVD",
+        "correspondente_id": null,
+        "vertices": [
+          [
+            7.5,
+            6.85,
+            2.2
+          ],
+          [
+            8.1,
+            6.85,
+            2.2
+          ],
+          [
+            8.1,
+            6.85,
+            1.6
+          ],
+          [
+            7.5,
+            6.85,
+            1.6
+          ]
+        ],
+        "area": 0.36,
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "azimute": 0.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "3qYJhsOG5VFh_Ag3SZPj_A",
+        "ambiente_id": "1qLoJhAODSEQkDZLnhnGZv",
+        "elemento_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "nivel": "2a",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": "2c53OHGCnLUuTyZaA7jUEX",
+        "vertices": [
+          [
+            6.12,
+            4.72,
+            2.8
+          ],
+          [
+            6.12,
+            6.85,
+            2.8
+          ],
+          [
+            6.12,
+            6.85,
+            0.0
+          ],
+          [
+            6.12,
+            4.72,
+            0.0
+          ]
+        ],
+        "area": 5.964,
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 270.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "2H$8UY0bXUHOpQMhgEhDhd",
+        "ambiente_id": "1qLoJhAODSEQkDZLnhnGZv",
+        "elemento_id": "1TgXJObAnTd8agfAyLPYDg",
+        "nivel": "2a",
+        "posicao": "interna",
+        "virtual": false,
+        "pai_id": "3qYJhsOG5VFh_Ag3SZPj_A",
+        "correspondente_id": "0IDc4syzPGhQ6o$KSyY0IQ",
+        "vertices": [
+          [
+            6.12,
+            5.2,
+            2.1
+          ],
+          [
+            6.12,
+            5.9,
+            2.1
+          ],
+          [
+            6.12,
+            5.9,
+            0.0
+          ],
+          [
+            6.12,
+            5.2,
+            0.0
+          ]
+        ],
+        "area": 1.47,
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "azimute": 270.0,
+        "inclinacao": 90.0
+      },
+      {
+        "global_id": "0ristEF5fPy9dIi8zom$Jl",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "1_p2nQjZ5UpOJIZhifSnE2",
+        "nivel": "2a",
+        "posicao": "solo",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            0.15,
+            6.85,
+            0.0
+          ],
+          [
+            6.0,
+            6.85,
+            0.0
+          ],
+          [
+            6.0,
+            0.15,
+            0.0
+          ],
+          [
+            0.15,
+            0.15,
+            0.0
+          ]
+        ],
+        "area": 39.195,
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "azimute": null,
+        "inclinacao": 180.0
+      },
+      {
+        "global_id": "33sOKhdxvKmw4N71oeMarT",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "elemento_id": "1q2DG$Zi9R0A03vtlIhjwR",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            0.15,
+            0.15,
+            2.8
+          ],
+          [
+            6.0,
+            0.15,
+            2.8
+          ],
+          [
+            6.0,
+            6.85,
+            2.8
+          ],
+          [
+            0.15,
+            6.85,
+            2.8
+          ]
+        ],
+        "area": 39.195,
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "azimute": null,
+        "inclinacao": 0.0
+      },
+      {
+        "global_id": "3ltwBrZ0bMhP5gAgW220Kt",
+        "ambiente_id": "0dqFX5Na5VbRxVyW1Tj4hZ",
+        "elemento_id": "1_p2nQjZ5UpOJIZhifSnE2",
+        "nivel": "2a",
+        "posicao": "solo",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            6.12,
+            4.6,
+            0.0
+          ],
+          [
+            9.85,
+            4.6,
+            0.0
+          ],
+          [
+            9.85,
+            0.15,
+            0.0
+          ],
+          [
+            6.12,
+            0.15,
+            0.0
+          ]
+        ],
+        "area": 16.5985,
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "azimute": null,
+        "inclinacao": 180.0
+      },
+      {
+        "global_id": "1fWirQ5KjH19hhFIzwdY80",
+        "ambiente_id": "0dqFX5Na5VbRxVyW1Tj4hZ",
+        "elemento_id": "1q2DG$Zi9R0A03vtlIhjwR",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            6.12,
+            0.15,
+            2.8
+          ],
+          [
+            9.85,
+            0.15,
+            2.8
+          ],
+          [
+            9.85,
+            4.6,
+            2.8
+          ],
+          [
+            6.12,
+            4.6,
+            2.8
+          ]
+        ],
+        "area": 16.5985,
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "azimute": null,
+        "inclinacao": 0.0
+      },
+      {
+        "global_id": "0Q9WAa9kjNmRM3fEHhEzcD",
+        "ambiente_id": "1qLoJhAODSEQkDZLnhnGZv",
+        "elemento_id": "1_p2nQjZ5UpOJIZhifSnE2",
+        "nivel": "2a",
+        "posicao": "solo",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            6.12,
+            6.85,
+            0.0
+          ],
+          [
+            9.85,
+            6.85,
+            0.0
+          ],
+          [
+            9.85,
+            4.72,
+            0.0
+          ],
+          [
+            6.12,
+            4.72,
+            0.0
+          ]
+        ],
+        "area": 7.9449,
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "azimute": null,
+        "inclinacao": 180.0
+      },
+      {
+        "global_id": "1lhRffge9SBB2Qj64KPcut",
+        "ambiente_id": "1qLoJhAODSEQkDZLnhnGZv",
+        "elemento_id": "1q2DG$Zi9R0A03vtlIhjwR",
+        "nivel": "2a",
+        "posicao": "externa",
+        "virtual": false,
+        "pai_id": null,
+        "correspondente_id": null,
+        "vertices": [
+          [
+            6.12,
+            4.72,
+            2.8
+          ],
+          [
+            9.85,
+            4.72,
+            2.8
+          ],
+          [
+            9.85,
+            6.85,
+            2.8
+          ],
+          [
+            6.12,
+            6.85,
+            2.8
+          ]
+        ],
+        "area": 7.9449,
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "azimute": null,
+        "inclinacao": 0.0
+      }
+    ],
+    "diagnostico": [
+      {
+        "nivel": "info",
+        "codigo": "ABSORTANCIA_AUSENTE",
+        "mensagem": "O IFC não informa a absortância solar de: Madeira, Concreto, Revestimento cerâmico, Argamassa de reboco, Alvenaria de tijolo cerâmico. Ela será necessária para as superfícies externas.",
+        "como_resolver": "Informe a absortância no inspetor (aba Parâmetros).",
+        "alvos": []
+      },
+      {
+        "nivel": "info",
+        "codigo": "MATERIAL_SEM_PROPRIEDADES",
+        "mensagem": "Materiais sem nenhuma propriedade térmica no IFC: Alumínio (caixilho).",
+        "como_resolver": null,
+        "alvos": []
+      }
+    ]
+  },
+  "termico": {
+    "zonas": [
+      {
+        "id": "Z1",
+        "nome": "Sala e cozinha",
+        "ambiente_id": "0cZajB0DfPYeBAW5lbHjJO",
+        "area_de_piso": 39.195,
+        "volume_ifc": 109.746,
+        "volume_calculado": 109.746,
+        "superficies_ids": [
+          "Z1-S1",
+          "Z1-S2",
+          "Z1-S3",
+          "Z1-S4",
+          "Z1-S5",
+          "Z1-S6",
+          "Z1-S7",
+          "Z1-S8"
+        ]
+      },
+      {
+        "id": "Z2",
+        "nome": "Quarto",
+        "ambiente_id": "0dqFX5Na5VbRxVyW1Tj4hZ",
+        "area_de_piso": 16.5985,
+        "volume_ifc": 46.4758,
+        "volume_calculado": 46.4758,
+        "superficies_ids": [
+          "Z2-S1",
+          "Z2-S2",
+          "Z2-S3",
+          "Z2-S4",
+          "Z2-S5",
+          "Z2-S6"
+        ]
+      },
+      {
+        "id": "Z3",
+        "nome": "Banheiro",
+        "ambiente_id": "1qLoJhAODSEQkDZLnhnGZv",
+        "area_de_piso": 7.9449,
+        "volume_ifc": 22.24572,
+        "volume_calculado": 22.2457,
+        "superficies_ids": [
+          "Z3-S1",
+          "Z3-S2",
+          "Z3-S3",
+          "Z3-S4",
+          "Z3-S5",
+          "Z3-S6"
+        ]
+      }
+    ],
+    "superficies": [
+      {
+        "id": "Z1-S1",
+        "zona_id": "Z1",
+        "tipo": "parede",
+        "condicao": "exterior",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "2pI$ffWzbLfAi1XirhtfxF",
+        "fronteira_id": "0bzNRjdaDG$Qj9bqq4v2mV",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "vertices": [
+          [
+            0.15,
+            0.15,
+            0.0
+          ],
+          [
+            6.0,
+            0.15,
+            0.0
+          ],
+          [
+            6.0,
+            0.15,
+            2.8
+          ],
+          [
+            0.15,
+            0.15,
+            2.8
+          ]
+        ],
+        "area_bruta": 16.38,
+        "area_liquida": 12.69,
+        "azimute": 180.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": [
+          "Z1-S1-A1",
+          "Z1-S1-A2"
+        ]
+      },
+      {
+        "id": "Z1-S2",
+        "zona_id": "Z1",
+        "tipo": "parede",
+        "condicao": "exterior",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "1Ccr9izyPVkeDqWbK8_T3W",
+        "fronteira_id": "3sew5nbUDK_OoD2MVkukeY",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "vertices": [
+          [
+            0.15,
+            0.15,
+            2.8
+          ],
+          [
+            0.15,
+            6.85,
+            2.8
+          ],
+          [
+            0.15,
+            6.85,
+            0.0
+          ],
+          [
+            0.15,
+            0.15,
+            0.0
+          ]
+        ],
+        "area_bruta": 18.76,
+        "area_liquida": 16.96,
+        "azimute": 270.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": [
+          "Z1-S2-A1"
+        ]
+      },
+      {
+        "id": "Z1-S3",
+        "zona_id": "Z1",
+        "tipo": "parede",
+        "condicao": "exterior",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "2h8nI6mB9QexGaFosubl0x",
+        "fronteira_id": "2fVR8o5P9LxOB1QWJJ2ZcC",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "vertices": [
+          [
+            0.15,
+            6.85,
+            2.8
+          ],
+          [
+            6.0,
+            6.85,
+            2.8
+          ],
+          [
+            6.0,
+            6.85,
+            0.0
+          ],
+          [
+            0.15,
+            6.85,
+            0.0
+          ]
+        ],
+        "area_bruta": 16.38,
+        "area_liquida": 13.98,
+        "azimute": 0.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": [
+          "Z1-S3-A1"
+        ]
+      },
+      {
+        "id": "Z1-S4",
+        "zona_id": "Z1",
+        "tipo": "parede",
+        "condicao": "zona",
+        "zona_vizinha_id": "Z2",
+        "par_id": "Z2-S4",
+        "elemento_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "fronteira_id": "18MWR1Ya1HGBRjfup5tfS8",
+        "construcao_id": "parede-interna-de-alvenaria-rebocada-12-cm",
+        "vertices": [
+          [
+            6.0,
+            0.15,
+            0.0
+          ],
+          [
+            6.0,
+            4.6,
+            0.0
+          ],
+          [
+            6.0,
+            4.6,
+            2.8
+          ],
+          [
+            6.0,
+            0.15,
+            2.8
+          ]
+        ],
+        "area_bruta": 12.46,
+        "area_liquida": 10.78,
+        "azimute": 90.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": [
+          "Z1-S4-A1"
+        ]
+      },
+      {
+        "id": "Z1-S5",
+        "zona_id": "Z1",
+        "tipo": "parede",
+        "condicao": "adiabatica",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "fronteira_id": "2t8Wx96qTG5Pty8zjB2ltM",
+        "construcao_id": "parede-interna-de-alvenaria-rebocada-12-cm",
+        "vertices": [
+          [
+            6.0,
+            4.6,
+            0.0
+          ],
+          [
+            6.0,
+            4.72,
+            0.0
+          ],
+          [
+            6.0,
+            4.72,
+            2.8
+          ],
+          [
+            6.0,
+            4.6,
+            2.8
+          ]
+        ],
+        "area_bruta": 0.336,
+        "area_liquida": 0.336,
+        "azimute": 90.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": []
+      },
+      {
+        "id": "Z1-S6",
+        "zona_id": "Z1",
+        "tipo": "parede",
+        "condicao": "zona",
+        "zona_vizinha_id": "Z3",
+        "par_id": "Z3-S4",
+        "elemento_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "fronteira_id": "2c53OHGCnLUuTyZaA7jUEX",
+        "construcao_id": "parede-interna-de-alvenaria-rebocada-12-cm",
+        "vertices": [
+          [
+            6.0,
+            4.72,
+            0.0
+          ],
+          [
+            6.0,
+            6.85,
+            0.0
+          ],
+          [
+            6.0,
+            6.85,
+            2.8
+          ],
+          [
+            6.0,
+            4.72,
+            2.8
+          ]
+        ],
+        "area_bruta": 5.964,
+        "area_liquida": 4.494,
+        "azimute": 90.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": [
+          "Z1-S6-A1"
+        ]
+      },
+      {
+        "id": "Z1-S7",
+        "zona_id": "Z1",
+        "tipo": "piso",
+        "condicao": "solo",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "1_p2nQjZ5UpOJIZhifSnE2",
+        "fronteira_id": "0ristEF5fPy9dIi8zom$Jl",
+        "construcao_id": "piso-de-concreto-com-revestimento-ceramico-11-cm",
+        "vertices": [
+          [
+            0.15,
+            6.85,
+            0.0
+          ],
+          [
+            6.0,
+            6.85,
+            0.0
+          ],
+          [
+            6.0,
+            0.15,
+            0.0
+          ],
+          [
+            0.15,
+            0.15,
+            0.0
+          ]
+        ],
+        "area_bruta": 39.195,
+        "area_liquida": 39.195,
+        "azimute": null,
+        "inclinacao": 180.0,
+        "aberturas_ids": []
+      },
+      {
+        "id": "Z1-S8",
+        "zona_id": "Z1",
+        "tipo": "cobertura",
+        "condicao": "exterior",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "1q2DG$Zi9R0A03vtlIhjwR",
+        "fronteira_id": "33sOKhdxvKmw4N71oeMarT",
+        "construcao_id": "laje-de-cobertura-de-concreto-rebocada-12-5-cm",
+        "vertices": [
+          [
+            0.15,
+            0.15,
+            2.8
+          ],
+          [
+            6.0,
+            0.15,
+            2.8
+          ],
+          [
+            6.0,
+            6.85,
+            2.8
+          ],
+          [
+            0.15,
+            6.85,
+            2.8
+          ]
+        ],
+        "area_bruta": 39.195,
+        "area_liquida": 39.195,
+        "azimute": null,
+        "inclinacao": 0.0,
+        "aberturas_ids": []
+      },
+      {
+        "id": "Z2-S1",
+        "zona_id": "Z2",
+        "tipo": "parede",
+        "condicao": "exterior",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "2pI$ffWzbLfAi1XirhtfxF",
+        "fronteira_id": "0betNRgpzSmQi2OPQQn7t6",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "vertices": [
+          [
+            6.12,
+            0.15,
+            0.0
+          ],
+          [
+            9.85,
+            0.15,
+            0.0
+          ],
+          [
+            9.85,
+            0.15,
+            2.8
+          ],
+          [
+            6.12,
+            0.15,
+            2.8
+          ]
+        ],
+        "area_bruta": 10.444,
+        "area_liquida": 10.444,
+        "azimute": 180.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": []
+      },
+      {
+        "id": "Z2-S2",
+        "zona_id": "Z2",
+        "tipo": "parede",
+        "condicao": "exterior",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "1$bzMErJ5Nbg0DgiiT3qKx",
+        "fronteira_id": "0C4OVOrGjSze3fYTzgayCE",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "vertices": [
+          [
+            9.85,
+            0.15,
+            0.0
+          ],
+          [
+            9.85,
+            4.6,
+            0.0
+          ],
+          [
+            9.85,
+            4.6,
+            2.8
+          ],
+          [
+            9.85,
+            0.15,
+            2.8
+          ]
+        ],
+        "area_bruta": 12.46,
+        "area_liquida": 10.66,
+        "azimute": 90.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": [
+          "Z2-S2-A1"
+        ]
+      },
+      {
+        "id": "Z2-S3",
+        "zona_id": "Z2",
+        "tipo": "parede",
+        "condicao": "zona",
+        "zona_vizinha_id": "Z3",
+        "par_id": "Z3-S1",
+        "elemento_id": "2gTZsfzt1GrvOukXfbuscp",
+        "fronteira_id": "2gJK8G8I5Mwh_iYr5ZafPW",
+        "construcao_id": "parede-interna-de-alvenaria-rebocada-12-cm",
+        "vertices": [
+          [
+            6.12,
+            4.6,
+            2.8
+          ],
+          [
+            9.85,
+            4.6,
+            2.8
+          ],
+          [
+            9.85,
+            4.6,
+            0.0
+          ],
+          [
+            6.12,
+            4.6,
+            0.0
+          ]
+        ],
+        "area_bruta": 10.444,
+        "area_liquida": 10.444,
+        "azimute": 0.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": []
+      },
+      {
+        "id": "Z2-S4",
+        "zona_id": "Z2",
+        "tipo": "parede",
+        "condicao": "zona",
+        "zona_vizinha_id": "Z1",
+        "par_id": "Z1-S4",
+        "elemento_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "fronteira_id": "0T3yyNf$9JhuO83lVKSBlA",
+        "construcao_id": "parede-interna-de-alvenaria-rebocada-12-cm",
+        "vertices": [
+          [
+            6.12,
+            0.15,
+            2.8
+          ],
+          [
+            6.12,
+            4.6,
+            2.8
+          ],
+          [
+            6.12,
+            4.6,
+            0.0
+          ],
+          [
+            6.12,
+            0.15,
+            0.0
+          ]
+        ],
+        "area_bruta": 12.46,
+        "area_liquida": 10.78,
+        "azimute": 270.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": [
+          "Z2-S4-A1"
+        ]
+      },
+      {
+        "id": "Z2-S5",
+        "zona_id": "Z2",
+        "tipo": "piso",
+        "condicao": "solo",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "1_p2nQjZ5UpOJIZhifSnE2",
+        "fronteira_id": "3ltwBrZ0bMhP5gAgW220Kt",
+        "construcao_id": "piso-de-concreto-com-revestimento-ceramico-11-cm",
+        "vertices": [
+          [
+            6.12,
+            4.6,
+            0.0
+          ],
+          [
+            9.85,
+            4.6,
+            0.0
+          ],
+          [
+            9.85,
+            0.15,
+            0.0
+          ],
+          [
+            6.12,
+            0.15,
+            0.0
+          ]
+        ],
+        "area_bruta": 16.5985,
+        "area_liquida": 16.5985,
+        "azimute": null,
+        "inclinacao": 180.0,
+        "aberturas_ids": []
+      },
+      {
+        "id": "Z2-S6",
+        "zona_id": "Z2",
+        "tipo": "cobertura",
+        "condicao": "exterior",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "1q2DG$Zi9R0A03vtlIhjwR",
+        "fronteira_id": "1fWirQ5KjH19hhFIzwdY80",
+        "construcao_id": "laje-de-cobertura-de-concreto-rebocada-12-5-cm",
+        "vertices": [
+          [
+            6.12,
+            0.15,
+            2.8
+          ],
+          [
+            9.85,
+            0.15,
+            2.8
+          ],
+          [
+            9.85,
+            4.6,
+            2.8
+          ],
+          [
+            6.12,
+            4.6,
+            2.8
+          ]
+        ],
+        "area_bruta": 16.5985,
+        "area_liquida": 16.5985,
+        "azimute": null,
+        "inclinacao": 0.0,
+        "aberturas_ids": []
+      },
+      {
+        "id": "Z3-S1",
+        "zona_id": "Z3",
+        "tipo": "parede",
+        "condicao": "zona",
+        "zona_vizinha_id": "Z2",
+        "par_id": "Z2-S3",
+        "elemento_id": "2gTZsfzt1GrvOukXfbuscp",
+        "fronteira_id": "3ZRS3Jr0PRNBu$ttbh_7VL",
+        "construcao_id": "parede-interna-de-alvenaria-rebocada-12-cm",
+        "vertices": [
+          [
+            6.12,
+            4.72,
+            0.0
+          ],
+          [
+            9.85,
+            4.72,
+            0.0
+          ],
+          [
+            9.85,
+            4.72,
+            2.8
+          ],
+          [
+            6.12,
+            4.72,
+            2.8
+          ]
+        ],
+        "area_bruta": 10.444,
+        "area_liquida": 10.444,
+        "azimute": 180.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": []
+      },
+      {
+        "id": "Z3-S2",
+        "zona_id": "Z3",
+        "tipo": "parede",
+        "condicao": "exterior",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "1$bzMErJ5Nbg0DgiiT3qKx",
+        "fronteira_id": "18Bj0GgIfHxxoVefRUixTI",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "vertices": [
+          [
+            9.85,
+            4.72,
+            0.0
+          ],
+          [
+            9.85,
+            6.85,
+            0.0
+          ],
+          [
+            9.85,
+            6.85,
+            2.8
+          ],
+          [
+            9.85,
+            4.72,
+            2.8
+          ]
+        ],
+        "area_bruta": 5.964,
+        "area_liquida": 5.964,
+        "azimute": 90.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": []
+      },
+      {
+        "id": "Z3-S3",
+        "zona_id": "Z3",
+        "tipo": "parede",
+        "condicao": "exterior",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "2h8nI6mB9QexGaFosubl0x",
+        "fronteira_id": "1m$MsTPxbUsuYgwxOPGJVD",
+        "construcao_id": "parede-externa-de-alvenaria-rebocada-15-cm",
+        "vertices": [
+          [
+            6.12,
+            6.85,
+            2.8
+          ],
+          [
+            9.85,
+            6.85,
+            2.8
+          ],
+          [
+            9.85,
+            6.85,
+            0.0
+          ],
+          [
+            6.12,
+            6.85,
+            0.0
+          ]
+        ],
+        "area_bruta": 10.444,
+        "area_liquida": 10.084,
+        "azimute": 0.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": [
+          "Z3-S3-A1"
+        ]
+      },
+      {
+        "id": "Z3-S4",
+        "zona_id": "Z3",
+        "tipo": "parede",
+        "condicao": "zona",
+        "zona_vizinha_id": "Z1",
+        "par_id": "Z1-S6",
+        "elemento_id": "0uiEKYUJTGIRvZPm4FkSnR",
+        "fronteira_id": "3qYJhsOG5VFh_Ag3SZPj_A",
+        "construcao_id": "parede-interna-de-alvenaria-rebocada-12-cm",
+        "vertices": [
+          [
+            6.12,
+            4.72,
+            2.8
+          ],
+          [
+            6.12,
+            6.85,
+            2.8
+          ],
+          [
+            6.12,
+            6.85,
+            0.0
+          ],
+          [
+            6.12,
+            4.72,
+            0.0
+          ]
+        ],
+        "area_bruta": 5.964,
+        "area_liquida": 4.494,
+        "azimute": 270.0,
+        "inclinacao": 90.0,
+        "aberturas_ids": [
+          "Z3-S4-A1"
+        ]
+      },
+      {
+        "id": "Z3-S5",
+        "zona_id": "Z3",
+        "tipo": "piso",
+        "condicao": "solo",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "1_p2nQjZ5UpOJIZhifSnE2",
+        "fronteira_id": "0Q9WAa9kjNmRM3fEHhEzcD",
+        "construcao_id": "piso-de-concreto-com-revestimento-ceramico-11-cm",
+        "vertices": [
+          [
+            6.12,
+            6.85,
+            0.0
+          ],
+          [
+            9.85,
+            6.85,
+            0.0
+          ],
+          [
+            9.85,
+            4.72,
+            0.0
+          ],
+          [
+            6.12,
+            4.72,
+            0.0
+          ]
+        ],
+        "area_bruta": 7.9449,
+        "area_liquida": 7.9449,
+        "azimute": null,
+        "inclinacao": 180.0,
+        "aberturas_ids": []
+      },
+      {
+        "id": "Z3-S6",
+        "zona_id": "Z3",
+        "tipo": "cobertura",
+        "condicao": "exterior",
+        "zona_vizinha_id": null,
+        "par_id": null,
+        "elemento_id": "1q2DG$Zi9R0A03vtlIhjwR",
+        "fronteira_id": "1lhRffge9SBB2Qj64KPcut",
+        "construcao_id": "laje-de-cobertura-de-concreto-rebocada-12-5-cm",
+        "vertices": [
+          [
+            6.12,
+            4.72,
+            2.8
+          ],
+          [
+            9.85,
+            4.72,
+            2.8
+          ],
+          [
+            9.85,
+            6.85,
+            2.8
+          ],
+          [
+            6.12,
+            6.85,
+            2.8
+          ]
+        ],
+        "area_bruta": 7.9449,
+        "area_liquida": 7.9449,
+        "azimute": null,
+        "inclinacao": 0.0,
+        "aberturas_ids": []
+      }
+    ],
+    "aberturas": [
+      {
+        "id": "Z1-S1-A1",
+        "tipo": "porta",
+        "superficie_id": "Z1-S1",
+        "elemento_id": "0eV9oBLD9MtviYHQUjiM4M",
+        "fronteira_id": "3lAvEktxnTiRhElT5zQLnq",
+        "construcao_id": "porta-de-madeira-3-5-cm",
+        "vertices": [
+          [
+            1.0,
+            0.15,
+            0.0
+          ],
+          [
+            1.9,
+            0.15,
+            0.0
+          ],
+          [
+            1.9,
+            0.15,
+            2.1
+          ],
+          [
+            1.0,
+            0.15,
+            2.1
+          ]
+        ],
+        "area": 1.89
+      },
+      {
+        "id": "Z1-S1-A2",
+        "tipo": "janela",
+        "superficie_id": "Z1-S1",
+        "elemento_id": "0yPaCqE6jL0BmWS90erBJM",
+        "fronteira_id": "2$cSfWERTPcut74DAf6CH2",
+        "construcao_id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "vertices": [
+          [
+            3.5,
+            0.15,
+            1.0
+          ],
+          [
+            5.0,
+            0.15,
+            1.0
+          ],
+          [
+            5.0,
+            0.15,
+            2.2
+          ],
+          [
+            3.5,
+            0.15,
+            2.2
+          ]
+        ],
+        "area": 1.8
+      },
+      {
+        "id": "Z1-S2-A1",
+        "tipo": "janela",
+        "superficie_id": "Z1-S2",
+        "elemento_id": "3TfK_sJ5DGs8k0aY8v8vDd",
+        "fronteira_id": "18u2iMJp1U_x7_MmeJHD9S",
+        "construcao_id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "vertices": [
+          [
+            0.15,
+            2.5,
+            2.2
+          ],
+          [
+            0.15,
+            4.0,
+            2.2
+          ],
+          [
+            0.15,
+            4.0,
+            1.0
+          ],
+          [
+            0.15,
+            2.5,
+            1.0
+          ]
+        ],
+        "area": 1.8
+      },
+      {
+        "id": "Z1-S3-A1",
+        "tipo": "janela",
+        "superficie_id": "Z1-S3",
+        "elemento_id": "1X$pOlEMbSB9UHwLxd6XeW",
+        "fronteira_id": "38fflKHBfM8eDdjiCM0Q6Z",
+        "construcao_id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "vertices": [
+          [
+            2.0,
+            6.85,
+            2.2
+          ],
+          [
+            4.0,
+            6.85,
+            2.2
+          ],
+          [
+            4.0,
+            6.85,
+            1.0
+          ],
+          [
+            2.0,
+            6.85,
+            1.0
+          ]
+        ],
+        "area": 2.4
+      },
+      {
+        "id": "Z1-S4-A1",
+        "tipo": "porta",
+        "superficie_id": "Z1-S4",
+        "elemento_id": "0xZJ2NZuzO_x9mfNqEszaF",
+        "fronteira_id": "0FOATb9XLSYQUElMsHyM$V",
+        "construcao_id": "porta-de-madeira-3-5-cm",
+        "vertices": [
+          [
+            6.0,
+            1.0,
+            0.0
+          ],
+          [
+            6.0,
+            1.8,
+            0.0
+          ],
+          [
+            6.0,
+            1.8,
+            2.1
+          ],
+          [
+            6.0,
+            1.0,
+            2.1
+          ]
+        ],
+        "area": 1.68
+      },
+      {
+        "id": "Z1-S6-A1",
+        "tipo": "porta",
+        "superficie_id": "Z1-S6",
+        "elemento_id": "1TgXJObAnTd8agfAyLPYDg",
+        "fronteira_id": "0IDc4syzPGhQ6o$KSyY0IQ",
+        "construcao_id": "porta-de-madeira-3-5-cm",
+        "vertices": [
+          [
+            6.0,
+            5.2,
+            0.0
+          ],
+          [
+            6.0,
+            5.9,
+            0.0
+          ],
+          [
+            6.0,
+            5.9,
+            2.1
+          ],
+          [
+            6.0,
+            5.2,
+            2.1
+          ]
+        ],
+        "area": 1.47
+      },
+      {
+        "id": "Z2-S2-A1",
+        "tipo": "janela",
+        "superficie_id": "Z2-S2",
+        "elemento_id": "1a_dGFZ8fQmxzb7AmI3y2X",
+        "fronteira_id": "0qZH$Wl91Gi8J5QeMU4YfJ",
+        "construcao_id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "vertices": [
+          [
+            9.85,
+            1.5,
+            1.0
+          ],
+          [
+            9.85,
+            3.0,
+            1.0
+          ],
+          [
+            9.85,
+            3.0,
+            2.2
+          ],
+          [
+            9.85,
+            1.5,
+            2.2
+          ]
+        ],
+        "area": 1.8
+      },
+      {
+        "id": "Z2-S4-A1",
+        "tipo": "porta",
+        "superficie_id": "Z2-S4",
+        "elemento_id": "0xZJ2NZuzO_x9mfNqEszaF",
+        "fronteira_id": "2rF1Kf_7rQc8LLJ$5uLRp$",
+        "construcao_id": "porta-de-madeira-3-5-cm",
+        "vertices": [
+          [
+            6.12,
+            1.0,
+            2.1
+          ],
+          [
+            6.12,
+            1.8,
+            2.1
+          ],
+          [
+            6.12,
+            1.8,
+            0.0
+          ],
+          [
+            6.12,
+            1.0,
+            0.0
+          ]
+        ],
+        "area": 1.68
+      },
+      {
+        "id": "Z3-S3-A1",
+        "tipo": "janela",
+        "superficie_id": "Z3-S3",
+        "elemento_id": "1KKQh6OFbGAx9zxXJsVmrn",
+        "fronteira_id": "2A4BQKQgvMBvLSjp694Gp7",
+        "construcao_id": "janela-de-aluminio-com-vidro-simples-3-mm",
+        "vertices": [
+          [
+            7.5,
+            6.85,
+            2.2
+          ],
+          [
+            8.1,
+            6.85,
+            2.2
+          ],
+          [
+            8.1,
+            6.85,
+            1.6
+          ],
+          [
+            7.5,
+            6.85,
+            1.6
+          ]
+        ],
+        "area": 0.36
+      },
+      {
+        "id": "Z3-S4-A1",
+        "tipo": "porta",
+        "superficie_id": "Z3-S4",
+        "elemento_id": "1TgXJObAnTd8agfAyLPYDg",
+        "fronteira_id": "2H$8UY0bXUHOpQMhgEhDhd",
+        "construcao_id": "porta-de-madeira-3-5-cm",
+        "vertices": [
+          [
+            6.12,
+            5.2,
+            2.1
+          ],
+          [
+            6.12,
+            5.9,
+            2.1
+          ],
+          [
+            6.12,
+            5.9,
+            0.0
+          ],
+          [
+            6.12,
+            5.2,
+            0.0
+          ]
+        ],
+        "area": 1.47
+      }
+    ],
+    "suposicoes": [
+      "As superfícies ficam na face interna dos elementos (posição das fronteiras de espaço do IFC); a espessura das paredes não entra no volume das zonas.",
+      "Superfície Z1-S5 (Parede interna sala / quarto e banheiro): fronteira interna sem ambiente do outro lado (tipo 2b); tratada como adiabática."
+    ],
+    "checagens": [
+      {
+        "codigo": "VOLUME",
+        "nome": "Volume da zona confere com o IfcSpace (tolerância de 1%)",
+        "ok": true,
+        "detalhe": "Sala e cozinha: 109.75 m³ × 109.75 m³ do IFC; Quarto: 46.48 m³ × 46.48 m³ do IFC; Banheiro: 22.25 m³ × 22.25 m³ do IFC",
+        "alvos": []
+      },
+      {
+        "codigo": "FECHADA",
+        "nome": "Zonas fechadas (toda aresta é compartilhada por duas superfícies)",
+        "ok": true,
+        "detalhe": "Todas as zonas estão fechadas.",
+        "alvos": []
+      },
+      {
+        "codigo": "NORMAIS",
+        "nome": "Normais para fora (vértices anti-horários vistos de fora da zona)",
+        "ok": true,
+        "detalhe": "O volume calculado com as normais é positivo em todas as zonas.",
+        "alvos": []
+      },
+      {
+        "codigo": "PARES",
+        "nome": "Paredes entre zonas em pares (mesmo elemento, mesma área, normais opostas)",
+        "ok": true,
+        "detalhe": "3 par(es) conferido(s).",
+        "alvos": []
+      },
+      {
+        "codigo": "ABERTURAS",
+        "nome": "Aberturas coplanares e contidas na superfície-mãe",
+        "ok": true,
+        "detalhe": "10 abertura(s) conferida(s).",
+        "alvos": []
+      }
+    ],
+    "prontidao": [
+      {
+        "codigo": "MODELO",
+        "nome": "Modelo IFC carregado",
+        "estado": "ok",
+        "detalhe": "residencia_exemplo.ifc (IFC4): 16 elementos."
+      },
+      {
+        "codigo": "AMBIENTES",
+        "nome": "Ambientes (IfcSpace)",
+        "estado": "ok",
+        "detalhe": "3 ambiente(s)."
+      },
+      {
+        "codigo": "FRONTEIRAS",
+        "nome": "Fronteiras de espaço de 2º nível",
+        "estado": "ok",
+        "detalhe": "30 fronteira(s)."
+      },
+      {
+        "codigo": "GEOMETRIA",
+        "nome": "Checagens do modelo térmico",
+        "estado": "ok",
+        "detalhe": "Todas as checagens passaram."
+      },
+      {
+        "codigo": "MATERIAIS",
+        "nome": "Propriedades térmicas dos materiais (no IFC)",
+        "estado": "ok",
+        "detalhe": "Condutividade, densidade e calor específico presentes nas camadas."
+      },
+      {
+        "codigo": "OPERACAO",
+        "nome": "Ocupação, iluminação, equipamentos e setpoints",
+        "estado": "nao_implementado",
+        "detalhe": "O IFC não traz esses dados; o formulário para informá-los ainda não foi implementado."
+      },
+      {
+        "codigo": "EPJSON",
+        "nome": "Conversão do modelo térmico para epJSON",
+        "estado": "nao_implementado",
+        "detalhe": "Ainda não implementada. Por isso a simulação deste IFC no EnergyPlus não está disponível."
+      },
+      {
+        "codigo": "SIMULACAO",
+        "nome": "Simulação deste modelo no EnergyPlus",
+        "estado": "nao_implementado",
+        "detalhe": "Disponível hoje apenas para o exemplo que acompanha o EnergyPlus (painel “Simulação”)."
+      }
+    ]
+  }
+}

@@ -5,6 +5,7 @@ Não rodam no GitHub (lá não há EnergyPlus instalado).
 """
 
 import json
+import re
 
 import pytest
 
@@ -57,3 +58,41 @@ def test_exemplo_roda_de_ponta_a_ponta(motor, tmp_path):
     assert r["area_condicionada_m2"] == pytest.approx(185.83, abs=0.01)
     # A soma dos usos finais tem de fechar com o total.
     assert sum(i["kwh"] for i in r["itens"]) == pytest.approx(r["total_kwh"], abs=0.1)
+
+
+def _objeto_do_dataset(arquivo, nome):
+    """Campos numéricos do objeto ``nome`` em um arquivo .idf da pasta DataSets."""
+    texto = arquivo.read_text(encoding="latin-1")
+    # O nome também aparece em "Construction"; queremos o objeto do material.
+    achado = re.search(rf"(?:Material|WindowMaterial:Glazing),\s*\n\s*{re.escape(nome)},", texto)
+    bloco = texto[achado.end() : texto.index(";", achado.end())]
+    campos = [linha.split("!")[0].strip(" ,") for linha in bloco.splitlines()]
+    return [float(c) for c in campos if c.replace(".", "", 1).replace("-", "", 1).isdigit()]
+
+
+def test_biblioteca_confere_com_os_datasets_do_energyplus(motor):
+    """Nenhum valor da biblioteca é inventado: todos estão nos arquivos citados."""
+    from app.servicos.modelos import ler_biblioteca
+
+    pasta = motor.pasta / "DataSets"
+    for m in ler_biblioteca()["materiais"]:
+        if m["fonte"] == "ashrae":
+            _esp, cond, dens, calor = _objeto_do_dataset(
+                pasta / "ASHRAE_2005_HOF_Materials.idf", m["nome_na_fonte"]
+            )
+            assert (m["condutividade"], m["densidade"], m["calor_especifico"]) == (
+                cond,
+                dens,
+                calor,
+            ), m["nome"]
+        elif m["fonte"] == "vidros":
+            v = _objeto_do_dataset(pasta / "WindowGlassMaterials.idf", m["nome_na_fonte"])
+            assert [
+                m["espessura"],
+                m["transmitancia_solar"],
+                m["refletancia_solar"],
+                m["transmitancia_visivel"],
+                m["refletancia_visivel"],
+                m["emissividade"],
+                m["condutividade"],
+            ] == [v[0], v[1], v[2], v[4], v[5], v[8], v[10]], m["nome"]
