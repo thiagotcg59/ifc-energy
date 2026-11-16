@@ -1,0 +1,72 @@
+{
+  "descricao": "Casos de resposta conhecida, calculados à mão, usados pelos testes do backend (Python) e do front-end (TypeScript). Os valores de rsi/rse aqui são apenas entradas dos casos de teste.",
+  "tolerancia_relativa": 1e-6,
+  "casos": [
+    {
+      "nome": "parede externa do exemplo: argamassa 2,5 + tijolo 10 + argamassa 2,5 cm",
+      "camadas": [
+        { "espessura": 0.025, "condutividade": 0.72, "densidade": 1856, "calor_especifico": 840 },
+        { "espessura": 0.1, "condutividade": 0.89, "densidade": 1920, "calor_especifico": 790 },
+        { "espessura": 0.025, "condutividade": 0.72, "densidade": 1856, "calor_especifico": 840 }
+      ],
+      "rsi": 0.13,
+      "rse": 0.04,
+      "conta": "R = 0,025/0,72 + 0,1/0,89 + 0,025/0,72 ; U = 1/(0,13 + R + 0,04) ; CT = 2·(0,025·1856·840) + 0,1·1920·790",
+      "esperado": {
+        "resistencias": [0.034722222222222224, 0.11235955056179775, 0.034722222222222224],
+        "resistencia_camadas": 0.1818039950062422,
+        "resistencia_total": 0.3518039950062422,
+        "transmitancia": 2.842491882673907,
+        "capacidade_termica": 229632.0
+      }
+    },
+    {
+      "nome": "uma camada simples: 10 cm com condutividade 1 -> R = 0,1 ; sem resistências superficiais U = 10",
+      "camadas": [
+        { "espessura": 0.1, "condutividade": 1.0, "densidade": 1000, "calor_especifico": 1000 }
+      ],
+      "rsi": 0,
+      "rse": 0,
+      "conta": "R = 0,1/1 = 0,1 ; U = 1/0,1 = 10 ; CT = 0,1·1000·1000 = 100000",
+      "esperado": {
+        "resistencias": [0.1],
+        "resistencia_camadas": 0.1,
+        "resistencia_total": 0.1,
+        "transmitancia": 10.0,
+        "capacidade_termica": 100000.0
+      }
+    },
+    {
+      "nome": "camada sem condutividade: nada é calculado, só a pendência",
+      "camadas": [
+        { "espessura": 0.1, "condutividade": null, "densidade": 1000, "calor_especifico": 1000 }
+      ],
+      "rsi": 0.13,
+      "rse": 0.04,
+      "conta": "sem condutividade não há resistência",
+      "esperado": {
+        "resistencias": [null],
+        "resistencia_camadas": null,
+        "resistencia_total": null,
+        "transmitancia": null,
+        "capacidade_termica": 100000.0
+      }
+    },
+    {
+      "nome": "sem resistências superficiais informadas: R das camadas existe, U não",
+      "camadas": [
+        { "espessura": 0.2, "condutividade": 0.5, "densidade": null, "calor_especifico": null }
+      ],
+      "rsi": null,
+      "rse": null,
+      "conta": "R = 0,2/0,5 = 0,4",
+      "esperado": {
+        "resistencias": [0.4],
+        "resistencia_camadas": 0.4,
+        "resistencia_total": null,
+        "transmitancia": null,
+        "capacidade_termica": null
+      }
+    }
+  ]
+}

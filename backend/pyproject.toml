@@ -5,8 +5,10 @@ description = "Backend do ifc-energy: IFC -> modelo térmico -> EnergyPlus"
 requires-python = ">=3.11,<3.12"
 dependencies = [
     "fastapi>=0.163.1",
+    "ifcopenshell>=0.9.0.post1",
     "jsonschema>=4.26.0",
     "pydantic-settings>=2.16.3",
+    "python-multipart>=0.0.33",
     "uvicorn[standard]>=0.54.0",
 ]
 
@@ -34,3 +36,7 @@ dev = [
     "pytest>=9.2.0",
     "ruff>=0.17.5",
 ]
+
+[tool.ruff.lint.per-file-ignores]
+# Tabelas de dados da casa ficam mais legíveis em linhas longas.
+"ferramentas/*" = ["E501"]

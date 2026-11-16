@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------
 
 # Dados locais (uploads, execuções, banco SQLite)
-dados/
+/dados/
 *.sqlite
 *.sqlite3
 *.db
