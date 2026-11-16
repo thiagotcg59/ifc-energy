@@ -124,6 +124,10 @@ try {
 } finally {
   ws.close()
   navegador.kill()
-  await dormir(500)
-  rmSync(perfil, { recursive: true, force: true, maxRetries: 5 })
+  await dormir(1500)
+  try {
+    rmSync(perfil, { recursive: true, force: true, maxRetries: 10, retryDelay: 300 })
+  } catch {
+    // O Edge ainda segurava a pasta temporária; o Windows a limpa depois.
+  }
 }
