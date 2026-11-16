@@ -90,3 +90,24 @@ def test_biblioteca_traz_fontes_e_estado_de_aprovacao(cliente):
             assert material["fonte"] in biblioteca["fontes"]
     for convencao in biblioteca["resistencias_superficiais"].values():
         assert convencao["aprovado"] is False and convencao["fonte"]
+
+
+def test_dados_de_uso_dos_ambientes_sao_persistidos_com_os_ajustes(cliente):
+    modelo = cliente.post("/api/v1/modelos/exemplo").json()
+    ambiente = modelo["bim"]["ambientes"][0]["global_id"]
+    url = f"/api/v1/modelos/{modelo['id']}/ajustes"
+    uso = {"pessoas": {"valor": 2, "unidade": "pessoas", "origem": "manual"}}
+
+    assert cliente.get(url).json()["operacao"] == {}
+    assert cliente.put(url, json={"versao": 1, "operacao": {ambiente: uso}}).status_code == 200
+
+    salvo = cliente.get(url).json()["operacao"][ambiente]["pessoas"]
+    assert salvo["valor"] == 2 and salvo["origem"] == "manual"
+
+
+def test_ajustes_gravados_antes_do_formulario_de_uso_continuam_abrindo(cliente):
+    modelo_id = cliente.post("/api/v1/modelos/exemplo").json()["id"]
+    url = f"/api/v1/modelos/{modelo_id}/ajustes"
+
+    assert cliente.put(url, json={"versao": 1, "materiais": {}}).status_code == 200
+    assert cliente.get(url).json()["operacao"] == {}

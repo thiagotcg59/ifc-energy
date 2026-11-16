@@ -343,9 +343,9 @@ def _prontidao(bim: ModeloBim, checagens: list[Checagem]) -> list[EtapaProntidao
         EtapaProntidao(
             codigo="OPERACAO",
             nome="Ocupação, iluminação, equipamentos e setpoints",
-            estado="nao_implementado",
-            detalhe="O IFC não traz esses dados; o formulário para informá-los ainda não foi"
-            " implementado.",
+            estado="pendente",
+            detalhe="O IFC não traz esses dados. Informe-os no painel “Uso e operação”, ambiente"
+            " por ambiente.",
         ),
         EtapaProntidao(
             codigo="EPJSON",

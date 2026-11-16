@@ -18,7 +18,7 @@ from app.dominio.modelo_bim import Material, ModeloBim, Valor, ler_modelo_bim
 from app.dominio.modelo_termico import ModeloTermico, montar_modelo_termico
 
 log = logging.getLogger(__name__)
-VERSAO_DA_ANALISE = 1
+VERSAO_DA_ANALISE = 2
 BIBLIOTECA = Path(__file__).resolve().parents[1] / "dominio" / "dados" / "biblioteca_materiais.json"
 
 
@@ -62,6 +62,9 @@ class Ajustes(BaseModel):
     camadas: dict[str, list[CamadaAjustada]] = {}
     aberturas: dict[str, dict[str, Valor]] = {}
     resistencias_superficiais: dict[str, ResistenciasSuperficiais] = {}
+    # Dados de uso por ambiente (GlobalId do IfcSpace -> parâmetro -> valor).
+    # O IFC não traz esses dados: só existem os que o usuário informou.
+    operacao: dict[str, dict[str, Valor]] = {}
     historico: list[Alteracao] = []
 
 

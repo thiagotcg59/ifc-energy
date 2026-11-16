@@ -300,6 +300,8 @@ def test_prontidao_diz_o_que_falta_sem_prometer_simulacao(termico):
 
     assert estados["GEOMETRIA"] == "ok"
     assert estados["MATERIAIS"] == "ok"
+    # O IFC não traz os dados de uso: ficam pendentes até o usuário informar.
+    assert estados["OPERACAO"] == "pendente"
     assert estados["EPJSON"] == "nao_implementado"
     assert estados["SIMULACAO"] == "nao_implementado"
 

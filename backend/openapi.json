@@ -653,6 +653,17 @@
             "title": "Resistencias Superficiais",
             "default": {}
           },
+          "operacao": {
+            "additionalProperties": {
+              "additionalProperties": {
+                "$ref": "#/components/schemas/Valor"
+              },
+              "type": "object"
+            },
+            "type": "object",
+            "title": "Operacao",
+            "default": {}
+          },
           "historico": {
             "items": {
               "$ref": "#/components/schemas/Alteracao"
@@ -1686,7 +1697,7 @@
           "versao": {
             "type": "integer",
             "title": "Versao",
-            "default": 1
+            "default": 2
           },
           "bim": {
             "$ref": "#/components/schemas/ModeloBim"
