@@ -89,10 +89,302 @@ export interface paths {
     patch?: never
     trace?: never
   }
+  '/api/v1/modelos/exemplo': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /** Abre a residência de exemplo (IFC sintético versionado) */
+    post: operations['abrir_exemplo_api_v1_modelos_exemplo_post']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/api/v1/modelos': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /** Envia um arquivo IFC (fica só neste computador) e devolve a análise */
+    post: operations['importar_modelo_api_v1_modelos_post']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/api/v1/modelos/{modelo_id}': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /** Análise de um modelo já aberto */
+    get: operations['obter_modelo_api_v1_modelos__modelo_id__get']
+    put?: never
+    post?: never
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/api/v1/modelos/{modelo_id}/ifc': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /** Arquivo IFC original (para o visualizador 3D) */
+    get: operations['baixar_ifc_api_v1_modelos__modelo_id__ifc_get']
+    put?: never
+    post?: never
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/api/v1/modelos/{modelo_id}/ajustes': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /** Parâmetros editados pelo usuário para este modelo */
+    get: operations['obter_ajustes_api_v1_modelos__modelo_id__ajustes_get']
+    /** Salva os parâmetros editados (o IFC original não é alterado) */
+    put: operations['salvar_ajustes_api_v1_modelos__modelo_id__ajustes_put']
+    post?: never
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/api/v1/biblioteca': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /** Biblioteca técnica de materiais e convenções de cálculo, com as fontes */
+    get: operations['biblioteca_api_v1_biblioteca_get']
+    put?: never
+    post?: never
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
 }
 export type webhooks = Record<string, never>
 export interface components {
   schemas: {
+    /** Abertura */
+    Abertura: {
+      /** Id */
+      id: string
+      /**
+       * Tipo
+       * @enum {string}
+       */
+      tipo: 'janela' | 'porta' | 'outro'
+      /** Superficie Id */
+      superficie_id: string
+      /** Elemento Id */
+      elemento_id: string | null
+      /** Fronteira Id */
+      fronteira_id: string
+      /** Construcao Id */
+      construcao_id: string | null
+      /** Vertices */
+      vertices: [number, number, number][]
+      /** Area */
+      area: number
+    }
+    /**
+     * Ajustes
+     * @description Parâmetros editados pelo usuário. O IFC original nunca é modificado.
+     */
+    Ajustes: {
+      /**
+       * Versao
+       * @default 1
+       */
+      versao: number
+      /**
+       * Materiais
+       * @default {}
+       */
+      materiais: {
+        [key: string]: {
+          [key: string]: components['schemas']['Valor']
+        }
+      }
+      /**
+       * Materiais Novos
+       * @default []
+       */
+      materiais_novos: components['schemas']['Material'][]
+      /**
+       * Camadas
+       * @default {}
+       */
+      camadas: {
+        [key: string]: components['schemas']['CamadaAjustada'][]
+      }
+      /**
+       * Resistencias Superficiais
+       * @default {}
+       */
+      resistencias_superficiais: {
+        [key: string]: components['schemas']['ResistenciasSuperficiais']
+      }
+      /**
+       * Historico
+       * @default []
+       */
+      historico: components['schemas']['Alteracao'][]
+    }
+    /** Alteracao */
+    Alteracao: {
+      /** Quando */
+      quando: string
+      /** Alvo */
+      alvo: string
+      /** Campo */
+      campo: string
+      /** De */
+      de?: number | string | null
+      /** Para */
+      para?: number | string | null
+    }
+    /** Ambiente */
+    Ambiente: {
+      /** Global Id */
+      global_id: string
+      /** Numero */
+      numero?: string | null
+      /** Nome */
+      nome?: string | null
+      /** Pavimento Id */
+      pavimento_id?: string | null
+      /**
+       * Dimensoes
+       * @default {}
+       */
+      dimensoes: {
+        [key: string]: components['schemas']['Valor']
+      }
+      /**
+       * Fronteiras Ids
+       * @default []
+       */
+      fronteiras_ids: string[]
+      /**
+       * Elementos Ids
+       * @default []
+       */
+      elementos_ids: string[]
+      /**
+       * Conjuntos
+       * @default {}
+       */
+      conjuntos: {
+        [key: string]: {
+          [key: string]: number | string | boolean | null
+        }
+      }
+    }
+    /** Body_importar_modelo_api_v1_modelos_post */
+    Body_importar_modelo_api_v1_modelos_post: {
+      /** Arquivo */
+      arquivo: string
+    }
+    /** Camada */
+    Camada: {
+      /** Material Id */
+      material_id: string | null
+      /** Nome */
+      nome?: string | null
+      espessura: components['schemas']['Valor']
+    }
+    /** CamadaAjustada */
+    CamadaAjustada: {
+      /** Material Id */
+      material_id: string | null
+      /** Nome */
+      nome?: string | null
+      espessura: components['schemas']['Valor']
+    }
+    /** Checagem */
+    Checagem: {
+      /** Codigo */
+      codigo: string
+      /** Nome */
+      nome: string
+      /** Ok */
+      ok: boolean
+      /** Detalhe */
+      detalhe: string
+      /**
+       * Alvos
+       * @default []
+       */
+      alvos: string[]
+    }
+    /** Constituinte */
+    Constituinte: {
+      /** Nome */
+      nome: string | null
+      /** Material Id */
+      material_id: string | null
+      /** Categoria */
+      categoria?: string | null
+    }
+    /** Construcao */
+    Construcao: {
+      /** Id */
+      id: string
+      /** Nome */
+      nome: string
+      /**
+       * Tipo
+       * @enum {string}
+       */
+      tipo: 'camadas' | 'constituintes' | 'material'
+      /**
+       * Camadas
+       * @default []
+       */
+      camadas: components['schemas']['Camada'][]
+      /**
+       * Constituintes
+       * @default []
+       */
+      constituintes: components['schemas']['Constituinte'][]
+      /**
+       * Elementos Ids
+       * @default []
+       */
+      elementos_ids: string[]
+    }
     /**
      * ConsumoAnual
      * @description Consumo anual por uso final e fonte de energia, em kWh.
@@ -110,6 +402,99 @@ export interface components {
       area_total_m2: number | null
       /** Intensidade Kwh M2 */
       intensidade_kwh_m2: number | null
+    }
+    /** Diagnostico */
+    Diagnostico: {
+      /**
+       * Nivel
+       * @enum {string}
+       */
+      nivel: 'erro' | 'alerta' | 'info'
+      /** Codigo */
+      codigo: string
+      /** Mensagem */
+      mensagem: string
+      /** Como Resolver */
+      como_resolver?: string | null
+      /**
+       * Alvos
+       * @default []
+       */
+      alvos: string[]
+    }
+    /** Elemento */
+    Elemento: {
+      /** Global Id */
+      global_id: string
+      /** Classe */
+      classe: string
+      /**
+       * Categoria
+       * @enum {string}
+       */
+      categoria: 'parede' | 'piso' | 'cobertura' | 'janela' | 'porta' | 'outro'
+      /** Nome */
+      nome?: string | null
+      /** Descricao */
+      descricao?: string | null
+      /** Etiqueta */
+      etiqueta?: string | null
+      /** Tipo Predefinido */
+      tipo_predefinido?: string | null
+      /** Tipo Construtivo */
+      tipo_construtivo?: string | null
+      /** Pavimento Id */
+      pavimento_id?: string | null
+      /** Construcao Id */
+      construcao_id?: string | null
+      /** Hospedeiro Id */
+      hospedeiro_id?: string | null
+      /**
+       * Aberturas Ids
+       * @default []
+       */
+      aberturas_ids: string[]
+      /**
+       * Ambientes Ids
+       * @default []
+       */
+      ambientes_ids: string[]
+      /**
+       * Fronteiras Ids
+       * @default []
+       */
+      fronteiras_ids: string[]
+      externo: components['schemas']['Valor']
+      /**
+       * Condicao
+       * @default indefinida
+       * @enum {string}
+       */
+      condicao: 'exterior' | 'solo' | 'interior' | 'indefinida'
+      /**
+       * Dimensoes
+       * @default {}
+       */
+      dimensoes: {
+        [key: string]: components['schemas']['Valor']
+      }
+      orientacao?: components['schemas']['Orientacao'] | null
+      /**
+       * Envidracamento
+       * @default {}
+       */
+      envidracamento: {
+        [key: string]: components['schemas']['Valor']
+      }
+      /**
+       * Conjuntos
+       * @default {}
+       */
+      conjuntos: {
+        [key: string]: {
+          [key: string]: number | string | boolean | null
+        }
+      }
     }
     /** Erro */
     Erro: {
@@ -129,6 +514,55 @@ export interface components {
       /** Mensagem */
       mensagem: string
     }
+    /** EtapaProntidao */
+    EtapaProntidao: {
+      /** Codigo */
+      codigo: string
+      /** Nome */
+      nome: string
+      /**
+       * Estado
+       * @enum {string}
+       */
+      estado: 'ok' | 'pendente' | 'erro' | 'nao_implementado'
+      /** Detalhe */
+      detalhe: string
+    }
+    /** Fronteira */
+    Fronteira: {
+      /** Global Id */
+      global_id: string
+      /** Ambiente Id */
+      ambiente_id: string
+      /** Elemento Id */
+      elemento_id: string | null
+      /** Nivel */
+      nivel: string | null
+      /**
+       * Posicao
+       * @enum {string}
+       */
+      posicao: 'externa' | 'solo' | 'interna' | 'indefinida'
+      /**
+       * Virtual
+       * @default false
+       */
+      virtual: boolean
+      /** Pai Id */
+      pai_id?: string | null
+      /** Correspondente Id */
+      correspondente_id?: string | null
+      /** Vertices */
+      vertices: [number, number, number][]
+      /** Area */
+      area: number
+      /** Normal */
+      normal: [number, number, number]
+      /** Azimute */
+      azimute: number | null
+      /** Inclinacao */
+      inclinacao: number
+    }
     /** HTTPValidationError */
     HTTPValidationError: {
       /** Detail */
@@ -146,6 +580,126 @@ export interface components {
       fonte_chave: string
       /** Kwh */
       kwh: number
+    }
+    /** Material */
+    Material: {
+      /** Id */
+      id: string
+      /** Nome */
+      nome: string
+      /** Categoria */
+      categoria?: string | null
+      /** Descricao */
+      descricao?: string | null
+      /** Propriedades */
+      propriedades: {
+        [key: string]: components['schemas']['Valor']
+      }
+    }
+    /** ModeloAnalise */
+    ModeloAnalise: {
+      /** Id */
+      id: string
+      /**
+       * Origem
+       * @enum {string}
+       */
+      origem: 'exemplo' | 'upload'
+      /**
+       * Versao
+       * @default 1
+       */
+      versao: number
+      bim: components['schemas']['ModeloBim']
+      termico: components['schemas']['ModeloTermico']
+    }
+    /** ModeloBim */
+    ModeloBim: {
+      /** Esquema */
+      esquema: string
+      /** Arquivo */
+      arquivo: string
+      /** Hash */
+      hash: string
+      projeto: components['schemas']['Projeto']
+      /** Pavimentos */
+      pavimentos: components['schemas']['Pavimento'][]
+      /** Ambientes */
+      ambientes: components['schemas']['Ambiente'][]
+      /** Elementos */
+      elementos: components['schemas']['Elemento'][]
+      /** Construcoes */
+      construcoes: components['schemas']['Construcao'][]
+      /** Materiais */
+      materiais: components['schemas']['Material'][]
+      /** Fronteiras */
+      fronteiras: components['schemas']['Fronteira'][]
+      /** Diagnostico */
+      diagnostico: components['schemas']['Diagnostico'][]
+    }
+    /** ModeloTermico */
+    ModeloTermico: {
+      /** Zonas */
+      zonas: components['schemas']['Zona'][]
+      /** Superficies */
+      superficies: components['schemas']['Superficie'][]
+      /** Aberturas */
+      aberturas: components['schemas']['Abertura'][]
+      /** Suposicoes */
+      suposicoes: string[]
+      /** Checagens */
+      checagens: components['schemas']['Checagem'][]
+      /** Prontidao */
+      prontidao: components['schemas']['EtapaProntidao'][]
+    }
+    /** Orientacao */
+    Orientacao: {
+      /** Azimute */
+      azimute: number | null
+      /** Rotulo */
+      rotulo: string | null
+      /** Inclinacao */
+      inclinacao: number
+      /** Fonte */
+      fonte: string
+    }
+    /** Pavimento */
+    Pavimento: {
+      /** Global Id */
+      global_id: string
+      /** Nome */
+      nome: string | null
+      /** Elevacao */
+      elevacao: number | null
+    }
+    /** Projeto */
+    Projeto: {
+      /** Global Id */
+      global_id?: string | null
+      /** Nome */
+      nome?: string | null
+      /** Descricao */
+      descricao?: string | null
+      /** Edificio */
+      edificio?: string | null
+      /** Latitude */
+      latitude?: number | null
+      /** Longitude */
+      longitude?: number | null
+      /** Elevacao */
+      elevacao?: number | null
+      /**
+       * Norte Graus
+       * @default 0
+       */
+      norte_graus: number
+    }
+    /** ResistenciasSuperficiais */
+    ResistenciasSuperficiais: {
+      /** Rsi */
+      rsi?: number | null
+      /** Rse */
+      rse?: number | null
     }
     /** Saude */
     Saude: {
@@ -178,6 +732,48 @@ export interface components {
       /** Atualizado Em */
       atualizado_em: string
     }
+    /** Superficie */
+    Superficie: {
+      /** Id */
+      id: string
+      /** Zona Id */
+      zona_id: string
+      /**
+       * Tipo
+       * @enum {string}
+       */
+      tipo: 'parede' | 'piso' | 'cobertura'
+      /**
+       * Condicao
+       * @enum {string}
+       */
+      condicao: 'exterior' | 'solo' | 'zona' | 'adiabatica'
+      /** Zona Vizinha Id */
+      zona_vizinha_id?: string | null
+      /** Par Id */
+      par_id?: string | null
+      /** Elemento Id */
+      elemento_id: string | null
+      /** Fronteira Id */
+      fronteira_id: string
+      /** Construcao Id */
+      construcao_id: string | null
+      /** Vertices */
+      vertices: [number, number, number][]
+      /** Area Bruta */
+      area_bruta: number
+      /** Area Liquida */
+      area_liquida: number
+      /** Azimute */
+      azimute: number | null
+      /** Inclinacao */
+      inclinacao: number
+      /**
+       * Aberturas Ids
+       * @default []
+       */
+      aberturas_ids: string[]
+    }
     /** TotalPorFonte */
     TotalPorFonte: {
       /** Fonte */
@@ -199,6 +795,38 @@ export interface components {
       input?: unknown
       /** Context */
       ctx?: Record<string, never>
+    }
+    /** Valor */
+    Valor: {
+      /** Valor */
+      valor?: number | string | boolean | null
+      /** Unidade */
+      unidade?: string | null
+      /**
+       * Origem
+       * @default ausente
+       * @enum {string}
+       */
+      origem: 'ifc' | 'calculado' | 'manual' | 'biblioteca' | 'ausente'
+      /** Fonte */
+      fonte?: string | null
+    }
+    /** Zona */
+    Zona: {
+      /** Id */
+      id: string
+      /** Nome */
+      nome: string | null
+      /** Ambiente Id */
+      ambiente_id: string
+      /** Area De Piso */
+      area_de_piso: number | null
+      /** Volume Ifc */
+      volume_ifc: number | null
+      /** Volume Calculado */
+      volume_calculado: number | null
+      /** Superficies Ids */
+      superficies_ids: string[]
     }
   }
   responses: never
@@ -363,6 +991,261 @@ export interface operations {
         }
         content: {
           'application/json': components['schemas']['HTTPValidationError']
+        }
+      }
+    }
+  }
+  abrir_exemplo_api_v1_modelos_exemplo_post: {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Successful Response */
+      201: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['ModeloAnalise']
+        }
+      }
+    }
+  }
+  importar_modelo_api_v1_modelos_post: {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    requestBody: {
+      content: {
+        'multipart/form-data': components['schemas']['Body_importar_modelo_api_v1_modelos_post']
+      }
+    }
+    responses: {
+      /** @description Successful Response */
+      201: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['ModeloAnalise']
+        }
+      }
+      /** @description Bad Request */
+      400: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Erro']
+        }
+      }
+      /** @description Request Entity Too Large */
+      413: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Erro']
+        }
+      }
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['HTTPValidationError']
+        }
+      }
+    }
+  }
+  obter_modelo_api_v1_modelos__modelo_id__get: {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        modelo_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['ModeloAnalise']
+        }
+      }
+      /** @description Not Found */
+      404: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Erro']
+        }
+      }
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['HTTPValidationError']
+        }
+      }
+    }
+  }
+  baixar_ifc_api_v1_modelos__modelo_id__ifc_get: {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        modelo_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown
+        }
+        content?: never
+      }
+      /** @description Not Found */
+      404: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Erro']
+        }
+      }
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['HTTPValidationError']
+        }
+      }
+    }
+  }
+  obter_ajustes_api_v1_modelos__modelo_id__ajustes_get: {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        modelo_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Ajustes']
+        }
+      }
+      /** @description Not Found */
+      404: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Erro']
+        }
+      }
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['HTTPValidationError']
+        }
+      }
+    }
+  }
+  salvar_ajustes_api_v1_modelos__modelo_id__ajustes_put: {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        modelo_id: string
+      }
+      cookie?: never
+    }
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['Ajustes']
+      }
+    }
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Ajustes']
+        }
+      }
+      /** @description Not Found */
+      404: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Erro']
+        }
+      }
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['HTTPValidationError']
+        }
+      }
+    }
+  }
+  biblioteca_api_v1_biblioteca_get: {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': {
+            [key: string]: unknown
+          }
         }
       }
     }
