@@ -1,0 +1,68 @@
+# ---------------------------------------------------------------
+# NUNCA enviar ao GitHub: IFCs reais, dados/, saídas do EnergyPlus,
+# arquivos .env. Só IFCs sintéticos de exemplos/ entram.
+# ---------------------------------------------------------------
+
+# Dados locais (uploads, execuções, banco SQLite)
+dados/
+*.sqlite
+*.sqlite3
+*.db
+
+# Segredos e configuração local
+.env
+.env.*
+!.env.example
+
+# IFCs: bloqueados em todo o repositório, liberados só em exemplos/
+*.ifc
+*.ifczip
+*.ifcxml
+!exemplos/**/*.ifc
+
+# Arquivos climáticos (ficam em pasta local, fora do git)
+*.epw
+*.ddy
+*.stat
+
+# Saídas do EnergyPlus
+eplusout.*
+eplustbl.*
+eplusssz.*
+epluszsz.*
+eplusmtr.*
+eplusmap.*
+*.audit
+*.bnd
+*.eio
+*.eso
+*.mtr
+*.mdd
+*.rdd
+*.shd
+*.rvaudit
+sqlite.err
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node / front-end
+node_modules/
+frontend/dist/
+frontend/public/demo/
+*.tsbuildinfo
+
+# Editores e sistema
+.vscode/*
+!.vscode/extensions.json
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.log
