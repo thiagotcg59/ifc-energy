@@ -634,6 +634,17 @@
             "title": "Camadas",
             "default": {}
           },
+          "aberturas": {
+            "additionalProperties": {
+              "additionalProperties": {
+                "$ref": "#/components/schemas/Valor"
+              },
+              "type": "object"
+            },
+            "type": "object",
+            "title": "Aberturas",
+            "default": {}
+          },
           "resistencias_superficiais": {
             "additionalProperties": {
               "$ref": "#/components/schemas/ResistenciasSuperficiais"

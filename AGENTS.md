@@ -51,7 +51,20 @@ cd backend; uv run pytest             # testes rápidos do backend
 cd backend; uv run pytest -m energyplus   # testes que rodam o EnergyPlus
 cd backend; uv run ruff check .; uv run ruff format --check .
 cd frontend; npm test; npm run lint
+cd frontend; node scripts/e2e.mjs         # navegador de verdade (iniciar.ps1 aberto)
+cd backend; uv run python -m ferramentas.gerar_residencia_ifc   # regenera o IFC de exemplo
+cd backend; uv run python -m app.gerar_demo                     # regenera os dados da demonstração
 ```
+
+## Regras que valem para a interface e os dados térmicos
+
+- Todo valor físico mostra a origem (IFC, calculado, manual, biblioteca,
+  não informado). Valor ausente fica ausente; nunca preencher.
+- O IFC original nunca é alterado; edições vão para os "ajustes".
+- Não prometer simulação do IFC enquanto a conversão para epJSON não existir
+  e não estiver validada.
+- O cálculo térmico existe em Python e em TypeScript; ao mudar um, mudar o
+  outro e os casos de `exemplos/testes/vetores_termicos.json`.
 
 ## Versões registradas
 

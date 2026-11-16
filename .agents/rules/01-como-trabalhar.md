@@ -11,12 +11,14 @@
 
 1. Antes de qualquer código, fazer as perguntas que faltarem e apresentar um
    plano em fases, cada uma com um marco verificável. Esperar a aprovação.
-2. Fases:
-   1. repositório, CI, Pages e um exemplo do EnergyPlus rodando de ponta a
-      ponta;
-   2. IFC de um único ambiente;
-   3. casa completa com adjacências, aberturas e materiais;
-   4. interface, 3D e formulários;
+2. Etapas (ver `docs/spec/plano-evolucao-bim.md` e `docs/PROGRESSO.md`):
+   1. Fase 1 — repositório, CI, Pages e um exemplo do EnergyPlus (feita);
+   2. Marcos B, A, C e D — IFC sintético, interface e visualizador 3D,
+      inspetor térmico paramétrico e modelo térmico com checagens;
+   3. conversão do modelo térmico para epJSON com cargas ideais e simulação
+      do IFC;
+   4. formulários de uso (ocupação, iluminação, equipamentos, setpoints) e
+      escolha do clima;
    5. cenários de retrofit;
    6. ventilação natural;
    7. split real;

@@ -37,7 +37,10 @@ Pop-Location
 
 Write-Host '2/3 Conferindo as dependências do front-end...' -ForegroundColor Cyan
 Push-Location (Join-Path $raiz 'frontend')
-if (-not (Test-Path 'node_modules')) {
+$instalado = 'node_modules\.package-lock.json'
+$desatualizado = (-not (Test-Path $instalado)) -or
+    ((Get-Item 'package-lock.json').LastWriteTime -gt (Get-Item $instalado).LastWriteTime)
+if ($desatualizado) {
     npm ci --no-audit --no-fund
     if ($LASTEXITCODE -ne 0) { Pop-Location; exit 1 }
 }

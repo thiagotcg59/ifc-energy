@@ -10,7 +10,9 @@ JavaScript têm a versão exata travada em `backend/uv.lock` e
 | Python | 3.11 | gerenciado pelo `uv` | Fixado em `backend/.python-version` |
 | uv | 0.12.10 | — | |
 | Node.js | 24.15.0 | — | Fixado em `frontend/.nvmrc` |
-| IfcOpenShell | (entra na fase 2) | — | |
+| IfcOpenShell | 0.9.0.post1 | `backend/uv.lock` | Leitura do IFC e geração do IFC de exemplo |
+| web-ifc | 0.0.79 | `frontend/package-lock.json` | Leitura da geometria IFC no navegador (MPL-2.0) |
+| three.js | 0.187.0 | `frontend/package-lock.json` | Desenho 3D (MIT) |
 
 A versão do EnergyPlus também está em `backend/app/core/versoes.py`; a tela
 inicial avisa se a versão instalada for diferente.

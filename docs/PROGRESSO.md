@@ -6,7 +6,103 @@ vem depois. As mais recentes ficam no topo.
 - Repositório: https://github.com/thiagotcg59/ifc-energy
 - Demonstração: https://thiagotcg59.github.io/ifc-energy/
 
-## Fase 1 — Fundação (aguardando aceite)
+## Evolução BIM — marcos B, A, C e D (aguardando aceite)
+
+Plano: [spec/plano-evolucao-bim.md](spec/plano-evolucao-bim.md). Feito de
+15 para 16/11/2026, com o plano aprovado por delegação.
+
+![Parede selecionada no modelo 3D, com o inspetor de propriedades](capturas/demo-05-desempenho.png)
+
+### B. IFC sintético da residência de exemplo
+
+**Feito**
+
+- `exemplos/ifc/residencia_exemplo.ifc`: casa térrea IFC4 de 70 m², 3
+  ambientes, 6 paredes, piso, cobertura, 5 janelas, 3 portas, camadas,
+  materiais com propriedades e 30 fronteiras de espaço de 2º nível
+  ([especificação](spec/residencia-exemplo.md)).
+- Gerador reproduzível: `backend/ferramentas/gerar_residencia_ifc.py`.
+- Leitura do IFC com a origem de cada valor (`app/dominio/modelo_bim.py`).
+
+**Como verificar**
+
+```powershell
+cd C:\Projetos\ifc-energy\backend
+uv run pytest tests/test_residencia_ifc.py
+```
+
+### A. Interface e visualizador 3D
+
+**Feito**
+
+- Área de trabalho: barra superior, navegador BIM com busca, visualizador 3D,
+  inspetor de propriedades e painel inferior; painéis redimensionáveis e
+  recolhíveis; temas escuro e claro.
+- Visualizador com a geometria real do IFC (web-ifc + three.js, decisão
+  [0005](decisoes/0005-visualizador-ifc.md)): girar, aproximar, mover,
+  selecionar por clique, enquadrar, ocultar, isolar, transparência e
+  visibilidade por categoria, vistas, rótulos dos ambientes e corte
+  horizontal.
+- Árvore e 3D sincronizados nos dois sentidos.
+
+### C. Inspetor térmico paramétrico
+
+**Feito**
+
+- Seis abas: Identificação, Geometria, Camadas, Desempenho, Parâmetros e
+  Origem; inspetores próprios para janelas, ambientes e materiais.
+- R, U e capacidade térmica com método explícito (decisão
+  [0007](decisoes/0007-calculo-termico-e-convencoes.md)).
+- Edição com limites físicos e recálculo imediato; trocar material,
+  acrescentar e remover camadas; restaurar; histórico; salvar; exportar e
+  importar (decisão [0006](decisoes/0006-origem-dos-valores-e-ajustes.md)).
+
+### D. Preparação para a análise energética
+
+**Feito**
+
+- Modelo térmico intermediário (zonas, superfícies, aberturas, pares,
+  suposições) com cinco checagens automáticas.
+- Superfícies térmicas no 3D, coloridas pela condição de contorno; ao
+  selecionar um ambiente aparecem os limites dele.
+- Painel "Modelo térmico" com a prontidão para simular. A conversão para
+  epJSON **não** foi feita: "Executar simulação" fica desabilitado e a tela
+  explica o motivo.
+
+**Como verificar (tudo)**
+
+```powershell
+cd C:\Projetos\ifc-energy
+.\iniciar.ps1
+```
+
+1. Clique em **Explorar residência de exemplo**: a casa aparece em 3D.
+2. Clique na parede da frente: o inspetor abre "Parede externa sul".
+3. Aba **Desempenho**: U = 2,842 W/(m²·K).
+4. Aba **Parâmetros**: abra a camada 2 e troque a espessura para `0,20`. U
+   passa para 2,154.
+5. **Salvar parâmetros**, recarregue a página (F5), abra o exemplo de novo e
+   confira que o valor continua.
+6. No navegador BIM, clique em **Sala e cozinha**: o 3D mostra as superfícies
+   do ambiente coloridas.
+7. **Preparar simulação**: checagens e o que falta.
+
+Teste automático em navegador de verdade (com o `iniciar.ps1` aberto em
+outra janela):
+
+```powershell
+cd C:\Projetos\ifc-energy\frontend
+node scripts/e2e.mjs
+```
+
+**Testes:** 85 no backend (4 deles com o EnergyPlus real), 59 no front-end e
+16 etapas no navegador.
+
+**Pendências que dependem de você** (detalhes na decisão 0007): aprovar ou
+trocar a biblioteca de materiais e conferir as resistências superficiais com
+o texto da norma.
+
+## Fase 1 — Fundação (aceita, `v0.1.0`)
 
 ### 1.5 CI e publicação da demonstração
 
@@ -116,6 +212,9 @@ git log --oneline
 
 ## O que vem depois
 
-- Aceite da fase 1 pelo dono e tag `v0.1.0`.
-- Fase 2: IFC sintético de um único ambiente → diagnóstico → modelo térmico
-  → epJSON com cargas ideais, com testes de resposta conhecida.
+- Aceite dos marcos B, A, C e D e tag `v0.2.0`.
+- Conversão do modelo térmico para epJSON com cargas ideais, validada contra
+  o esquema e com os dias de projeto, para então liberar a simulação do IFC.
+- Formulário de ocupação, iluminação, equipamentos, horários e setpoints.
+- Escolha do arquivo climático pela localização do IfcSite.
+- Superfícies pela geometria dos ambientes, para IFC sem fronteiras de 2º nível.

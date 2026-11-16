@@ -60,6 +60,7 @@ class Ajustes(BaseModel):
     materiais: dict[str, dict[str, Valor]] = {}
     materiais_novos: list[Material] = []
     camadas: dict[str, list[CamadaAjustada]] = {}
+    aberturas: dict[str, dict[str, Valor]] = {}
     resistencias_superficiais: dict[str, ResistenciasSuperficiais] = {}
     historico: list[Alteracao] = []
 

@@ -10,18 +10,34 @@ máquina**.
 **Demonstração (sem backend, com dados de exemplo):**
 https://thiagotcg59.github.io/ifc-energy/
 
+![IFC Energy: modelo 3D, navegador BIM e inspetor de propriedades](docs/capturas/demo-05-desempenho.png)
+
+## O que já faz
+
+- Abre um IFC4 e mostra o modelo em 3D com a **geometria real do arquivo**.
+- Navegador BIM (ambientes, paredes, pisos, coberturas, janelas, portas,
+  materiais e zonas térmicas) com busca por nome, classe IFC e GlobalId.
+- Inspetor de propriedades: identificação, geometria, camadas, desempenho
+  térmico (R, U, capacidade térmica), parâmetros editáveis e a **origem de
+  cada valor** (IFC, calculado, manual, biblioteca ou não informado).
+- Modelo térmico intermediário com checagens automáticas e superfícies
+  coloridas pela condição de contorno.
+- Simulação de ponta a ponta de um exemplo do EnergyPlus.
+
+Ainda **não** faz a simulação do seu IFC: falta a conversão validada do
+modelo térmico para o EnergyPlus. A interface deixa isso claro.
+
 ## Estado das fases
 
-| Fase | Conteúdo | Estado |
+| Etapa | Conteúdo | Estado |
 |---|---|---|
-| 1 | Repositório, CI, Pages e um exemplo do EnergyPlus de ponta a ponta | 🔧 aguardando aceite |
-| 2 | IFC de um único ambiente → modelo térmico → epJSON | ⏳ |
-| 3 | Casa completa: adjacências, aberturas e materiais | ⏳ |
-| 4 | Interface, visualizador 3D e formulários | ⏳ |
-| 5 | Cenários de retrofit | ⏳ |
-| 6 | Ventilação natural | ⏳ |
-| 7 | Split real | ⏳ |
-| 8 | Normas (INI-R e NBR 15575) | ⏳ |
+| Fase 1 | Repositório, CI, Pages e um exemplo do EnergyPlus de ponta a ponta | ✅ `v0.1.0` |
+| Marco B | IFC sintético da residência de exemplo, leitura com origem dos valores | 🔧 aguardando aceite |
+| Marco A | Interface de trabalho e visualizador 3D | 🔧 aguardando aceite |
+| Marco C | Inspetor térmico paramétrico (edição, recálculo, persistência) | 🔧 aguardando aceite |
+| Marco D | Modelo térmico, checagens e prontidão para simular | 🔧 aguardando aceite |
+| Próxima | Conversão para epJSON com cargas ideais e simulação do IFC | ⏳ |
+| Depois | Formulários de uso e clima; cenários; ventilação natural; split; normas | ⏳ |
 
 O andamento detalhado fica em [docs/PROGRESSO.md](docs/PROGRESSO.md).
 
@@ -64,6 +80,7 @@ uv run pytest                 # rápidos (não precisam do EnergyPlus)
 uv run pytest -m energyplus   # rodam o EnergyPlus de verdade (~15 s)
 cd ..\frontend
 npm test
+node scripts/e2e.mjs          # navegador de verdade (com o iniciar.ps1 aberto)
 ```
 
 ## Organização
@@ -72,7 +89,7 @@ npm test
 backend/    API (FastAPI), domínio, serviços, persistência e testes
 frontend/   Interface (React + TypeScript + Vite)
 docs/       Especificações, decisões, capturas de tela e PROGRESSO.md
-exemplos/   IFCs sintéticos e dados do modo demonstração
+exemplos/   IFC sintético da residência de exemplo e dados do modo demonstração
 dados/      Uploads e execuções — fica só no seu computador
 .agents/    Regras do projeto para assistentes de programação
 ```
