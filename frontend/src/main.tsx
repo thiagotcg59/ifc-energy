@@ -2,10 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { api, modoDemo } from './api/cliente'
 import './estilos.css'
-import { PaginaInicial } from './paginas/PaginaInicial'
+import { AreaDeTrabalho } from './paginas/AreaDeTrabalho'
 
 createRoot(document.getElementById('raiz')!).render(
   <StrictMode>
-    <PaginaInicial api={api} modoDemo={modoDemo} />
+    <AreaDeTrabalho api={api} modoDemo={modoDemo} />
   </StrictMode>,
 )

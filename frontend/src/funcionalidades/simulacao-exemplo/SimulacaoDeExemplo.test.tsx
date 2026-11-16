@@ -1,9 +1,9 @@
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { expect, test, vi } from 'vitest'
-import type { ClienteApi, ConsumoAnual, Saude, Simulacao } from '../api/cliente'
-import { ErroApi } from '../api/cliente'
-import { PaginaInicial } from './PaginaInicial'
+import type { ClienteApi, ConsumoAnual, Saude, Simulacao } from '../../api/cliente'
+import { ErroApi } from '../../api/cliente'
+import { SimulacaoDeExemplo } from './SimulacaoDeExemplo'
 
 const SAUDE: Saude = {
   estado: 'ok',
@@ -69,8 +69,7 @@ function apiFalsa(parcial: Partial<ClienteApi> = {}): ClienteApi {
   }
 }
 
-const montar = (api: ClienteApi, modoDemo = false) =>
-  render(<PaginaInicial api={api} modoDemo={modoDemo} intervaloMs={1} />)
+const montar = (api: ClienteApi) => render(<SimulacaoDeExemplo api={api} intervaloMs={1} />)
 
 test('mostra "carregando" e depois o estado do EnergyPlus', async () => {
   montar(apiFalsa())
@@ -162,14 +161,4 @@ test('erro de comunicação ao simular vira mensagem com orientação', async ()
   await userEvent.click(screen.getByRole('button', { name: 'Simular exemplo' }))
 
   expect(await screen.findByRole('alert')).toHaveTextContent('iniciar.ps1')
-})
-
-test('faixa de demonstração só aparece no modo demonstração', async () => {
-  const { unmount } = montar(apiFalsa(), true)
-  expect(await screen.findByText('Modo demonstração.')).toBeInTheDocument()
-  unmount()
-
-  montar(apiFalsa(), false)
-  await screen.findByText('EnergyPlus 26.2.0 pronto.')
-  expect(screen.queryByText('Modo demonstração.')).not.toBeInTheDocument()
 })

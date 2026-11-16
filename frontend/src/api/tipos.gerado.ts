@@ -250,6 +250,15 @@ export interface components {
         [key: string]: components['schemas']['CamadaAjustada'][]
       }
       /**
+       * Aberturas
+       * @default {}
+       */
+      aberturas: {
+        [key: string]: {
+          [key: string]: components['schemas']['Valor']
+        }
+      }
+      /**
        * Resistencias Superficiais
        * @default {}
        */
