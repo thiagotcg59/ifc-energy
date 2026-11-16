@@ -17,8 +17,8 @@
       inspetor térmico paramétrico e modelo térmico com checagens;
    3. conversão do modelo térmico para epJSON com cargas ideais e simulação
       do IFC;
-   4. formulários de uso (ocupação, iluminação, equipamentos, setpoints) e
-      escolha do clima;
+   4. escolha do clima (o formulário de uso e operação já existe; ele nunca
+      sugere valores);
    5. cenários de retrofit;
    6. ventilação natural;
    7. split real;

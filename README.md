@@ -22,6 +22,9 @@ https://thiagotcg59.github.io/ifc-energy/
   cada valor** (IFC, calculado, manual, biblioteca ou não informado).
 - Modelo térmico intermediário com checagens automáticas e superfícies
   coloridas pela condição de contorno.
+- Formulário de uso e operação por ambiente (ocupação, iluminação,
+  equipamentos, setpoints e infiltração), sem valores sugeridos.
+- Tutorial passo a passo dentro da própria ferramenta.
 - Simulação de ponta a ponta de um exemplo do EnergyPlus.
 
 Ainda **não** faz a simulação do seu IFC: falta a conversão validada do
@@ -36,8 +39,9 @@ modelo térmico para o EnergyPlus. A interface deixa isso claro.
 | Marco A | Interface de trabalho e visualizador 3D | 🔧 aguardando aceite |
 | Marco C | Inspetor térmico paramétrico (edição, recálculo, persistência) | 🔧 aguardando aceite |
 | Marco D | Modelo térmico, checagens e prontidão para simular | 🔧 aguardando aceite |
+| Uso e tutorial | Formulário de uso e operação por ambiente e tutorial | 🔧 aguardando aceite |
 | Próxima | Conversão para epJSON com cargas ideais e simulação do IFC | ⏳ |
-| Depois | Formulários de uso e clima; cenários; ventilação natural; split; normas | ⏳ |
+| Depois | Escolha do clima; cenários; ventilação natural; split; normas | ⏳ |
 
 O andamento detalhado fica em [docs/PROGRESSO.md](docs/PROGRESSO.md).
 

@@ -61,6 +61,8 @@ cd backend; uv run python -m app.gerar_demo                     # regenera os da
 - Todo valor físico mostra a origem (IFC, calculado, manual, biblioteca,
   não informado). Valor ausente fica ausente; nunca preencher.
 - O IFC original nunca é alterado; edições vão para os "ajustes".
+- Dados de uso (ocupação, iluminação, equipamentos, setpoints, infiltração)
+  só existem quando o dono informa: nenhum valor padrão, nem sugerido.
 - Não prometer simulação do IFC enquanto a conversão para epJSON não existir
   e não estiver validada.
 - O cálculo térmico existe em Python e em TypeScript; ao mudar um, mudar o

@@ -6,6 +6,62 @@ vem depois. As mais recentes ficam no topo.
 - Repositório: https://github.com/thiagotcg59/ifc-energy
 - Demonstração: https://thiagotcg59.github.io/ifc-energy/
 
+## Formulário de uso e operação e tutorial (aguardando aceite)
+
+Feito em 16/11/2026, a pedido do dono.
+
+![Formulário de uso e operação no painel inferior](capturas/demo-15-uso-e-operacao.png)
+
+**Feito**
+
+- Aba **Uso e operação** no painel inferior: por ambiente, ocupação (pessoas,
+  calor por pessoa, horário), iluminação e equipamentos (W/m² e horário),
+  setpoints de aquecimento e resfriamento e infiltração (trocas de ar por
+  hora).
+- **Nenhum campo vem preenchido e a plataforma não sugere valores.** O que é
+  digitado fica com a origem "manual", entra no histórico e é salvo junto com
+  os outros parâmetros (campo `operacao` dos ajustes), separado do IFC.
+- Limites só para barrar erro de digitação; o setpoint de resfriamento
+  precisa ser maior que o de aquecimento; início e fim do horário não podem
+  ser iguais.
+- "Copiar para os outros ambientes" e "Apagar os dados deste ambiente".
+- A etapa de prontidão "Ocupação, iluminação, equipamentos e setpoints"
+  deixou de ser "não implementado": fica pendente até todos os ambientes
+  estarem completos. **A simulação do IFC continua indisponível** (falta a
+  conversão para epJSON).
+- A aba "Operação" do inspetor do ambiente mostra os valores informados, com
+  a origem, e leva ao formulário.
+- **Tutorial** em 9 passos (botão "Tutorial" na barra superior e link na tela
+  inicial), com atalhos que levam à parte da tela de que cada passo fala.
+
+**Como verificar**
+
+```powershell
+cd C:\Projetos\ifc-energy
+.\iniciar.ps1
+```
+
+1. Na tela inicial, clique em **Como usar a plataforma**: o tutorial abre.
+2. Abra a residência de exemplo e clique em **Tutorial** na barra superior.
+   No passo 7, clique em **Ir para o formulário**.
+3. Clique em **Sala e cozinha** no topo do formulário e preencha alguns
+   campos. Tente `5000` na potência de iluminação: é recusado.
+4. **Salvar parâmetros**, recarregue (F5) e abra o exemplo: os valores
+   continuam.
+5. **Preparar simulação**: a etapa de uso mostra "x de 3 ambientes".
+
+**Testes:** 87 no backend (4 com o EnergyPlus real), 65 no front-end e 18
+etapas no navegador (demonstração e modo local).
+
+**Um teste antigo teve o texto esperado trocado, e não foi para fazê-lo
+passar:** o teste do inspetor do ambiente procurava a linha única
+"Temperaturas de configuração", que deu lugar a uma linha por setpoint. A
+verificação continua a mesma: sem preenchimento, aparece "Não informado".
+
+**Simplificações desta primeira versão (decisão 0008):** horários iguais
+todos os dias, um intervalo por dia, setpoints valendo o dia inteiro. Dias
+úteis e fins de semana, e a ventilação natural, ficam para depois.
+
 ## Evolução BIM — marcos B, A, C e D (aguardando aceite)
 
 Plano: [spec/plano-evolucao-bim.md](spec/plano-evolucao-bim.md). Feito de
@@ -215,6 +271,5 @@ git log --oneline
 - Aceite dos marcos B, A, C e D e tag `v0.2.0`.
 - Conversão do modelo térmico para epJSON com cargas ideais, validada contra
   o esquema e com os dias de projeto, para então liberar a simulação do IFC.
-- Formulário de ocupação, iluminação, equipamentos, horários e setpoints.
 - Escolha do arquivo climático pela localização do IfcSite.
 - Superfícies pela geometria dos ambientes, para IFC sem fronteiras de 2º nível.
