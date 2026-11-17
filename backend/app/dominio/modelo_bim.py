@@ -26,7 +26,7 @@ from pydantic import BaseModel
 
 from app.dominio import geometria as geo
 
-Origem = Literal["ifc", "calculado", "manual", "biblioteca", "ausente"]
+Origem = Literal["ifc", "calculado", "manual", "biblioteca", "estimado", "ausente"]
 Categoria = Literal["parede", "piso", "cobertura", "janela", "porta", "outro"]
 
 
@@ -35,6 +35,7 @@ class Valor(BaseModel):
     unidade: str | None = None
     origem: Origem = "ausente"
     fonte: str | None = None
+    estimativa_id: str | None = None
 
 
 class Material(BaseModel):

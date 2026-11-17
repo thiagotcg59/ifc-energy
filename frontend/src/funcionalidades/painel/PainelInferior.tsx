@@ -51,6 +51,9 @@ export function PainelInferior({ api, extra }: { api: ClienteApi; extra?: ReactN
   // Os dados de uso não vêm do IFC: a etapa depende do que foi informado aqui.
   const completos = ambientesCompletos(ajustes, bim.ambientes)
   const semUso = bim.ambientes.length - completos
+  const estimados = Object.values(ajustes.operacao)
+    .flatMap((uso) => Object.values(uso))
+    .filter((v) => v.origem === 'estimado').length
   const prontidao = termico.prontidao.map((e) =>
     e.codigo !== 'OPERACAO' || bim.ambientes.length === 0
       ? e
@@ -59,7 +62,10 @@ export function PainelInferior({ api, extra }: { api: ClienteApi; extra?: ReactN
           estado: semUso === 0 ? ('ok' as const) : ('pendente' as const),
           detalhe:
             `${completos} de ${bim.ambientes.length} ambientes com os dados de uso completos.` +
-            (semUso === 0 ? '' : ' Informe o que falta na aba “Uso e operação”.'),
+            (semUso === 0 ? '' : ' Informe o que falta na aba “Uso e operação”.') +
+            (estimados
+              ? ` Inclui ${estimados} valores estimados; confira as fontes e hipóteses.`
+              : ''),
         },
   )
 

@@ -217,6 +217,7 @@ export const ROTULOS_VIDRO: Record<string, string> = {
   transmitancia_termica_inverno: 'Transmitância térmica da janela (inverno)',
 }
 export const ROTULOS_ORIGEM: Record<string, string> = {
+  estimado: 'Estimado',
   ifc: 'Extraído do IFC',
   calculado: 'Calculado',
   manual: 'Informado manualmente',

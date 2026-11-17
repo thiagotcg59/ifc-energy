@@ -11,6 +11,7 @@ import {
   Play,
   Save,
   Sun,
+  WandSparkles,
   X,
 } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState, type ComponentType } from 'react'
@@ -22,6 +23,7 @@ import { Inspetor } from '../funcionalidades/inspetor/Inspetor'
 import { NavegadorBim } from '../funcionalidades/navegador/NavegadorBim'
 import { PainelInferior } from '../funcionalidades/painel/PainelInferior'
 import { Tutorial } from '../funcionalidades/tutorial/Tutorial'
+import { DialogoEstimativas } from '../funcionalidades/estimativas/DialogoEstimativas'
 import { Visualizador as VisualizadorPadrao } from '../visualizador3d/Visualizador'
 import { TelaInicial } from './TelaInicial'
 
@@ -59,6 +61,8 @@ export function AreaDeTrabalho({
   const alturaMinima = useModelo((e) => (e.abaInferior === 'operacao' ? 400 : 0))
   const setInferior = (aberto: boolean) => acoes.definir({ inferiorAberto: aberto })
   const [tutorial, setTutorial] = useState(false)
+  const [estimativas, setEstimativas] = useState(false)
+  const fecharEstimativas = useCallback(() => setEstimativas(false), [])
   const fecharTutorial = useCallback(() => setTutorial(false), [])
   const [larguraEsq, setLarguraEsq] = useTamanho('esquerda', 290, 200, 520)
   const [larguraDir, setLarguraDir] = useTamanho('direita', 400, 300, 720)
@@ -156,6 +160,14 @@ export function AreaDeTrabalho({
           >
             <Save size={16} aria-hidden />{' '}
             <span>{salvando ? 'Salvando…' : 'Salvar parâmetros'}</span>
+          </button>
+          <button
+            type="button"
+            className="botao-barra"
+            title="Revisar estimativas para os dados ainda não preenchidos"
+            onClick={() => setEstimativas(true)}
+          >
+            <WandSparkles size={16} aria-hidden /> <span>Estimar dados faltantes</span>
           </button>
           <button
             type="button"
@@ -277,6 +289,7 @@ export function AreaDeTrabalho({
       </div>
 
       {tutorial && <Tutorial aoFechar={fecharTutorial} />}
+      {estimativas && <DialogoEstimativas key={analise.id} aoFechar={fecharEstimativas} />}
       {aviso && (
         <div
           className={`torrada torrada--${aviso.tipo}`}

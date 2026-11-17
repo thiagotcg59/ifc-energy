@@ -386,3 +386,23 @@ test('tutorial: o passo de uso e operação leva direto ao formulário', async (
     'true',
   )
 })
+
+test('estimativas: prévia não muda dados; aplicar mostra origem e pode ser desfeito', async () => {
+  await abrir()
+  const botao = screen.getByRole('button', { name: 'Estimar dados faltantes' })
+  await userEvent.click(botao)
+  const caixa = screen.getByRole('dialog', { name: 'Estimar dados faltantes' })
+  expect(caixa).toHaveTextContent('referência: Cuiabá')
+  expect(caixa).toHaveTextContent('Banheiro')
+  expect(useModelo.getState().ajustes.operacao).toEqual({})
+  await userEvent.click(within(caixa).getByRole('button', { name: 'Aplicar estimativas' }))
+  expect(caixa).toHaveTextContent('Estimativas aplicadas')
+  expect(useModelo.getState().ajustes.estimativas).toHaveLength(1)
+  expect(within(caixa).getByRole('button', { name: 'Aplicar estimativas' })).toBeDisabled()
+  await userEvent.click(within(caixa).getByRole('button', { name: 'Desfazer estimativas' }))
+  expect(useModelo.getState().ajustes.operacao).toEqual({})
+  await userEvent.keyboard('{Escape}')
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  expect(botao).toHaveFocus()
+  expect(screen.getByRole('button', { name: /Executar simulação/ })).toBeDisabled()
+})

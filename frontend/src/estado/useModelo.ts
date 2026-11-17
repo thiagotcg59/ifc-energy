@@ -18,6 +18,11 @@ import {
   validar,
 } from '../dominio/modeloEfetivo'
 import { PARAMETROS_DE_USO, validarUso } from '../dominio/operacao'
+import {
+  aplicarEstimativas,
+  desfazerEstimativas,
+  type EscolhasEstimativas,
+} from '../dominio/estimativas'
 
 export type Selecao = { tipo: 'elemento' | 'ambiente' | 'material'; id: string } | null
 export type Categoria = 'parede' | 'piso' | 'cobertura' | 'janela' | 'porta' | 'outro'
@@ -104,6 +109,8 @@ interface Estado {
   restaurar(alvo?: { material?: string; construcao?: string }): void
   salvar(): Promise<void>
   importarAjustes(texto: string): string | null
+  estimar(escolhas: EscolhasEstimativas): void
+  desfazerEstimativa(id: string): void
 }
 
 const VISAO_INICIAL = {
@@ -483,6 +490,21 @@ export const useModelo = create<Estado>()((set, get) => {
         },
       )
       return null
+    },
+
+    estimar(escolhas) {
+      const modelo = bim()
+      if (!modelo) return
+      set({
+        ajustes: aplicarEstimativas(modelo, get().ajustes, escolhas, {
+          id: crypto.randomUUID(),
+          quando: new Date().toISOString(),
+        }),
+      })
+    },
+
+    desfazerEstimativa(id) {
+      set({ ajustes: desfazerEstimativas(get().ajustes, id) })
     },
 
     editarUso(ambienteId, parametro, valor) {

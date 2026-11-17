@@ -3,6 +3,7 @@ import { ErroApi } from '../api/cliente'
 import { desempenhoDaConstrucao, materialEfetivo } from '../dominio/modeloEfetivo'
 import { ANALISE, apiFalsa, BIBLIOTECA, elemento } from '../testes/exemplo'
 import { definirApi, temAlteracoes, useModelo } from './useModelo'
+import { sugerirEscolhas } from '../dominio/estimativas'
 
 const TIJOLO = 'alvenaria-de-tijolo-ceramico'
 const PAREDE_EXTERNA = elemento('PE-S').construcao_id!
@@ -210,4 +211,19 @@ test('seleção, ocultar, isolar e mostrar tudo', () => {
 
 test('a biblioteca do exemplo está marcada como pendente de aprovação', () => {
   expect(BIBLIOTECA.materiais.every((m) => m.aprovado === false)).toBe(true)
+})
+
+test('estimativas: salvar, reabrir e desfazer mantém edição manual posterior', async () => {
+  const quarto = ANALISE.bim.ambientes.find((a) => a.nome === 'Quarto')!.global_id
+  loja().estimar(sugerirEscolhas(ANALISE.bim))
+  expect(loja().ajustes.operacao[quarto]!.pessoas?.origem).toBe('estimado')
+  await loja().salvar()
+  loja().fechar()
+  await loja().abrirExemplo()
+  expect(loja().ajustes.operacao[quarto]!.pessoas?.origem).toBe('estimado')
+  const id = loja().ajustes.estimativas[0]!.id
+  loja().editarUso(quarto, 'pessoas', 3)
+  loja().desfazerEstimativa(id)
+  expect(loja().ajustes.operacao[quarto]!.pessoas).toMatchObject({ valor: 3, origem: 'manual' })
+  expect(loja().ajustes.operacao[quarto]!.calor_por_pessoa).toBeUndefined()
 })

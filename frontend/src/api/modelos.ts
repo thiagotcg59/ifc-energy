@@ -61,6 +61,7 @@ export const ajustesVazios = (): Ajustes => ({
   resistencias_superficiais: {},
   operacao: {},
   historico: [],
+  estimativas: [],
 })
 const completar = (a: Partial<Ajustes> | null | undefined): Ajustes => ({
   ...ajustesVazios(),

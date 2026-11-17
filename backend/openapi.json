@@ -671,6 +671,14 @@
             "type": "array",
             "title": "Historico",
             "default": []
+          },
+          "estimativas": {
+            "items": {
+              "$ref": "#/components/schemas/LoteEstimativas"
+            },
+            "type": "array",
+            "title": "Estimativas",
+            "default": []
           }
         },
         "type": "object",
@@ -905,6 +913,47 @@
           "espessura"
         ],
         "title": "CamadaAjustada"
+      },
+      "CampoEstimado": {
+        "properties": {
+          "grupo": {
+            "type": "string",
+            "enum": [
+              "operacao",
+              "materiais"
+            ],
+            "title": "Grupo"
+          },
+          "alvo_id": {
+            "type": "string",
+            "title": "Alvo Id"
+          },
+          "parametro": {
+            "type": "string",
+            "title": "Parametro"
+          },
+          "anterior": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Valor"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "aplicado": {
+            "$ref": "#/components/schemas/Valor"
+          }
+        },
+        "type": "object",
+        "required": [
+          "grupo",
+          "alvo_id",
+          "parametro",
+          "aplicado"
+        ],
+        "title": "CampoEstimado"
       },
       "Checagem": {
         "properties": {
@@ -1631,6 +1680,42 @@
           "kwh"
         ],
         "title": "ItemConsumo"
+      },
+      "LoteEstimativas": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "perfil": {
+            "type": "string",
+            "title": "Perfil"
+          },
+          "quando": {
+            "type": "string",
+            "title": "Quando"
+          },
+          "municipio": {
+            "type": "string",
+            "title": "Municipio",
+            "default": ""
+          },
+          "campos": {
+            "items": {
+              "$ref": "#/components/schemas/CampoEstimado"
+            },
+            "type": "array",
+            "title": "Campos"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "perfil",
+          "quando",
+          "campos"
+        ],
+        "title": "LoteEstimativas"
       },
       "Material": {
         "properties": {
@@ -2372,6 +2457,7 @@
               "calculado",
               "manual",
               "biblioteca",
+              "estimado",
               "ausente"
             ],
             "title": "Origem",
@@ -2387,6 +2473,17 @@
               }
             ],
             "title": "Fonte"
+          },
+          "estimativa_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estimativa Id"
           }
         },
         "type": "object",

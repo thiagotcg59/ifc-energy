@@ -961,6 +961,140 @@ a,
 .selo--biblioteca {
   --cor-origem: var(--origem-biblioteca);
 }
+.selo--estimado {
+  --cor-origem: var(--alerta);
+}
+
+/* Estimativas: revisão por ambiente/material, com ações sempre visíveis. */
+.tutorial.estimativas {
+  width: min(64rem, 100%);
+  height: min(52rem, calc(100dvh - 2rem));
+  max-height: calc(100dvh - 2rem);
+}
+.estimativas h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.estimativas__corpo {
+  flex: 1;
+  overflow: auto;
+  padding: 1rem 1.25rem;
+  min-height: 0;
+}
+.estimativas__corpo > p {
+  margin-bottom: 0.8rem;
+}
+.estimativas__perfil {
+  color: var(--destaque);
+  font-weight: 650;
+}
+.estimativas__municipio {
+  display: grid;
+  gap: 0.3rem;
+  max-width: 25rem;
+  margin: 1rem 0 0.5rem;
+}
+.estimativas__secao {
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  margin: 0.75rem 0;
+  padding: 0.7rem;
+}
+.estimativas summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.estimativas__secao > summary {
+  padding: 0.15rem;
+}
+.estimativas__secao > p,
+.estimativas__secao > ul {
+  margin-top: 0.7rem;
+}
+.estimativas__associacoes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+.estimativas label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+}
+.estimativas select,
+.estimativas input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.45rem;
+  background: var(--fundo);
+  color: var(--tinta);
+  border: 1px solid var(--borda-forte);
+  border-radius: 5px;
+}
+.estimativas__resumo {
+  background: var(--selecao);
+  padding: 0.8rem 1rem;
+  border-radius: var(--raio);
+}
+.estimativas__resumo strong {
+  color: var(--destaque);
+  font-size: 1.3rem;
+}
+.estimativas__tabela {
+  overflow-x: auto;
+}
+.estimativas table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+}
+.estimativas th,
+.estimativas td {
+  text-align: left;
+  padding: 0.55rem;
+  vertical-align: top;
+  border-bottom: 1px solid var(--borda);
+  overflow-wrap: anywhere;
+}
+.estimativas th[scope='row'] {
+  font-weight: 400;
+}
+.estimativas td details p {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--tinta-2);
+}
+.estimativas__desfazer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.7rem;
+  margin: 1rem 0;
+}
+.estimativas .tutorial__rodape {
+  flex-wrap: wrap;
+}
+.uso__campo-origem > .selo {
+  margin-top: 0.2rem;
+}
+@media (max-width: 44rem) {
+  .estimativas__associacoes {
+    grid-template-columns: 1fr;
+  }
+  .estimativas__corpo {
+    padding: 0.8rem;
+  }
+  .estimativas .tutorial__rodape {
+    padding: 0.6rem;
+  }
+  .estimativas .tutorial__rodape .acoes-linha {
+    flex-wrap: wrap;
+  }
+}
 .selo--ausente::before {
   background: transparent;
   border: 1.5px dashed var(--origem-ausente);

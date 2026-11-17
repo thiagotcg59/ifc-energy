@@ -6,6 +6,55 @@ vem depois. As mais recentes ficam no topo.
 - Repositório: https://github.com/thiagotcg59/ifc-energy
 - Demonstração: https://thiagotcg59.github.io/ifc-energy/
 
+## Estimativas para residência no Centro-Oeste — interface aguardando aceite
+
+Feito em 16/11/2026. Plano aprovado pelo dono; tabela e adaptações aprovadas
+pela resposta “Aprovar a tabela e as adaptações”. Referências completas em
+[spec/estimativas-centro-oeste.md](spec/estimativas-centro-oeste.md) e decisão
+em [decisoes/0009-estimativas-centro-oeste.md](decisoes/0009-estimativas-centro-oeste.md).
+
+![Prévia de estimativas no modo local](capturas/estimativas-local-previa.png)
+
+- Botão **Estimar dados faltantes** na barra superior, com prévia por
+  ambiente e material, fontes, hipóteses e motivos das pendências.
+- Associações sugeridas pelo nome podem ser revistas antes de aplicar. O
+  município é um registro separado; não substitui o clima do projeto.
+- Somente lacunas recebem valores. Preserva zero, valores existentes e
+  IFC original; cada novo valor mostra **Estimado**, fonte e aplicação.
+- **Desfazer estimativas** por aplicação, preservando edições manuais feitas
+  depois. Salvamento, reabertura e arquivos de parâmetros mantêm a origem e
+  o registro para desfazer; funciona no modo local e na demonstração.
+- Proteções contra horários/setpoints incompatíveis, duplicação de pessoas
+  entre salas, vidro de espessura incompatível e propriedades ópticas cuja
+  soma seria maior que um. Sem IfcSpace, não aplica estimativas.
+- Banheiro, cozinha separada e outros usos sem perfil, materiais sem
+  correspondência, espessuras, clima e U/SHGC da janela inteira continuam
+  pendentes. **A simulação do IFC continua indisponível** até a conversão
+  validada para epJSON. A biblioteca didática não recebeu aprovação global.
+- Nenhuma dependência instalada; fórmulas térmicas não foram alteradas.
+
+**Validação:** testes escritos antes da implementação; 78 testes do
+front-end e 85 testes rápidos do backend passaram, além de lint, formatação,
+tipagem e compilação da demonstração. Os quatro testes com EnergyPlus
+ficaram fora desta rodada, pois não há mudança na simulação. No Edge,
+verificados prévia sem alteração, preservação de zero, aplicar, salvar,
+reabrir, desfazer preservando edição posterior e bloqueio da simulação,
+tanto na demonstração quanto no backend com dados sintéticos isolados.
+Também conferidos foco por teclado, temas claro/escuro e tela de celular.
+O roteiro existente de 18 etapas passou na demonstração, cobrindo o modelo
+3D, materiais, edição, persistência, tutorial e resultados do exemplo.
+Capturas: [claro](capturas/estimativas-local-claro.png),
+[celular](capturas/estimativas-local-celular.png),
+[valores aplicados](capturas/estimativas-local-aplicadas.png) e
+[desfazer](capturas/estimativas-local-desfeitas.png).
+
+**Como verificar:** executar `./iniciar.ps1`, abrir a residência de exemplo
+e clicar em **Estimar dados faltantes**. Conferir a prévia e as pendências,
+clicar em **Aplicar estimativas** e depois **Salvar parâmetros**. Em
+**Uso e operação**, os campos mostram a origem. No mesmo diálogo, escolher
+uma aplicação e clicar em **Desfazer estimativas**; salvar novamente para
+guardar o resultado. O próximo marco é o aceite dessa interface pelo dono.
+
 ## Formulário de uso e operação e tutorial (aguardando aceite)
 
 Feito em 16/11/2026, a pedido do dono.

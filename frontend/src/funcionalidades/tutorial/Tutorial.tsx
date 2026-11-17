@@ -172,6 +172,10 @@ const PASSOS: Passo[] = [
             <span className="selo selo--ausente">Não informado</span> não existe no arquivo; a
             plataforma não inventa.
           </li>
+          <li>
+            <span className="selo selo--estimado">Estimado</span> veio do perfil aprovado, aplicado
+            por você após conferir a prévia e as fontes.
+          </li>
         </ul>
       </>
     ),
@@ -242,8 +246,11 @@ const PASSOS: Passo[] = [
           </li>
         </ol>
         <p className="nota nota--info">
-          Os campos começam vazios: <strong>a plataforma não sugere valores</strong>. Use os dados
-          do seu projeto ou da norma que você segue.
+          Ao abrir o IFC, os campos começam vazios: <strong>a plataforma não sugere valores</strong>{' '}
+          automaticamente. Use os dados do seu projeto ou o botão{' '}
+          <strong>Estimar dados faltantes</strong> na barra superior. Confira o perfil de referência
+          de Cuiabá, aplique as estimativas e salve os parâmetros. É possível desfazer cada
+          aplicação, preservando edições posteriores.
         </p>
       </>
     ),

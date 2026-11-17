@@ -19,11 +19,14 @@ https://thiagotcg59.github.io/ifc-energy/
   materiais e zonas térmicas) com busca por nome, classe IFC e GlobalId.
 - Inspetor de propriedades: identificação, geometria, camadas, desempenho
   térmico (R, U, capacidade térmica), parâmetros editáveis e a **origem de
-  cada valor** (IFC, calculado, manual, biblioteca ou não informado).
+  cada valor** (IFC, calculado, manual, biblioteca, estimado ou não informado).
 - Modelo térmico intermediário com checagens automáticas e superfícies
   coloridas pela condição de contorno.
 - Formulário de uso e operação por ambiente (ocupação, iluminação,
-  equipamentos, setpoints e infiltração), sem valores sugeridos.
+  equipamentos, setpoints e infiltração), inicialmente vazio.
+- Botão **Estimar dados faltantes**, com o cenário residencial do Centro-Oeste
+  aprovado pelo dono: prévia, fontes, preservação dos valores existentes e
+  opção de desfazer. Campos sem referência compatível ficam pendentes.
 - Tutorial passo a passo dentro da própria ferramenta.
 - Simulação de ponta a ponta de um exemplo do EnergyPlus.
 
@@ -40,6 +43,7 @@ modelo térmico para o EnergyPlus. A interface deixa isso claro.
 | Marco C | Inspetor térmico paramétrico (edição, recálculo, persistência) | 🔧 aguardando aceite |
 | Marco D | Modelo térmico, checagens e prontidão para simular | 🔧 aguardando aceite |
 | Uso e tutorial | Formulário de uso e operação por ambiente e tutorial | 🔧 aguardando aceite |
+| Estimativas | Perfil residencial do Centro-Oeste, prévia e desfazer | 🔧 referências aprovadas; interface aguardando aceite |
 | Próxima | Conversão para epJSON com cargas ideais e simulação do IFC | ⏳ |
 | Depois | Escolha do clima; cenários; ventilação natural; split; normas | ⏳ |
 
@@ -85,6 +89,7 @@ uv run pytest -m energyplus   # rodam o EnergyPlus de verdade (~15 s)
 cd ..\frontend
 npm test
 node scripts/e2e.mjs          # navegador de verdade (com o iniciar.ps1 aberto)
+node scripts/e2e-estimativas.mjs # estimativas; usar modo demo ou backend com dados de teste isolados
 ```
 
 ## Organização

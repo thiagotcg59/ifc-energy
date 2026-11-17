@@ -1,9 +1,9 @@
 // Dados de uso de cada ambiente (ocupação, iluminação, equipamentos,
 // temperaturas de configuração e infiltração).
 //
-// O IFC não traz esses dados e a plataforma NÃO sugere valores: tudo o que
-// aparece aqui foi informado pelo usuário (origem "manual"). Os limites abaixo
-// servem só para barrar erros de digitação; não são valores recomendados.
+// Ao importar, os campos ficam vazios. O usuário pode informar valores ou
+// aplicar explicitamente o perfil aprovado em estimativas.ts (origem "estimado").
+// Os limites abaixo barram erros de digitação; não são valores recomendados.
 import type { Ajustes, Valor } from '../api/modelos'
 
 export interface ParametroDeUso {

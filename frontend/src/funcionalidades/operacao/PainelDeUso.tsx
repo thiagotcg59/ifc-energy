@@ -1,6 +1,7 @@
 import { CircleAlert, CircleCheck, Copy, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 import { CampoNumero } from '../../componentes/CampoNumero'
+import { SeloDeOrigem } from '../../componentes/ValorComOrigem'
 import { useModelo } from '../../estado/useModelo'
 import {
   ambientesCompletos,
@@ -76,8 +77,9 @@ export function PainelDeUso() {
       {!ambiente ? (
         <p className="vazio">
           Escolha um ambiente acima para informar ocupação, iluminação, equipamentos, temperaturas
-          de configuração e infiltração. O IFC não traz esses dados e a plataforma não sugere
-          valores: os campos começam vazios.
+          de configuração e infiltração. Ao abrir o IFC, a plataforma não sugere valores
+          automaticamente: os campos começam vazios. Use “Estimar dados faltantes” para revisar e
+          aplicar o perfil aprovado.
         </p>
       ) : (
         <>
@@ -89,15 +91,22 @@ export function PainelDeUso() {
                   {grupo.parametros.map((p) => {
                     const valor = uso?.[p.id]?.valor
                     return (
-                      <CampoNumero
-                        key={`${ambiente.global_id}-${p.id}`}
-                        rotulo={p.rotulo}
-                        unidade={p.unidade}
-                        valor={typeof valor === 'number' ? valor : null}
-                        permiteVazio
-                        dica={p.dica}
-                        aoGravar={(novo) => editarUso(ambiente.global_id, p.id, novo)}
-                      />
+                      <div key={`${ambiente.global_id}-${p.id}`} className="uso__campo-origem">
+                        <CampoNumero
+                          rotulo={p.rotulo}
+                          unidade={p.unidade}
+                          valor={typeof valor === 'number' ? valor : null}
+                          permiteVazio
+                          dica={p.dica}
+                          aoGravar={(novo) => editarUso(ambiente.global_id, p.id, novo)}
+                        />
+                        {uso?.[p.id] && (
+                          <SeloDeOrigem
+                            origem={uso[p.id]!.origem ?? 'ausente'}
+                            fonte={uso[p.id]!.fonte}
+                          />
+                        )}
+                      </div>
                     )
                   })}
                 </div>

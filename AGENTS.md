@@ -59,10 +59,14 @@ cd backend; uv run python -m app.gerar_demo                     # regenera os da
 ## Regras que valem para a interface e os dados térmicos
 
 - Todo valor físico mostra a origem (IFC, calculado, manual, biblioteca,
-  não informado). Valor ausente fica ausente; nunca preencher.
+  estimado, não informado). A importação nunca preenche valores ausentes.
 - O IFC original nunca é alterado; edições vão para os "ajustes".
 - Dados de uso (ocupação, iluminação, equipamentos, setpoints, infiltração)
-  só existem quando o dono informa: nenhum valor padrão, nem sugerido.
+  começam vazios. Exceção aprovada pelo dono em 16/11/2026: o botão
+  **Estimar dados faltantes** oferece o perfil opcional documentado em
+  [docs/spec/estimativas-centro-oeste.md](docs/spec/estimativas-centro-oeste.md).
+  Só aplicar após a prévia, com fonte, origem “estimado” e opção de desfazer.
+  Essa autorização não abrange outras fontes ou valores padrão automáticos.
 - Não prometer simulação do IFC enquanto a conversão para epJSON não existir
   e não estiver validada.
 - O cálculo térmico existe em Python e em TypeScript; ao mudar um, mudar o

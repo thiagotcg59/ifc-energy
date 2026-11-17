@@ -279,6 +279,11 @@ export interface components {
        * @default []
        */
       historico: components['schemas']['Alteracao'][]
+      /**
+       * Estimativas
+       * @default []
+       */
+      estimativas: components['schemas']['LoteEstimativas'][]
     }
     /** Alteracao */
     Alteracao: {
@@ -350,6 +355,20 @@ export interface components {
       /** Nome */
       nome?: string | null
       espessura: components['schemas']['Valor']
+    }
+    /** CampoEstimado */
+    CampoEstimado: {
+      /**
+       * Grupo
+       * @enum {string}
+       */
+      grupo: 'operacao' | 'materiais'
+      /** Alvo Id */
+      alvo_id: string
+      /** Parametro */
+      parametro: string
+      anterior?: components['schemas']['Valor'] | null
+      aplicado: components['schemas']['Valor']
     }
     /** Checagem */
     Checagem: {
@@ -599,6 +618,22 @@ export interface components {
       /** Kwh */
       kwh: number
     }
+    /** LoteEstimativas */
+    LoteEstimativas: {
+      /** Id */
+      id: string
+      /** Perfil */
+      perfil: string
+      /** Quando */
+      quando: string
+      /**
+       * Municipio
+       * @default
+       */
+      municipio: string
+      /** Campos */
+      campos: components['schemas']['CampoEstimado'][]
+    }
     /** Material */
     Material: {
       /** Id */
@@ -825,9 +860,11 @@ export interface components {
        * @default ausente
        * @enum {string}
        */
-      origem: 'ifc' | 'calculado' | 'manual' | 'biblioteca' | 'ausente'
+      origem: 'ifc' | 'calculado' | 'manual' | 'biblioteca' | 'estimado' | 'ausente'
       /** Fonte */
       fonte?: string | null
+      /** Estimativa Id */
+      estimativa_id?: string | null
     }
     /** Zona */
     Zona: {

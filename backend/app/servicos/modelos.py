@@ -53,6 +53,22 @@ class Alteracao(BaseModel):
     para: float | str | None = None
 
 
+class CampoEstimado(BaseModel):
+    grupo: Literal["operacao", "materiais"]
+    alvo_id: str
+    parametro: str
+    anterior: Valor | None = None
+    aplicado: Valor
+
+
+class LoteEstimativas(BaseModel):
+    id: str
+    perfil: str
+    quando: str
+    municipio: str = ""
+    campos: list[CampoEstimado]
+
+
 class Ajustes(BaseModel):
     """Parâmetros editados pelo usuário. O IFC original nunca é modificado."""
 
@@ -63,9 +79,10 @@ class Ajustes(BaseModel):
     aberturas: dict[str, dict[str, Valor]] = {}
     resistencias_superficiais: dict[str, ResistenciasSuperficiais] = {}
     # Dados de uso por ambiente (GlobalId do IfcSpace -> parâmetro -> valor).
-    # O IFC não traz esses dados: só existem os que o usuário informou.
+    # Informados pelo usuário ou aplicados explicitamente pelo perfil aprovado.
     operacao: dict[str, dict[str, Valor]] = {}
     historico: list[Alteracao] = []
+    estimativas: list[LoteEstimativas] = []
 
 
 class ServicoModelos:

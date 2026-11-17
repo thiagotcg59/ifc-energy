@@ -934,11 +934,13 @@ function AbaOrigem({ elemento, analise }: Props) {
   return (
     <>
       <ul className="resumo-origens" aria-label="Quantidade de parâmetros por origem">
-        {(['ifc', 'calculado', 'manual', 'biblioteca', 'ausente'] as const).map((origem) => (
-          <li key={origem}>
-            <SeloDeOrigem origem={origem} /> <strong>{contagem[origem] ?? 0}</strong>
-          </li>
-        ))}
+        {(['ifc', 'calculado', 'manual', 'biblioteca', 'estimado', 'ausente'] as const).map(
+          (origem) => (
+            <li key={origem}>
+              <SeloDeOrigem origem={origem} /> <strong>{contagem[origem] ?? 0}</strong>
+            </li>
+          ),
+        )}
       </ul>
       {ausentes.length > 0 ? (
         <p className="nota nota--alerta">
